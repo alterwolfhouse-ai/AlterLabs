@@ -1,0 +1,32 @@
+[
+  {
+    "slug": "business-system-brief",
+    "title": "Business system brief",
+    "category": "template",
+    "date": "2026-05-01",
+    "readTime": "12 min",
+    "summary": "A field-by-field brief for scoping websites, CRMs, dashboards and automations before design starts.",
+    "tags": ["brief", "planning", "template"],
+    "body": "Use this guide to capture business goals, users, entities, source systems, workflows, reporting needs, edge cases and launch constraints."
+  },
+  {
+    "slug": "crm-readiness-checklist",
+    "title": "CRM readiness checklist",
+    "category": "checklist",
+    "date": "2026-04-22",
+    "readTime": "9 min",
+    "summary": "A checklist for deciding whether your team needs a spreadsheet cleanup, a lightweight CRM or a custom pipeline system.",
+    "tags": ["crm", "checklist", "sales"],
+    "body": "Before building a CRM, check ownership, lead sources, required stages, follow-up rules, required integrations and reporting obligations."
+  },
+  {
+    "slug": "automation-map",
+    "title": "Automation map",
+    "category": "worksheet",
+    "date": "2026-04-10",
+    "readTime": "10 min",
+    "summary": "A simple worksheet for documenting triggers, actions, failure states and visibility across automation workflows.",
+    "tags": ["automation", "workflow", "ops"],
+    "body": "Every automation should define its trigger, data contract, owner, retries, notifications and manual fallback path."
+  }
+]

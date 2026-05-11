@@ -1,0 +1,32 @@
+[
+  {
+    "slug": "systems-before-screens",
+    "title": "Start with the system before the screen",
+    "category": "studio notes",
+    "date": "2026-05-08",
+    "readTime": "5 min",
+    "summary": "A practical way to turn a vague website or CRM request into entities, workflows and decisions your team can actually build around.",
+    "tags": ["systems", "discovery", "schema"],
+    "body": "Most failed builds start with screens too early. We prefer to map the operating system first: who enters data, where it moves, what decisions it supports and which handoffs need proof."
+  },
+  {
+    "slug": "lead-pipeline-that-does-not-leak",
+    "title": "Designing a lead pipeline that does not leak",
+    "category": "crm",
+    "date": "2026-04-28",
+    "readTime": "7 min",
+    "summary": "How we model forms, qualification states, reminders and owner handoffs so sales teams stop losing high-intent enquiries.",
+    "tags": ["crm", "automation", "sales"],
+    "body": "A useful CRM starts with a small number of states and very clear responsibility. Capture, qualify, assign, follow up and close should leave an audit trail."
+  },
+  {
+    "slug": "dashboards-need-operators",
+    "title": "Dashboards need operators, not just charts",
+    "category": "operations",
+    "date": "2026-04-16",
+    "readTime": "4 min",
+    "summary": "A dashboard becomes useful when each metric has an owner, a cadence and an action that follows from the number changing.",
+    "tags": ["dashboards", "ops", "metrics"],
+    "body": "The best dashboards are boring in the right way. They answer the same operational questions every morning and make it obvious what needs attention."
+  }
+]
