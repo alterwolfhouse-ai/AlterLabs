@@ -68,15 +68,15 @@ function BlogGuides() {
   }, []);
 
   const ResourceCard = ({ item, type }) => {
-    const href = `/${type === "post" ? "blog" : "guides"}/${item.slug}.html`;
+    const href = `${type === "post" ? "blog" : "guides"}/${item.slug}.html`;
 
     return (
-    <article className="resource-card">
+    <a className="resource-card resource-card-link" href={href}>
       <div className="resource-card-head">
         <span>/{type}</span>
         <span>{item.category}</span>
       </div>
-      <h3><a href={href}>{item.title}</a></h3>
+      <h3>{item.title}</h3>
       <p>{item.summary}</p>
       <div className="resource-meta">
         <span>{item.date}</span>
@@ -85,7 +85,7 @@ function BlogGuides() {
       <div className="cap-tags">
         {(item.tags || []).map((tag) => <span key={tag}>{tag}</span>)}
       </div>
-    </article>
+    </a>
     );
   };
 
