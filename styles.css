@@ -872,6 +872,7 @@ button { font-family: inherit; cursor: pointer; }
   letter-spacing: -0.015em;
   max-width: 18ch;
 }
+.resource-card h3 a:hover { color: var(--accent); }
 .resource-card p {
   margin: 0 0 20px;
   color: var(--fg-2);
@@ -1094,3 +1095,63 @@ button { font-family: inherit; cursor: pointer; }
 
 @keyframes blink { 0%,100% { opacity:1; } 50% { opacity:0; } }
 .blink { animation: blink 1s steps(2) infinite; }
+
+/* ---------- Static article pages ---------- */
+.article-page {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: clamp(40px, 8vw, 96px) var(--pad-x) 120px;
+}
+.article-kicker,
+.article-meta,
+.article-back {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--fg-3);
+}
+.article-back {
+  display: inline-flex;
+  margin-bottom: 42px;
+}
+.article-back:hover { color: var(--accent); }
+.article-page h1 {
+  margin: 14px 0 18px;
+  font-size: clamp(40px, 7vw, 76px);
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+  font-weight: 500;
+}
+.article-summary {
+  font-size: clamp(18px, 2vw, 22px);
+  line-height: 1.45;
+  color: var(--fg-2);
+  margin: 0 0 34px;
+}
+.article-body {
+  border-top: 1px solid var(--rule);
+  padding-top: 34px;
+}
+.article-body h2 {
+  font-size: clamp(24px, 3vw, 34px);
+  line-height: 1.12;
+  margin: 42px 0 12px;
+  letter-spacing: -0.018em;
+}
+.article-body p,
+.article-body li {
+  font-size: 17px;
+  color: var(--fg-2);
+}
+.article-body p {
+  margin: 0 0 18px;
+}
+.article-body ul,
+.article-body ol {
+  padding-left: 22px;
+  margin: 0 0 24px;
+}
+.article-cta {
+  margin-top: 46px;
+  padding-top: 28px;
+  border-top: 1px solid var(--rule);
+}

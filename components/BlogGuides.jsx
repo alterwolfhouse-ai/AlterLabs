@@ -67,13 +67,16 @@ function BlogGuides() {
     return () => { active = false; };
   }, []);
 
-  const ResourceCard = ({ item, type }) => (
+  const ResourceCard = ({ item, type }) => {
+    const href = `/${type === "post" ? "blog" : "guides"}/${item.slug}.html`;
+
+    return (
     <article className="resource-card">
       <div className="resource-card-head">
         <span>/{type}</span>
         <span>{item.category}</span>
       </div>
-      <h3>{item.title}</h3>
+      <h3><a href={href}>{item.title}</a></h3>
       <p>{item.summary}</p>
       <div className="resource-meta">
         <span>{item.date}</span>
@@ -83,7 +86,8 @@ function BlogGuides() {
         {(item.tags || []).map((tag) => <span key={tag}>{tag}</span>)}
       </div>
     </article>
-  );
+    );
+  };
 
   return (
     <section id="resources" className="section resources" data-screen-label="07 resources">
