@@ -29,15 +29,33 @@ function Footer() {
           </div>
           <div className="footer-col">
             <h6>Contact</h6>
+            <a href="tel:+918826436093">+91 88264 36093</a>
             <a href="mailto:hello@alterlabs.in">hello@alterlabs.in</a>
             <a href="#contact" onClick={(e)=>onClick(e,'contact')}>Start a project</a>
             <a href="mailto:hello@alterlabs.in?subject=AlterLabs%20intro%20call">Request an intro call</a>
+            <a href="business-details.html">Business details</a>
           </div>
         </div>
 
-        <pre className="asci" aria-hidden="true">{`╭─ alter labs ────────────────────────────────────────────────────────────╮
-│  systems  ·  websites  ·  crm  ·  dashboards  ·  automation  ·  ai      │
-╰─────────────────────────────────────────────────────────────────────────╯`}</pre>
+        <div className="footer-business">
+          <div>
+            <span>// gstin</span>
+            <strong>09DPRPR7653F1Z2</strong>
+          </div>
+          <div>
+            <span>// address</span>
+            <p>Shop No. 7, J.S. Plaza, Near Zero Gravity Sports Complex, Chipiyana Road, Chipyana Buzurg, Ghaziabad, Uttar Pradesh 201009</p>
+          </div>
+          <div>
+            <span>// branches</span>
+            <p>Gurgaon: Splendor Mall, Ground Floor, Gurgaon, Haryana</p>
+            <p>Jharkhand: Opposite Jasidih Junction Railway Station, Jharkhand</p>
+          </div>
+        </div>
+
+        <pre className="asci" aria-hidden="true">{`-- alter labs ------------------------------------------------------------
+|  systems  /  websites  /  crm  /  dashboards  /  automation  /  ai     |
+------------------------------------------------------------------------`}</pre>
 
         <div className="footer-bottom">
           <span>(c) 2026 Alter Labs Studio. All rights reserved.</span>

@@ -98,6 +98,13 @@ function Contact() {
           </p>
 
           <div className="contact-channels">
+            <a className="channel" href="tel:+918826436093">
+              <span className="ic"><Wa/></span>
+              <span className="channel-text">
+                <span className="lbl">// phone / whatsapp</span>
+                <span>+91 88264 36093</span>
+              </span>
+            </a>
             <a className="channel" href="mailto:hello@alterlabs.in">
               <span className="ic"><Mail/></span>
               <span className="channel-text">
@@ -119,6 +126,22 @@ function Contact() {
                 <span>We will reply with available slots</span>
               </span>
             </a>
+          </div>
+
+          <div className="business-details-mini">
+            <div>
+              <span className="lbl">// gstin</span>
+              <strong>09DPRPR7653F1Z2</strong>
+            </div>
+            <div>
+              <span className="lbl">// business address</span>
+              <p>Shop No. 7, J.S. Plaza, Near Zero Gravity Sports Complex, Chipiyana Road, Chipyana Buzurg, Ghaziabad, Uttar Pradesh 201009</p>
+            </div>
+            <div>
+              <span className="lbl">// branch support</span>
+              <p>Gurgaon: Splendor Mall, Ground Floor, Gurgaon, Haryana</p>
+              <p>Jharkhand: Opposite Jasidih Junction Railway Station, Jharkhand</p>
+            </div>
           </div>
         </div>
 
