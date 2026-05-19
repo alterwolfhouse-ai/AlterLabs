@@ -67,6 +67,16 @@ function Solutions() {
       <div className="footer"></div>
     </div>
   );
+  const Altercraft = () => (
+    <div className="web-vis altercraft-vis">
+      <div className="topbar"><i/><i/><i/></div>
+      <div className="body">
+        <div className="col"><i className="hl"/><i/><i/><i className="short"/></div>
+        <div className="col"><i/><i className="short"/><i className="hl"/><i/></div>
+      </div>
+      <div className="footer"></div>
+    </div>
+  );
   const Ops = () => (
     <div className="ops-vis">
       <div className="ops-tabs"><span className="on">today</span><span>queue</span><span>archive</span></div>
@@ -91,13 +101,14 @@ function Solutions() {
   );
 
   const items = [
-    { id:"crm", n:"01", tag:"crm", title:"Lead-tracking CRM", desc:"Pipelines, scoring and inbox routing for a B2B sales team.", vis:<CRM/>, featured:true },
-    { id:"dash", n:"02", tag:"dashboard", title:"Internal business dashboard", desc:"Daily ops, finance and inventory at a glance.", vis:<Dash/> },
-    { id:"flow", n:"03", tag:"automation", title:"Automation workflow system", desc:"Forms → CRM → email → dashboard, end to end.", vis:<Flow/> },
-    { id:"quote", n:"04", tag:"tool", title:"Quote generation tool", desc:"Configurable line items, branded PDFs and CRM sync.", vis:<Quote/> },
-    { id:"web", n:"05", tag:"website", title:"Business website", desc:"Marketing site with structured content and lead capture.", vis:<Web/> },
-    { id:"ops", n:"06", tag:"portal", title:"Operations portal", desc:"Role-based views for service ops, with audit trail.", vis:<Ops/>, featured:true },
-    { id:"ai",  n:"07", tag:"ai", title:"AI-assisted assistant", desc:"Drafts, classifies and routes work inside your existing tools.", vis:<AI/> },
+    { id:"altercraft", n:"01", tag:"live website", title:"altercraft.in", desc:"Portfolio entry for Altercraft, a live brand website built around structured presentation and lead capture.", vis:<Altercraft/>, featured:true, href:"https://altercraft.in" },
+    { id:"crm", n:"02", tag:"crm", title:"Lead-tracking CRM", desc:"Pipelines, scoring and inbox routing for a B2B sales team.", vis:<CRM/>, featured:true },
+    { id:"dash", n:"03", tag:"dashboard", title:"Internal business dashboard", desc:"Daily ops, finance and inventory at a glance.", vis:<Dash/> },
+    { id:"flow", n:"04", tag:"automation", title:"Automation workflow system", desc:"Forms to CRM to email to dashboard, end to end.", vis:<Flow/> },
+    { id:"quote", n:"05", tag:"tool", title:"Quote generation tool", desc:"Configurable line items, branded PDFs and CRM sync.", vis:<Quote/> },
+    { id:"web", n:"06", tag:"website", title:"Business website", desc:"Marketing site with structured content and lead capture.", vis:<Web/> },
+    { id:"ops", n:"07", tag:"portal", title:"Operations portal", desc:"Role-based views for service ops, with audit trail.", vis:<Ops/>, featured:true },
+    { id:"ai",  n:"08", tag:"ai", title:"AI-assisted assistant", desc:"Drafts, classifies and routes work inside your existing tools.", vis:<AI/> },
   ];
 
   return (
@@ -125,7 +136,9 @@ function Solutions() {
             </div>
             <div className="sol-vis" aria-hidden="true">{s.vis}</div>
             <div className="sol-foot">
-              <h6>{s.title}</h6>
+              <h6>
+                {s.href ? <a href={s.href} target="_blank" rel="noopener noreferrer">{s.title}</a> : s.title}
+              </h6>
               <p>{s.desc}</p>
             </div>
           </article>

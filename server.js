@@ -156,7 +156,7 @@ async function handleApi(req, res, url) {
 
 function serveStatic(req, res, url) {
   const requested = url.pathname === '/'
-    ? '/ALTER LABS.html'
+    ? '/index.html'
     : url.pathname === '/favicon.ico'
       ? '/favicon.svg'
       : decodeURIComponent(url.pathname);

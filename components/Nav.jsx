@@ -13,7 +13,7 @@ function Nav() {
     { id: "about", n: "01" },
     { id: "capabilities", n: "02" },
     { id: "process", n: "03" },
-    { id: "work", n: "04" },
+    { id: "work", n: "04", label: "portfolio" },
     { id: "resources", n: "05" },
     { id: "contact", n: "06" },
   ];
@@ -34,7 +34,7 @@ function Nav() {
         <div className="nav-links">
           {links.map(l => (
             <a key={l.id} href={`#${l.id}`} onClick={(e) => onClick(e, l.id)}>
-              <span className="num">{l.n}</span> {l.id}
+              <span className="num">{l.n}</span> {l.label || l.id}
             </a>
           ))}
         </div>
