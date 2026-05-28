@@ -1,257 +1,677 @@
 [
-    {
-        "slug":  "systems-before-screens",
-        "title":  "Start with the system before the screen",
-        "category":  "studio notes",
-        "date":  "2026-05-08",
-        "readTime":  "5 min",
-        "summary":  "A practical way to turn a vague website, CRM automation or AI workflow request into entities, workflows and decisions your team can build around.",
-        "tags":  [
-                     "systems",
-                     "discovery",
-                     "schema",
-                     "ai workflows"
-                 ],
-        "body":  "Most failed builds start with screens too early. We map the operating system first: who enters data, where it moves, what decisions it supports, which handoffs need proof and where AI should assist rather than guess."
-    },
-    {
-        "slug":  "lead-pipeline-that-does-not-leak",
-        "title":  "Designing a lead pipeline that does not leak",
-        "category":  "crm",
-        "date":  "2026-04-28",
-        "readTime":  "7 min",
-        "summary":  "How we model forms, qualification states, reminders, lead routing and owner handoffs so sales teams stop losing high-intent enquiries.",
-        "tags":  [
-                     "crm",
-                     "automation",
-                     "sales",
-                     "lead routing"
-                 ],
-        "body":  "A useful CRM starts with a small number of states and very clear responsibility. Capture, qualify, assign, follow up and close should leave an audit trail before AI enrichment or automation is added."
-    },
-    {
-        "slug":  "dashboards-need-operators",
-        "title":  "Dashboards need operators, not just charts",
-        "category":  "operations",
-        "date":  "2026-04-16",
-        "readTime":  "4 min",
-        "summary":  "A dashboard becomes useful when each metric has an owner, a cadence and an action that follows from the number changing.",
-        "tags":  [
-                     "dashboards",
-                     "ops",
-                     "metrics",
-                     "revops"
-                 ],
-        "body":  "The best dashboards are boring in the right way. They answer the same operational questions every morning, show where CRM data is weak and make it obvious what needs attention."
-    },
-    {
-        "slug":  "crm-automation-for-small-business-2026",
-        "title":  "CRM automation for small business in 2026",
-        "category":  "crm automation",
-        "date":  "2026-05-28",
-        "readTime":  "6 min",
-        "summary":  "A practical lead system for capture, routing, reminders, data hygiene and reporting.",
-        "tags":  [
-                     "crm",
-                     "automation",
-                     "small business"
-                 ],
-        "body":  "Small teams need reliable ownership and follow-up visibility before they need a huge CRM stack."
-    },
-    {
-        "slug":  "ai-workflow-automation-with-human-review",
-        "title":  "AI workflow automation with human review",
-        "category":  "ai workflows",
-        "date":  "2026-05-28",
-        "readTime":  "5 min",
-        "summary":  "How to use AI for classification, drafting and enrichment without losing operator control.",
-        "tags":  [
-                     "ai",
-                     "workflow",
-                     "governance"
-                 ],
-        "body":  "AI workflows should define suggestion, approval, update and fallback rules."
-    },
-    {
-        "slug":  "revops-dashboard-metrics-that-matter",
-        "title":  "RevOps dashboard metrics that actually matter",
-        "category":  "dashboards",
-        "date":  "2026-05-28",
-        "readTime":  "5 min",
-        "summary":  "Build dashboards around lead response, stale deals, source quality and CRM completeness.",
-        "tags":  [
-                     "revops",
-                     "dashboards",
-                     "metrics"
-                 ],
-        "body":  "A dashboard is useful when every metric has an owner and a next action."
-    },
-    {
-        "slug":  "whatsapp-lead-routing-crm",
-        "title":  "How to route WhatsApp leads into a CRM",
-        "category":  "whatsapp crm",
-        "date":  "2026-05-28",
-        "readTime":  "6 min",
-        "summary":  "Turn WhatsApp enquiries into CRM records with source tags, owners and follow-up reminders.",
-        "tags":  [
-                     "whatsapp",
-                     "crm",
-                     "lead routing"
-                 ],
-        "body":  "WhatsApp is valuable only when the follow-up system does not stay trapped inside chat threads."
-    },
-    {
-        "slug":  "data-hygiene-before-ai-automation",
-        "title":  "Fix data hygiene before adding AI automation",
-        "category":  "data hygiene",
-        "date":  "2026-05-28",
-        "readTime":  "5 min",
-        "summary":  "Clean CRM fields, ownership and duplicates before trusting AI workflows.",
-        "tags":  [
-                     "crm",
-                     "data",
-                     "ai"
-                 ],
-        "body":  "Automation moves mess faster unless the underlying data model is clean."
-    },
-    {
-        "slug":  "n8n-vs-zapier-business-automation",
-        "title":  "n8n vs Zapier for business automation",
-        "category":  "automation tools",
-        "date":  "2026-05-28",
-        "readTime":  "6 min",
-        "summary":  "Compare n8n and Zapier for CRM workflows, webhooks, integrations and AI steps.",
-        "tags":  [
-                     "n8n",
-                     "zapier",
-                     "automation"
-                 ],
-        "body":  "The right automation tool depends on control, complexity and maintainability."
-    },
-    {
-        "slug":  "internal-tools-vs-spreadsheets",
-        "title":  "When spreadsheets should become internal tools",
-        "category":  "internal tools",
-        "date":  "2026-05-28",
-        "readTime":  "5 min",
-        "summary":  "Know when approvals, inventory, reporting and operations need a proper internal tool.",
-        "tags":  [
-                     "internal tools",
-                     "ops",
-                     "spreadsheets"
-                 ],
-        "body":  "Spreadsheets are useful until permissions, history and reporting become fragile."
-    },
-    {
-        "slug":  "website-lead-capture-system",
-        "title":  "Your website needs a lead capture system",
-        "category":  "website systems",
-        "date":  "2026-05-28",
-        "readTime":  "5 min",
-        "summary":  "Connect forms, CRM, auto-replies, owner assignment, analytics and dashboards.",
-        "tags":  [
-                     "website",
-                     "crm",
-                     "lead capture"
-                 ],
-        "body":  "A contact form is only valuable when the operational system behind it is ready."
-    },
-    {
-        "slug":  "gtm-engineering-for-indian-smbs",
-        "title":  "GTM engineering for Indian SMBs",
-        "category":  "gtm engineering",
-        "date":  "2026-05-28",
-        "readTime":  "6 min",
-        "summary":  "Connect marketing, sales, CRM, automation and reporting into one practical system.",
-        "tags":  [
-                     "gtm",
-                     "crm",
-                     "automation"
-                 ],
-        "body":  "GTM engineering helps small teams reduce lost leads and improve follow-up speed."
-    },
-    {
-        "slug":  "ai-agents-in-crm-risk-controls",
-        "title":  "AI agents in CRM: risks and controls",
-        "category":  "ai crm",
-        "date":  "2026-05-28",
-        "readTime":  "6 min",
-        "summary":  "Define permissions, audit trails, review points and fallback paths before AI agents update CRM data.",
-        "tags":  [
-                     "ai agents",
-                     "crm",
-                     "risk"
-                 ],
-        "body":  "AI agents can help with CRM hygiene when permissions and review rules are clear."
-    },
-    {
-        "slug":  "crm-migration-from-spreadsheets",
-        "title":  "CRM migration from spreadsheets without losing context",
-        "category":  "crm migration",
-        "date":  "2026-05-28",
-        "readTime":  "6 min",
-        "summary":  "Move from sheets to CRM while preserving stages, owners, sources and follow-up rules.",
-        "tags":  [
-                     "crm",
-                     "migration",
-                     "data"
-                 ],
-        "body":  "Migration succeeds when the team trusts the new system on day one."
-    },
-    {
-        "slug":  "service-business-operations-dashboard",
-        "title":  "Operations dashboard for service businesses",
-        "category":  "operations dashboard",
-        "date":  "2026-05-28",
-        "readTime":  "5 min",
-        "summary":  "Track open jobs, owners, SLA risks, revenue and customer issues in one dashboard.",
-        "tags":  [
-                     "operations",
-                     "dashboard",
-                     "service"
-                 ],
-        "body":  "A service dashboard should show what is pending, who owns it and what is blocked."
-    },
-    {
-        "slug":  "ai-customer-support-triage",
-        "title":  "AI customer support triage with human review",
-        "category":  "ai support",
-        "date":  "2026-05-28",
-        "readTime":  "5 min",
-        "summary":  "Use AI to sort support messages by urgency, topic, sentiment and escalation need.",
-        "tags":  [
-                     "ai",
-                     "support",
-                     "triage"
-                 ],
-        "body":  "AI should reduce sorting time while keeping accountability visible."
-    },
-    {
-        "slug":  "quote-automation-system",
-        "title":  "Quote automation system: from enquiry to follow-up",
-        "category":  "quote automation",
-        "date":  "2026-05-28",
-        "readTime":  "6 min",
-        "summary":  "Build line items, approvals, branded PDFs, CRM sync and reminders into quote flow.",
-        "tags":  [
-                     "quote",
-                     "crm",
-                     "automation"
-                 ],
-        "body":  "A quote tool should reduce repeated typing and make proposal status visible."
-    },
-    {
-        "slug":  "seo-and-crm-attribution",
-        "title":  "SEO and CRM attribution should talk to each other",
-        "category":  "seo crm",
-        "date":  "2026-05-28",
-        "readTime":  "5 min",
-        "summary":  "Connect SEO pages and sources to qualified leads, pipeline and closed revenue.",
-        "tags":  [
-                     "seo",
-                     "crm",
-                     "attribution"
-                 ],
-        "body":  "SEO gets easier to prioritize when CRM shows which pages create opportunities."
-    }
+  {
+    "slug": "systems-before-screens",
+    "title": "Start with the system before the screen",
+    "category": "studio notes",
+    "date": "2026-05-08",
+    "readTime": "5 min",
+    "summary": "A practical way to turn a vague website, CRM automation or AI workflow request into entities, workflows and decisions your team can build around.",
+    "tags": [
+      "systems",
+      "discovery",
+      "schema",
+      "ai workflows"
+    ],
+    "body": "Most failed builds start with screens too early. We map the operating system first: who enters data, where it moves, what decisions it supports, which handoffs need proof and where AI should assist rather than guess."
+  },
+  {
+    "slug": "lead-pipeline-that-does-not-leak",
+    "title": "Designing a lead pipeline that does not leak",
+    "category": "crm",
+    "date": "2026-04-28",
+    "readTime": "7 min",
+    "summary": "How we model forms, qualification states, reminders, lead routing and owner handoffs so sales teams stop losing high-intent enquiries.",
+    "tags": [
+      "crm",
+      "automation",
+      "sales",
+      "lead routing"
+    ],
+    "body": "A useful CRM starts with a small number of states and very clear responsibility. Capture, qualify, assign, follow up and close should leave an audit trail before AI enrichment or automation is added."
+  },
+  {
+    "slug": "dashboards-need-operators",
+    "title": "Dashboards need operators, not just charts",
+    "category": "operations",
+    "date": "2026-04-16",
+    "readTime": "4 min",
+    "summary": "A dashboard becomes useful when each metric has an owner, a cadence and an action that follows from the number changing.",
+    "tags": [
+      "dashboards",
+      "ops",
+      "metrics",
+      "revops"
+    ],
+    "body": "The best dashboards are boring in the right way. They answer the same operational questions every morning, show where CRM data is weak and make it obvious what needs attention."
+  },
+  {
+    "slug": "crm-automation-for-small-business-2026",
+    "title": "CRM automation for small business in 2026",
+    "category": "crm automation",
+    "date": "2026-05-28",
+    "readTime": "6 min",
+    "summary": "A practical lead system for capture, routing, reminders, data hygiene and reporting.",
+    "tags": [
+      "crm",
+      "automation",
+      "small business"
+    ],
+    "body": "Small teams need reliable ownership and follow-up visibility before they need a huge CRM stack."
+  },
+  {
+    "slug": "ai-workflow-automation-with-human-review",
+    "title": "AI workflow automation with human review",
+    "category": "ai workflows",
+    "date": "2026-05-28",
+    "readTime": "5 min",
+    "summary": "How to use AI for classification, drafting and enrichment without losing operator control.",
+    "tags": [
+      "ai",
+      "workflow",
+      "governance"
+    ],
+    "body": "AI workflows should define suggestion, approval, update and fallback rules."
+  },
+  {
+    "slug": "revops-dashboard-metrics-that-matter",
+    "title": "RevOps dashboard metrics that actually matter",
+    "category": "dashboards",
+    "date": "2026-05-28",
+    "readTime": "5 min",
+    "summary": "Build dashboards around lead response, stale deals, source quality and CRM completeness.",
+    "tags": [
+      "revops",
+      "dashboards",
+      "metrics"
+    ],
+    "body": "A dashboard is useful when every metric has an owner and a next action."
+  },
+  {
+    "slug": "whatsapp-lead-routing-crm",
+    "title": "How to route WhatsApp leads into a CRM",
+    "category": "whatsapp crm",
+    "date": "2026-05-28",
+    "readTime": "6 min",
+    "summary": "Turn WhatsApp enquiries into CRM records with source tags, owners and follow-up reminders.",
+    "tags": [
+      "whatsapp",
+      "crm",
+      "lead routing"
+    ],
+    "body": "WhatsApp is valuable only when the follow-up system does not stay trapped inside chat threads."
+  },
+  {
+    "slug": "data-hygiene-before-ai-automation",
+    "title": "Fix data hygiene before adding AI automation",
+    "category": "data hygiene",
+    "date": "2026-05-28",
+    "readTime": "5 min",
+    "summary": "Clean CRM fields, ownership and duplicates before trusting AI workflows.",
+    "tags": [
+      "crm",
+      "data",
+      "ai"
+    ],
+    "body": "Automation moves mess faster unless the underlying data model is clean."
+  },
+  {
+    "slug": "n8n-vs-zapier-business-automation",
+    "title": "n8n vs Zapier for business automation",
+    "category": "automation tools",
+    "date": "2026-05-28",
+    "readTime": "6 min",
+    "summary": "Compare n8n and Zapier for CRM workflows, webhooks, integrations and AI steps.",
+    "tags": [
+      "n8n",
+      "zapier",
+      "automation"
+    ],
+    "body": "The right automation tool depends on control, complexity and maintainability."
+  },
+  {
+    "slug": "internal-tools-vs-spreadsheets",
+    "title": "When spreadsheets should become internal tools",
+    "category": "internal tools",
+    "date": "2026-05-28",
+    "readTime": "5 min",
+    "summary": "Know when approvals, inventory, reporting and operations need a proper internal tool.",
+    "tags": [
+      "internal tools",
+      "ops",
+      "spreadsheets"
+    ],
+    "body": "Spreadsheets are useful until permissions, history and reporting become fragile."
+  },
+  {
+    "slug": "website-lead-capture-system",
+    "title": "Your website needs a lead capture system",
+    "category": "website systems",
+    "date": "2026-05-28",
+    "readTime": "5 min",
+    "summary": "Connect forms, CRM, auto-replies, owner assignment, analytics and dashboards.",
+    "tags": [
+      "website",
+      "crm",
+      "lead capture"
+    ],
+    "body": "A contact form is only valuable when the operational system behind it is ready."
+  },
+  {
+    "slug": "gtm-engineering-for-indian-smbs",
+    "title": "GTM engineering for Indian SMBs",
+    "category": "gtm engineering",
+    "date": "2026-05-28",
+    "readTime": "6 min",
+    "summary": "Connect marketing, sales, CRM, automation and reporting into one practical system.",
+    "tags": [
+      "gtm",
+      "crm",
+      "automation"
+    ],
+    "body": "GTM engineering helps small teams reduce lost leads and improve follow-up speed."
+  },
+  {
+    "slug": "ai-agents-in-crm-risk-controls",
+    "title": "AI agents in CRM: risks and controls",
+    "category": "ai crm",
+    "date": "2026-05-28",
+    "readTime": "6 min",
+    "summary": "Define permissions, audit trails, review points and fallback paths before AI agents update CRM data.",
+    "tags": [
+      "ai agents",
+      "crm",
+      "risk"
+    ],
+    "body": "AI agents can help with CRM hygiene when permissions and review rules are clear."
+  },
+  {
+    "slug": "crm-migration-from-spreadsheets",
+    "title": "CRM migration from spreadsheets without losing context",
+    "category": "crm migration",
+    "date": "2026-05-28",
+    "readTime": "6 min",
+    "summary": "Move from sheets to CRM while preserving stages, owners, sources and follow-up rules.",
+    "tags": [
+      "crm",
+      "migration",
+      "data"
+    ],
+    "body": "Migration succeeds when the team trusts the new system on day one."
+  },
+  {
+    "slug": "service-business-operations-dashboard",
+    "title": "Operations dashboard for service businesses",
+    "category": "operations dashboard",
+    "date": "2026-05-28",
+    "readTime": "5 min",
+    "summary": "Track open jobs, owners, SLA risks, revenue and customer issues in one dashboard.",
+    "tags": [
+      "operations",
+      "dashboard",
+      "service"
+    ],
+    "body": "A service dashboard should show what is pending, who owns it and what is blocked."
+  },
+  {
+    "slug": "ai-customer-support-triage",
+    "title": "AI customer support triage with human review",
+    "category": "ai support",
+    "date": "2026-05-28",
+    "readTime": "5 min",
+    "summary": "Use AI to sort support messages by urgency, topic, sentiment and escalation need.",
+    "tags": [
+      "ai",
+      "support",
+      "triage"
+    ],
+    "body": "AI should reduce sorting time while keeping accountability visible."
+  },
+  {
+    "slug": "quote-automation-system",
+    "title": "Quote automation system: from enquiry to follow-up",
+    "category": "quote automation",
+    "date": "2026-05-28",
+    "readTime": "6 min",
+    "summary": "Build line items, approvals, branded PDFs, CRM sync and reminders into quote flow.",
+    "tags": [
+      "quote",
+      "crm",
+      "automation"
+    ],
+    "body": "A quote tool should reduce repeated typing and make proposal status visible."
+  },
+  {
+    "slug": "seo-and-crm-attribution",
+    "title": "SEO and CRM attribution should talk to each other",
+    "category": "seo crm",
+    "date": "2026-05-28",
+    "readTime": "5 min",
+    "summary": "Connect SEO pages and sources to qualified leads, pipeline and closed revenue.",
+    "tags": [
+      "seo",
+      "crm",
+      "attribution"
+    ],
+    "body": "SEO gets easier to prioritize when CRM shows which pages create opportunities."
+  },
+  {
+    "slug": "crm-cleanup-before-hubspot-migration",
+    "title": "CRM Cleanup Before HubSpot Migration",
+    "category": "crm migration",
+    "date": "2026-05-28",
+    "readTime": "6 min",
+    "summary": "CRM migration succeeds when the data is cleaned before import. A messy migration makes the new tool look worse than the old spreadsheet.",
+    "tags": [
+      "crm migration",
+      "automation",
+      "systems"
+    ],
+    "body": "CRM migration succeeds when the data is cleaned before import. A messy migration makes the new tool look worse than the old spreadsheet."
+  },
+  {
+    "slug": "lead-scoring-model-for-service-business",
+    "title": "Lead Scoring Model for Service Businesses",
+    "category": "lead scoring",
+    "date": "2026-05-28",
+    "readTime": "6 min",
+    "summary": "Lead scoring should help teams prioritize attention, not create a black box. Simple scoring rules often outperform complex models when the team understands them.",
+    "tags": [
+      "lead scoring",
+      "automation",
+      "systems"
+    ],
+    "body": "Lead scoring should help teams prioritize attention, not create a black box. Simple scoring rules often outperform complex models when the team understands them."
+  },
+  {
+    "slug": "ai-call-summary-to-crm-workflow",
+    "title": "AI Call Summary to CRM Workflow",
+    "category": "ai crm",
+    "date": "2026-05-28",
+    "readTime": "6 min",
+    "summary": "AI call summaries are useful when they create structured next actions. The workflow should update CRM context without hiding responsibility.",
+    "tags": [
+      "ai crm",
+      "automation",
+      "systems"
+    ],
+    "body": "AI call summaries are useful when they create structured next actions. The workflow should update CRM context without hiding responsibility."
+  },
+  {
+    "slug": "meeting-notes-automation-for-sales",
+    "title": "Meeting Notes Automation for Sales Teams",
+    "category": "sales automation",
+    "date": "2026-05-28",
+    "readTime": "6 min",
+    "summary": "Sales teams lose momentum when call notes stay in personal documents. Meeting automation keeps context moving into the CRM.",
+    "tags": [
+      "sales automation",
+      "automation",
+      "systems"
+    ],
+    "body": "Sales teams lose momentum when call notes stay in personal documents. Meeting automation keeps context moving into the CRM."
+  },
+  {
+    "slug": "customer-onboarding-automation-map",
+    "title": "Customer Onboarding Automation Map",
+    "category": "onboarding automation",
+    "date": "2026-05-28",
+    "readTime": "6 min",
+    "summary": "Onboarding is where sales promises become operational work. A mapped workflow prevents missed handoffs after the deal closes.",
+    "tags": [
+      "onboarding automation",
+      "automation",
+      "systems"
+    ],
+    "body": "Onboarding is where sales promises become operational work. A mapped workflow prevents missed handoffs after the deal closes."
+  },
+  {
+    "slug": "inventory-dashboard-for-small-business",
+    "title": "Inventory Dashboard for Small Business",
+    "category": "inventory dashboard",
+    "date": "2026-05-28",
+    "readTime": "6 min",
+    "summary": "Inventory dashboards should tell operators what to reorder, what is stuck and what needs attention today.",
+    "tags": [
+      "inventory dashboard",
+      "automation",
+      "systems"
+    ],
+    "body": "Inventory dashboards should tell operators what to reorder, what is stuck and what needs attention today."
+  },
+  {
+    "slug": "finance-dashboard-for-founders",
+    "title": "Finance Dashboard for Founders",
+    "category": "finance dashboard",
+    "date": "2026-05-28",
+    "readTime": "6 min",
+    "summary": "A finance dashboard should make cash and risk visible without requiring the founder to rebuild a spreadsheet every week.",
+    "tags": [
+      "finance dashboard",
+      "automation",
+      "systems"
+    ],
+    "body": "A finance dashboard should make cash and risk visible without requiring the founder to rebuild a spreadsheet every week."
+  },
+  {
+    "slug": "ai-email-drafting-with-approval",
+    "title": "AI Email Drafting With Approval Workflows",
+    "category": "ai workflows",
+    "date": "2026-05-28",
+    "readTime": "6 min",
+    "summary": "AI email drafting saves time only when review, context and CRM logging are built into the flow.",
+    "tags": [
+      "ai workflows",
+      "automation",
+      "systems"
+    ],
+    "body": "AI email drafting saves time only when review, context and CRM logging are built into the flow."
+  },
+  {
+    "slug": "sales-pipeline-stages-for-smb",
+    "title": "Sales Pipeline Stages for SMB Teams",
+    "category": "sales pipeline",
+    "date": "2026-05-28",
+    "readTime": "6 min",
+    "summary": "Pipeline stages should match how the team actually sells. If stages are unclear, automation will only make confusion faster.",
+    "tags": [
+      "sales pipeline",
+      "automation",
+      "systems"
+    ],
+    "body": "Pipeline stages should match how the team actually sells. If stages are unclear, automation will only make confusion faster."
+  },
+  {
+    "slug": "whatsapp-to-google-sheets-to-crm",
+    "title": "WhatsApp to Google Sheets to CRM Workflow",
+    "category": "whatsapp automation",
+    "date": "2026-05-28",
+    "readTime": "6 min",
+    "summary": "A lightweight workflow can capture WhatsApp enquiries into a sheet and then sync qualified leads into CRM.",
+    "tags": [
+      "whatsapp automation",
+      "automation",
+      "systems"
+    ],
+    "body": "A lightweight workflow can capture WhatsApp enquiries into a sheet and then sync qualified leads into CRM."
+  },
+  {
+    "slug": "website-chatbot-to-human-handoff",
+    "title": "Website Chatbot to Human Handoff",
+    "category": "chatbot handoff",
+    "date": "2026-05-28",
+    "readTime": "6 min",
+    "summary": "A chatbot should not trap a serious buyer. Its job is to collect context and route the conversation to the right human quickly.",
+    "tags": [
+      "chatbot handoff",
+      "automation",
+      "systems"
+    ],
+    "body": "A chatbot should not trap a serious buyer. Its job is to collect context and route the conversation to the right human quickly."
+  },
+  {
+    "slug": "lead-response-time-dashboard",
+    "title": "Lead Response Time Dashboard",
+    "category": "lead dashboard",
+    "date": "2026-05-28",
+    "readTime": "6 min",
+    "summary": "Fast response is one of the simplest conversion advantages. A response-time dashboard makes delays visible.",
+    "tags": [
+      "lead dashboard",
+      "automation",
+      "systems"
+    ],
+    "body": "Fast response is one of the simplest conversion advantages. A response-time dashboard makes delays visible."
+  },
+  {
+    "slug": "crm-field-design-best-practices",
+    "title": "CRM Field Design Best Practices",
+    "category": "crm design",
+    "date": "2026-05-28",
+    "readTime": "6 min",
+    "summary": "Every CRM field should earn its place. Too many fields reduce adoption, too few break reporting.",
+    "tags": [
+      "crm design",
+      "automation",
+      "systems"
+    ],
+    "body": "Every CRM field should earn its place. Too many fields reduce adoption, too few break reporting."
+  },
+  {
+    "slug": "automation-error-handling-playbook",
+    "title": "Automation Error Handling Playbook",
+    "category": "automation reliability",
+    "date": "2026-05-28",
+    "readTime": "6 min",
+    "summary": "Automation reliability depends on what happens when a workflow fails, not only when it succeeds.",
+    "tags": [
+      "automation reliability",
+      "automation",
+      "systems"
+    ],
+    "body": "Automation reliability depends on what happens when a workflow fails, not only when it succeeds."
+  },
+  {
+    "slug": "ai-rag-knowledge-base-for-support",
+    "title": "AI RAG Knowledge Base for Support",
+    "category": "ai knowledge base",
+    "date": "2026-05-28",
+    "readTime": "6 min",
+    "summary": "A useful AI support assistant needs a maintained knowledge base and clear source boundaries.",
+    "tags": [
+      "ai knowledge base",
+      "automation",
+      "systems"
+    ],
+    "body": "A useful AI support assistant needs a maintained knowledge base and clear source boundaries."
+  },
+  {
+    "slug": "operations-portal-for-field-teams",
+    "title": "Operations Portal for Field Teams",
+    "category": "operations portal",
+    "date": "2026-05-28",
+    "readTime": "6 min",
+    "summary": "Field teams need simple mobile workflows, not complicated dashboards. The portal should capture proof and reduce back-office calls.",
+    "tags": [
+      "operations portal",
+      "automation",
+      "systems"
+    ],
+    "body": "Field teams need simple mobile workflows, not complicated dashboards. The portal should capture proof and reduce back-office calls."
+  },
+  {
+    "slug": "client-portal-for-service-business",
+    "title": "Client Portal for Service Businesses",
+    "category": "client portal",
+    "date": "2026-05-28",
+    "readTime": "6 min",
+    "summary": "A client portal reduces repeated status questions and gives customers one place to see progress.",
+    "tags": [
+      "client portal",
+      "automation",
+      "systems"
+    ],
+    "body": "A client portal reduces repeated status questions and gives customers one place to see progress."
+  },
+  {
+    "slug": "approval-workflow-system-design",
+    "title": "Approval Workflow System Design",
+    "category": "approval workflows",
+    "date": "2026-05-28",
+    "readTime": "6 min",
+    "summary": "Approvals should have owner, deadline, status, reason and audit history. Otherwise decisions disappear into chat threads.",
+    "tags": [
+      "approval workflows",
+      "automation",
+      "systems"
+    ],
+    "body": "Approvals should have owner, deadline, status, reason and audit history. Otherwise decisions disappear into chat threads."
+  },
+  {
+    "slug": "dashboard-data-model-before-charts",
+    "title": "Dashboard Data Model Before Charts",
+    "category": "dashboard architecture",
+    "date": "2026-05-28",
+    "readTime": "6 min",
+    "summary": "Good dashboards begin with entities, definitions and update cadence. Charts come after the data model is stable.",
+    "tags": [
+      "dashboard architecture",
+      "automation",
+      "systems"
+    ],
+    "body": "Good dashboards begin with entities, definitions and update cadence. Charts come after the data model is stable."
+  },
+  {
+    "slug": "ai-lead-enrichment-workflow",
+    "title": "AI Lead Enrichment Workflow",
+    "category": "lead enrichment",
+    "date": "2026-05-28",
+    "readTime": "6 min",
+    "summary": "Lead enrichment should help prioritization, not become a pile of unverified facts. Keep source and confidence visible.",
+    "tags": [
+      "lead enrichment",
+      "automation",
+      "systems"
+    ],
+    "body": "Lead enrichment should help prioritization, not become a pile of unverified facts. Keep source and confidence visible."
+  },
+  {
+    "slug": "crm-adoption-plan-for-teams",
+    "title": "CRM Adoption Plan for Teams",
+    "category": "crm adoption",
+    "date": "2026-05-28",
+    "readTime": "6 min",
+    "summary": "CRM adoption is a behaviour design problem. The system must be useful for reps and managers at the same time.",
+    "tags": [
+      "crm adoption",
+      "automation",
+      "systems"
+    ],
+    "body": "CRM adoption is a behaviour design problem. The system must be useful for reps and managers at the same time."
+  },
+  {
+    "slug": "post-sale-support-crm-workflow",
+    "title": "Post-Sale Support CRM Workflow",
+    "category": "customer success",
+    "date": "2026-05-28",
+    "readTime": "6 min",
+    "summary": "The customer relationship does not end when a deal is won. Support history should feed account context and renewal risk.",
+    "tags": [
+      "customer success",
+      "automation",
+      "systems"
+    ],
+    "body": "The customer relationship does not end when a deal is won. Support history should feed account context and renewal risk."
+  },
+  {
+    "slug": "form-to-whatsapp-lead-pipeline",
+    "title": "Form to WhatsApp Lead Pipeline",
+    "category": "lead pipeline",
+    "date": "2026-05-28",
+    "readTime": "6 min",
+    "summary": "For India-first businesses, WhatsApp is often the fastest follow-up channel. Forms should package context into a ready-to-send message.",
+    "tags": [
+      "lead pipeline",
+      "automation",
+      "systems"
+    ],
+    "body": "For India-first businesses, WhatsApp is often the fastest follow-up channel. Forms should package context into a ready-to-send message."
+  },
+  {
+    "slug": "ai-search-optimization-for-b2b-sites",
+    "title": "AI Search Optimization for B2B Websites",
+    "category": "ai search seo",
+    "date": "2026-05-28",
+    "readTime": "6 min",
+    "summary": "Buyers increasingly ask AI tools before they visit websites. Clear service pages and useful explainers make a brand easier to cite.",
+    "tags": [
+      "ai search seo",
+      "automation",
+      "systems"
+    ],
+    "body": "Buyers increasingly ask AI tools before they visit websites. Clear service pages and useful explainers make a brand easier to cite."
+  },
+  {
+    "slug": "landing-page-crm-sync-checklist",
+    "title": "Landing Page CRM Sync Checklist",
+    "category": "landing pages",
+    "date": "2026-05-28",
+    "readTime": "6 min",
+    "summary": "A landing page is only as strong as the CRM sync behind it. Capture source data and route leads immediately.",
+    "tags": [
+      "landing pages",
+      "automation",
+      "systems"
+    ],
+    "body": "A landing page is only as strong as the CRM sync behind it. Capture source data and route leads immediately."
+  },
+  {
+    "slug": "sales-follow-up-sequence-design",
+    "title": "Sales Follow-Up Sequence Design",
+    "category": "sales automation",
+    "date": "2026-05-28",
+    "readTime": "6 min",
+    "summary": "Follow-up sequences should be timely and contextual. The goal is consistency, not spam volume.",
+    "tags": [
+      "sales automation",
+      "automation",
+      "systems"
+    ],
+    "body": "Follow-up sequences should be timely and contextual. The goal is consistency, not spam volume."
+  },
+  {
+    "slug": "operator-dashboard-for-ai-workflows",
+    "title": "Operator Dashboard for AI Workflows",
+    "category": "ai operations",
+    "date": "2026-05-28",
+    "readTime": "6 min",
+    "summary": "AI workflows need operator dashboards so people can see what the system suggested, changed and failed to do.",
+    "tags": [
+      "ai operations",
+      "automation",
+      "systems"
+    ],
+    "body": "AI workflows need operator dashboards so people can see what the system suggested, changed and failed to do."
+  },
+  {
+    "slug": "custom-crm-vs-off-the-shelf-crm",
+    "title": "Custom CRM vs Off-the-Shelf CRM",
+    "category": "crm strategy",
+    "date": "2026-05-28",
+    "readTime": "6 min",
+    "summary": "Off-the-shelf CRM is often enough. Custom CRM makes sense when process fit and integration depth matter more than generic features.",
+    "tags": [
+      "crm strategy",
+      "automation",
+      "systems"
+    ],
+    "body": "Off-the-shelf CRM is often enough. Custom CRM makes sense when process fit and integration depth matter more than generic features."
+  },
+  {
+    "slug": "business-process-documentation-before-automation",
+    "title": "Business Process Documentation Before Automation",
+    "category": "process documentation",
+    "date": "2026-05-28",
+    "readTime": "6 min",
+    "summary": "Undocumented processes create fragile automation. Write the workflow before wiring the tools.",
+    "tags": [
+      "process documentation",
+      "automation",
+      "systems"
+    ],
+    "body": "Undocumented processes create fragile automation. Write the workflow before wiring the tools."
+  },
+  {
+    "slug": "marketing-dashboard-for-founder-led-business",
+    "title": "Marketing Dashboard for Founder-Led Business",
+    "category": "marketing dashboard",
+    "date": "2026-05-28",
+    "readTime": "6 min",
+    "summary": "Founder-led businesses need a small number of trustworthy metrics, not a dashboard full of vanity numbers.",
+    "tags": [
+      "marketing dashboard",
+      "automation",
+      "systems"
+    ],
+    "body": "Founder-led businesses need a small number of trustworthy metrics, not a dashboard full of vanity numbers."
+  }
 ]

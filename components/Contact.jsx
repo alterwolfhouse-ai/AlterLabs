@@ -31,6 +31,9 @@ function Contact() {
     if (!validate()) return;
     setSubmitting(true);
     setErrors({});
+    const whatsappText = encodeURIComponent(
+      `AlterLabs project lead\nName: ${form.name}\nEmail: ${form.email}\nCompany: ${form.company || 'Not shared'}\nScope: ${scope.join(', ') || 'Not selected'}\nBudget: ${budget || 'Not selected'}\nBrief: ${form.message}`
+    );
 
     try {
       const res = await fetch('/api/contact', {
@@ -46,6 +49,7 @@ function Contact() {
       }
 
       setSent(true);
+      window.location.href = `https://wa.me/918826436093?text=${whatsappText}`;
     } catch {
       setErrors({ form: "server unavailable" });
     } finally {
