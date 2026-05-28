@@ -5,9 +5,9 @@
     "category": "studio notes",
     "date": "2026-05-08",
     "readTime": "5 min",
-    "summary": "A practical way to turn a vague website or CRM request into entities, workflows and decisions your team can actually build around.",
-    "tags": ["systems", "discovery", "schema"],
-    "body": "Most failed builds start with screens too early. We prefer to map the operating system first: who enters data, where it moves, what decisions it supports and which handoffs need proof."
+    "summary": "A practical way to turn a vague website, CRM automation or AI workflow request into entities, workflows and decisions your team can build around.",
+    "tags": ["systems", "discovery", "schema", "ai workflows"],
+    "body": "Most failed builds start with screens too early. We map the operating system first: who enters data, where it moves, what decisions it supports, which handoffs need proof and where AI should assist rather than guess."
   },
   {
     "slug": "lead-pipeline-that-does-not-leak",
@@ -15,9 +15,9 @@
     "category": "crm",
     "date": "2026-04-28",
     "readTime": "7 min",
-    "summary": "How we model forms, qualification states, reminders and owner handoffs so sales teams stop losing high-intent enquiries.",
-    "tags": ["crm", "automation", "sales"],
-    "body": "A useful CRM starts with a small number of states and very clear responsibility. Capture, qualify, assign, follow up and close should leave an audit trail."
+    "summary": "How we model forms, qualification states, reminders, lead routing and owner handoffs so sales teams stop losing high-intent enquiries.",
+    "tags": ["crm", "automation", "sales", "lead routing"],
+    "body": "A useful CRM starts with a small number of states and very clear responsibility. Capture, qualify, assign, follow up and close should leave an audit trail before AI enrichment or automation is added."
   },
   {
     "slug": "dashboards-need-operators",
@@ -26,7 +26,7 @@
     "date": "2026-04-16",
     "readTime": "4 min",
     "summary": "A dashboard becomes useful when each metric has an owner, a cadence and an action that follows from the number changing.",
-    "tags": ["dashboards", "ops", "metrics"],
-    "body": "The best dashboards are boring in the right way. They answer the same operational questions every morning and make it obvious what needs attention."
+    "tags": ["dashboards", "ops", "metrics", "revops"],
+    "body": "The best dashboards are boring in the right way. They answer the same operational questions every morning, show where CRM data is weak and make it obvious what needs attention."
   }
 ]

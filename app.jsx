@@ -36,6 +36,7 @@ function App() {
         <Process />
         <Why />
         <Solutions />
+        <Trends />
         <BlogGuides />
         <Contact />
       </main>

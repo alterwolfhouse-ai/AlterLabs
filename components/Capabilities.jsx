@@ -2,39 +2,39 @@ function Capabilities() {
   const items = [
     {
       n: "01",
-      title: "Website development",
-      desc: "Marketing sites, landing pages and product surfaces — built with clean architecture and real CMS workflows.",
-      tags: ["nextjs", "headless cms", "seo", "perf"]
+      title: "Conversion website development",
+      desc: "Marketing sites, landing pages and product surfaces built with lead capture, SEO structure, analytics and real CMS workflows.",
+      tags: ["seo", "lead forms", "analytics", "cms"]
     },
     {
       n: "02",
-      title: "CRM systems",
-      desc: "Lead capture, pipelines, scoring and account views shaped around how your team actually sells.",
-      tags: ["pipelines", "lead routing", "history"]
+      title: "CRM automation",
+      desc: "Lead capture, routing, scoring, follow-up reminders and account views shaped around how your team actually sells.",
+      tags: ["pipelines", "lead routing", "crm hygiene"]
     },
     {
       n: "03",
-      title: "Custom dashboards",
-      desc: "Operational and financial views that surface the few numbers that change decisions.",
-      tags: ["ops", "finance", "alerts"]
+      title: "RevOps and business dashboards",
+      desc: "Operational, sales and financial views that surface the few numbers that change decisions.",
+      tags: ["revops", "ops", "finance", "alerts"]
     },
     {
       n: "04",
       title: "Schema & data structure",
-      desc: "We model the entities and relationships your business runs on, before a single screen is built.",
+      desc: "We model the entities and relationships your business runs on before a single screen is built.",
       tags: ["erd", "audit", "migrations"]
     },
     {
       n: "05",
       title: "Automation workflows",
-      desc: "From form to CRM to email to dashboard — connected with reliable, observable workflows.",
+      desc: "From form to CRM to email to dashboard, connected with reliable, observable workflows and manual fallback paths.",
       tags: ["zapier", "n8n", "webhooks", "queues"]
     },
     {
       n: "06",
-      title: "AI-assisted tools",
-      desc: "LLM-powered assistants, classifiers and drafters embedded into your existing workflows.",
-      tags: ["llm", "rag", "classifiers"]
+      title: "AI workflow assistants",
+      desc: "LLM-powered assistants, classifiers, enrichers and drafters embedded into your existing workflows with human review.",
+      tags: ["llm", "rag", "classifiers", "agents"]
     },
     {
       n: "07",
@@ -51,7 +51,7 @@ function Capabilities() {
     {
       n: "09",
       title: "Technical consulting",
-      desc: "When you need a system audit, architecture review or a sober second opinion before building.",
+      desc: "System audits, architecture reviews and second opinions before a team invests in another tool.",
       tags: ["audit", "architecture", "review"]
     },
   ];
@@ -63,10 +63,10 @@ function Capabilities() {
           <span className="num">[02]</span><span className="slash">/</span><span>capabilities</span>
         </div>
         <div>
-          <h2 className="section-title">Nine practices, one connected system.</h2>
+          <h2 className="section-title">Nine practices, one connected operating system.</h2>
           <p className="section-lead">
-            We treat each of these as a single layer of a larger system —
-            so the website, CRM, dashboard and automations all speak the same schema.
+            We treat each of these as a single layer of a larger system,
+            so the website, CRM, dashboard, AI steps and automations all speak the same schema.
           </p>
         </div>
       </div>

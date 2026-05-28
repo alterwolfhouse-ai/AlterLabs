@@ -5,9 +5,9 @@
     "category": "template",
     "date": "2026-05-01",
     "readTime": "12 min",
-    "summary": "A field-by-field brief for scoping websites, CRMs, dashboards and automations before design starts.",
-    "tags": ["brief", "planning", "template"],
-    "body": "Use this guide to capture business goals, users, entities, source systems, workflows, reporting needs, edge cases and launch constraints."
+    "summary": "A field-by-field brief for scoping websites, CRMs, dashboards, automations and AI workflow assistants before design starts.",
+    "tags": ["brief", "planning", "template", "ai workflow"],
+    "body": "Use this guide to capture business goals, users, entities, source systems, workflows, reporting needs, AI touchpoints, edge cases and launch constraints."
   },
   {
     "slug": "crm-readiness-checklist",
@@ -15,9 +15,9 @@
     "category": "checklist",
     "date": "2026-04-22",
     "readTime": "9 min",
-    "summary": "A checklist for deciding whether your team needs a spreadsheet cleanup, a lightweight CRM or a custom pipeline system.",
-    "tags": ["crm", "checklist", "sales"],
-    "body": "Before building a CRM, check ownership, lead sources, required stages, follow-up rules, required integrations and reporting obligations."
+    "summary": "A checklist for deciding whether your team needs spreadsheet cleanup, a lightweight CRM, CRM automation or a custom pipeline system.",
+    "tags": ["crm", "checklist", "sales", "automation"],
+    "body": "Before building a CRM, check ownership, lead sources, required stages, follow-up rules, routing logic, required integrations, data quality and reporting obligations."
   },
   {
     "slug": "automation-map",
@@ -25,8 +25,8 @@
     "category": "worksheet",
     "date": "2026-04-10",
     "readTime": "10 min",
-    "summary": "A simple worksheet for documenting triggers, actions, failure states and visibility across automation workflows.",
-    "tags": ["automation", "workflow", "ops"],
-    "body": "Every automation should define its trigger, data contract, owner, retries, notifications and manual fallback path."
+    "summary": "A simple worksheet for documenting triggers, actions, AI steps, failure states and visibility across automation workflows.",
+    "tags": ["automation", "workflow", "ops", "n8n"],
+    "body": "Every automation should define its trigger, data contract, owner, retries, notifications, AI review points and manual fallback path."
   }
 ]

@@ -6,9 +6,9 @@ function Hero() {
   };
 
   const stripItems = [
-    "websites", "crm systems", "dashboards", "schemas", "automation",
-    "ai-assisted tools", "internal tools", "integrations", "workflows",
-    "lead systems", "quote engines", "process digitization"
+    "crm automation", "ai workflows", "revops dashboards", "lead routing", "gtm engineering",
+    "internal tools", "business websites", "n8n workflows", "hubspot systems",
+    "data hygiene", "quote engines", "operator dashboards"
   ];
 
   return (
@@ -18,24 +18,24 @@ function Hero() {
           <span className="dot" aria-hidden="true"></span>
           alter labs / digital systems studio
         </span>
-        <span className="coords">India-based / remote-ready / systems-first builds</span>
+        <span className="coords">India-based / remote-ready / CRM + AI workflow builds</span>
       </div>
 
       <h1>
-        We build digital <span className="it">systems</span><br />
+        We build CRM, AI and dashboard <span className="it">systems</span><br />
         that businesses actually <span className="accent">run on</span>.
       </h1>
 
       <div className="hero-grid">
         <div>
           <p className="hero-sub">
-            ALTER LABS is a small technical studio building websites, CRM systems,
-            dashboards, automation workflows and AI-assisted tools — designed as
-            structured systems, not loose pages.
+            ALTER LABS builds CRM automation, RevOps dashboards, AI-assisted workflows,
+            internal tools and conversion-focused websites. Every build starts with the
+            data model, handoffs and operating workflow behind the screen.
           </p>
           <div className="hero-cta">
             <a href="#contact" onClick={(e) => onClick(e, 'contact')} className="btn btn-primary">
-              Start a project <span className="arrow">→</span>
+              Start a project <span className="arrow">-&gt;</span>
             </a>
             <a href="#capabilities" onClick={(e) => onClick(e, 'capabilities')} className="btn btn-secondary">
               See capabilities
