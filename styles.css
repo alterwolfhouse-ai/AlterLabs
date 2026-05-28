@@ -1194,6 +1194,16 @@ button { font-family: inherit; cursor: pointer; }
   border-top: 1px solid var(--rule);
   padding-top: 34px;
 }
+
+.article-cover {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border: 1px solid var(--rule);
+  border-radius: 18px;
+  margin: 10px 0 28px;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, .16);
+}
 .article-body h2 {
   font-size: clamp(24px, 3vw, 34px);
   line-height: 1.12;
