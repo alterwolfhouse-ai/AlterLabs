@@ -88,7 +88,7 @@ function Hero() {
                   <i key={step} style={{ "--i": index }}></i>
                 ))}
               </div>
-              <strong>v2.1</strong>
+              <strong>v2.2</strong>
             </div>
           </div>
 
@@ -101,6 +101,9 @@ function Hero() {
               <span className="hud-orbit"></span>
               <span className="hud-orbit small"></span>
               <span className="hud-core"></span>
+              <span className="hud-pulse one"></span>
+              <span className="hud-pulse two"></span>
+              <span className="hud-pulse three"></span>
               <div className="hud-scanline"></div>
             </div>
             <div className="hero-hud-grid">
