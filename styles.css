@@ -1348,6 +1348,30 @@ body::before {
   border-top: 0;
 }
 
+.tech-hero::before,
+.tech-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.tech-hero::before {
+  background:
+    linear-gradient(118deg, transparent 0 18%, rgba(180, 92, 255, 0.11) 18.5%, transparent 19.2% 56%, rgba(255, 79, 216, 0.08) 56.5%, transparent 57.2%),
+    linear-gradient(72deg, transparent 0 46%, rgba(124, 92, 255, 0.10) 46.4%, transparent 47.2%);
+  mix-blend-mode: screen;
+  opacity: 0.9;
+}
+
+.tech-hero::after {
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045), transparent 18%, rgba(255, 255, 255, 0.035) 72%, transparent),
+    repeating-linear-gradient(90deg, transparent 0 118px, rgba(213, 172, 255, 0.08) 119px, transparent 120px);
+  opacity: 0.34;
+}
+
 .tech-scene {
   position: absolute;
   inset: 0;
@@ -1502,7 +1526,7 @@ body::before {
   border: 1px solid rgba(213, 172, 255, 0.18);
   border-right-color: rgba(213, 172, 255, 0.06);
   border-bottom-color: rgba(213, 172, 255, 0.08);
-  border-radius: 24px;
+  border-radius: 14px;
   background:
     linear-gradient(112deg, rgba(12, 5, 22, 0.88) 0%, rgba(22, 8, 40, 0.68) 58%, rgba(22, 8, 40, 0.18) 100%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.015));
@@ -1593,6 +1617,55 @@ body::before {
   font-size: 11px;
 }
 
+.hero-reel {
+  margin-top: 14px;
+  width: min(520px, 100%);
+  min-height: 34px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 10px;
+  border: 1px solid rgba(213, 172, 255, 0.16);
+  background:
+    linear-gradient(90deg, rgba(180, 92, 255, 0.12), rgba(255, 79, 216, 0.055), transparent),
+    rgba(255, 255, 255, 0.024);
+  color: color-mix(in oklab, var(--fg-3) 72%, var(--fg));
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.hero-reel strong {
+  color: var(--signal);
+  font-size: 10.5px;
+  font-weight: 600;
+}
+
+.reel-bars {
+  height: 10px;
+  display: grid;
+  grid-template-columns: 1.3fr 0.8fr 1fr 1.6fr;
+  gap: 5px;
+  align-items: center;
+}
+
+.reel-bars i {
+  height: 2px;
+  background: linear-gradient(90deg, rgba(180, 92, 255, 0.30), rgba(255, 79, 216, 0.92), rgba(124, 92, 255, 0.38));
+  box-shadow: 0 0 16px rgba(255, 79, 216, 0.36);
+  transform-origin: left center;
+  animation: reelPulse 2.8s ease-in-out infinite;
+  animation-delay: calc(var(--i) * 180ms);
+}
+
+@keyframes reelPulse {
+  0%, 100% { opacity: 0.42; transform: scaleX(0.62); }
+  50% { opacity: 1; transform: scaleX(1); }
+}
+
 .hero-hud {
   align-self: center;
   min-height: 360px;
@@ -1625,6 +1698,101 @@ body::before {
   border-bottom: 1px solid var(--rule);
   letter-spacing: 0.04em;
   text-transform: uppercase;
+}
+
+.hud-screen {
+  min-height: 150px;
+  position: relative;
+  overflow: hidden;
+  margin: 18px 0 16px;
+  border: 1px solid rgba(213, 172, 255, 0.14);
+  background:
+    linear-gradient(135deg, rgba(180, 92, 255, 0.12), transparent 34%, rgba(255, 79, 216, 0.08)),
+    repeating-linear-gradient(0deg, transparent 0 13px, rgba(213, 172, 255, 0.06) 14px, transparent 15px),
+    rgba(10, 4, 20, 0.72);
+  box-shadow:
+    inset 0 0 40px rgba(180, 92, 255, 0.12),
+    0 18px 55px rgba(0, 0, 0, 0.25);
+}
+
+.hud-screen::before,
+.hud-screen::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+.hud-screen::before {
+  inset: 14px;
+  border: 1px solid rgba(255, 79, 216, 0.22);
+  transform: skewX(-12deg);
+}
+
+.hud-screen::after {
+  left: -20%;
+  top: 0;
+  width: 42%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.16), transparent);
+  animation: projectorSweep 4.8s ease-in-out infinite;
+}
+
+.hud-orbit,
+.hud-core {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.hud-orbit {
+  width: 112px;
+  height: 56px;
+  border: 1px solid rgba(255, 79, 216, 0.62);
+  box-shadow: 0 0 22px rgba(255, 79, 216, 0.22);
+  animation: hudOrbit 6s linear infinite;
+}
+
+.hud-orbit.small {
+  width: 76px;
+  height: 124px;
+  border-color: rgba(124, 92, 255, 0.58);
+  animation-duration: 7.5s;
+  animation-direction: reverse;
+}
+
+.hud-core {
+  width: 42px;
+  height: 42px;
+  background: linear-gradient(135deg, var(--accent), var(--signal));
+  box-shadow: 0 0 34px rgba(180, 92, 255, 0.52), 0 0 58px rgba(255, 79, 216, 0.20);
+}
+
+.hud-scanline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 18%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 79, 216, 0.84), transparent);
+  box-shadow: 0 0 18px rgba(255, 79, 216, 0.52);
+  animation: scanDrop 3.8s ease-in-out infinite;
+}
+
+@keyframes projectorSweep {
+  0%, 18% { transform: translateX(0); opacity: 0; }
+  38%, 70% { opacity: 1; }
+  100% { transform: translateX(330%); opacity: 0; }
+}
+
+@keyframes hudOrbit {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes scanDrop {
+  0%, 100% { transform: translateY(0); opacity: 0.2; }
+  50% { transform: translateY(92px); opacity: 1; }
 }
 
 .hero-hud-grid {
@@ -1858,12 +2026,69 @@ body::before {
   }
 
   .hero-hud {
-    min-height: 330px;
-    max-width: 620px;
+    display: none;
   }
 
   .tech-scene {
     min-height: 100%;
+  }
+}
+
+@media (max-height: 760px) and (min-width: 981px) {
+  .tech-hero {
+    min-height: 88svh;
+    padding-top: 28px;
+    padding-bottom: 22px;
+  }
+
+  .hero-grid {
+    min-height: clamp(350px, 50svh, 430px);
+  }
+
+  .hero-copy {
+    padding: 20px 24px 22px;
+  }
+
+  .hero h1 {
+    font-size: clamp(42px, 5vw, 64px);
+    line-height: 0.94;
+  }
+
+  .hero-sub {
+    font-size: 15px;
+    margin-top: 18px;
+    margin-bottom: 18px;
+  }
+
+  .hero-tech-tags {
+    display: none;
+  }
+
+  .hero-reel {
+    margin-top: 12px;
+  }
+
+  .hero-hud {
+    min-height: 318px;
+    padding: 18px;
+  }
+
+  .hud-screen {
+    min-height: 96px;
+    margin: 14px 0 12px;
+  }
+
+  .hero-hud-grid > div {
+    min-height: 58px;
+    padding: 10px;
+  }
+
+  .hero-hud-grid strong {
+    font-size: 24px;
+  }
+
+  .hud-terminal {
+    display: none;
   }
 }
 
@@ -1953,7 +2178,11 @@ body::before {
   .tech-scene-fallback,
   .strip-track,
   .status-dot,
-  .blink {
+  .blink,
+  .reel-bars i,
+  .hud-screen::after,
+  .hud-orbit,
+  .hud-scanline {
     animation: none;
   }
 }

@@ -36,6 +36,7 @@ function Hero() {
     "internal tools", "business websites", "n8n workflows", "hubspot systems",
     "data hygiene", "quote engines", "operator dashboards"
   ];
+  const reelSteps = ["capture", "route", "assist", "report"];
 
   return (
     <section id="top" className="hero tech-hero" data-screen-label="01 hero">
@@ -79,12 +80,28 @@ function Hero() {
                 <span key={tag}>{tag}</span>
               ))}
             </div>
+
+            <div className="hero-reel" aria-hidden="true">
+              <span>systems presentation</span>
+              <div className="reel-bars">
+                {reelSteps.map((step, index) => (
+                  <i key={step} style={{ "--i": index }}></i>
+                ))}
+              </div>
+              <strong>v2.1</strong>
+            </div>
           </div>
 
           <aside className="hero-hud" aria-label="live system preview">
             <div className="hero-hud-head">
-              <span>operating system mesh</span>
+              <span>presentation feed</span>
               <span className="blink">live</span>
+            </div>
+            <div className="hud-screen">
+              <span className="hud-orbit"></span>
+              <span className="hud-orbit small"></span>
+              <span className="hud-core"></span>
+              <div className="hud-scanline"></div>
             </div>
             <div className="hero-hud-grid">
               <div>
@@ -114,9 +131,9 @@ function Hero() {
               <span>dashboard</span>
             </div>
             <div className="hud-terminal">
-              <span>&gt; sync schema</span>
-              <span>&gt; score inbound lead</span>
-              <span>&gt; route to owner</span>
+              <span>&gt; frame customer journey</span>
+              <span>&gt; animate operational logic</span>
+              <span>&gt; publish decision layer</span>
             </div>
           </aside>
         </div>
