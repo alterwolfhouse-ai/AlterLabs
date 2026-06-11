@@ -1,0 +1,31 @@
+{
+  "posts": [
+    {
+      "slug": "systems-before-screens",
+      "title": "Start with the system before the screen",
+      "category": "studio notes",
+      "date": "2026-05-08",
+      "readTime": "5 min",
+      "summary": "A practical way to turn a vague website or CRM request into entities, workflows and decisions your team can build around.",
+      "tags": ["systems", "discovery", "schema"]
+    },
+    {
+      "slug": "lead-pipeline-that-does-not-leak",
+      "title": "Designing a lead pipeline that does not leak",
+      "category": "crm",
+      "date": "2026-04-28",
+      "readTime": "7 min",
+      "summary": "How we model forms, qualification states, reminders and owner handoffs so sales teams stop losing high-intent enquiries.",
+      "tags": ["crm", "automation", "sales"]
+    },
+    {
+      "slug": "dashboards-need-operators",
+      "title": "Dashboards need operators, not just charts",
+      "category": "dashboards",
+      "date": "2026-04-10",
+      "readTime": "6 min",
+      "summary": "Why operational dashboards work best when they map ownership, review cadence and escalation paths.",
+      "tags": ["dashboards", "ops", "review"]
+    }
+  ]
+}

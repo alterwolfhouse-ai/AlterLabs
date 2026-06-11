@@ -1,12 +1,12 @@
 const { useEffect: useEffectApp } = React;
 
 const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
-  "theme": "light",
-  "accent": "#c25b32",
+  "theme": "dark",
+  "accent": "#b45cff",
   "type": "geist"
 }/*EDITMODE-END*/;
 
-const ACCENT_OPTIONS = ["#c25b32", "#3a4a6b", "#3f7a55", "#2f63b5", "#c98a2b"];
+const ACCENT_OPTIONS = ["#b45cff", "#ff4fd8", "#7c5cff", "#d36cff", "#5f6cff"];
 
 const TYPES = {
   geist:    { sans: "'Geist', system-ui, sans-serif",        mono: "'Geist Mono', ui-monospace, monospace" },

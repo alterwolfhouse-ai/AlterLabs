@@ -1,0 +1,31 @@
+{
+  "guides": [
+    {
+      "slug": "business-system-brief",
+      "title": "Business system brief",
+      "category": "template",
+      "date": "2026-05-01",
+      "readTime": "12 min",
+      "summary": "A field-by-field brief for scoping websites, CRMs, dashboards and automations before design starts.",
+      "tags": ["brief", "planning", "template"]
+    },
+    {
+      "slug": "crm-readiness-checklist",
+      "title": "CRM readiness checklist",
+      "category": "checklist",
+      "date": "2026-04-22",
+      "readTime": "9 min",
+      "summary": "A checklist for deciding whether your team needs a spreadsheet cleanup, a lightweight CRM or a custom pipeline system.",
+      "tags": ["crm", "checklist", "sales"]
+    },
+    {
+      "slug": "automation-map",
+      "title": "Automation map",
+      "category": "worksheet",
+      "date": "2026-04-16",
+      "readTime": "10 min",
+      "summary": "A workflow map for connecting triggers, owners, tools, fallback states and reporting outputs.",
+      "tags": ["automation", "workflow", "ops"]
+    }
+  ]
+}
