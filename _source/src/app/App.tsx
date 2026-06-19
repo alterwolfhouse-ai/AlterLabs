@@ -872,9 +872,9 @@ type Product = {
   unit?: string;
   delivery: string;
   features: string[];
-  contentAngle: string;
-  blogTopic: string;
-  seoFocus: string;
+  customerOutcome: string;
+  bestFor: string;
+  purchaseNote: string;
   highlight?: boolean;
   accentColor: string;
   badge?: string;
@@ -889,9 +889,9 @@ const products: Product[] = [
     accentColor: "#3b82f6",
     badge: "Best for New Businesses",
     features: ["1-page business website", "Domain + hosting for 1 year", "Mobile responsive design", "Basic SEO setup", "WhatsApp lead button", "Google Map integration"],
-    contentAngle: "Tell buyers what you do, where you serve and how to enquire.",
-    blogTopic: "Why every local business needs a one-page website before ads",
-    seoFocus: "business website, local service page",
+    customerOutcome: "Launch a credible online presence and turn local interest into calls or WhatsApp enquiries.",
+    bestFor: "New businesses, local services and professionals that need to go live quickly.",
+    purchaseNote: "A focused one-page launch with the essentials included.",
   },
   {
     icon: <Monitor size={22} />,
@@ -902,9 +902,9 @@ const products: Product[] = [
     accentColor: "#7c3aed",
     badge: "Most Popular",
     features: ["Up to 5 pages", "Premium design", "Lead form + WhatsApp", "Basic CRM-ready lead flow", "Contact page", "Service/product sections"],
-    contentAngle: "Turn services, proof and FAQs into pages that route leads cleanly.",
-    blogTopic: "How a service website becomes a simple lead system",
-    seoFocus: "service pages, lead generation website",
+    customerOutcome: "Explain your services clearly and route every enquiry into one follow-up path.",
+    bestFor: "Growing service teams that need multiple pages, lead capture and CRM readiness.",
+    purchaseNote: "The best balance of credibility, lead generation and future scalability.",
   },
   {
     icon: <ShoppingBag size={22} />,
@@ -913,9 +913,9 @@ const products: Product[] = [
     delivery: "5–7 days",
     accentColor: "#f59e0b",
     features: ["Product listing website", "Up to 20 products", "Cart / WhatsApp order flow", "Payment gateway guidance", "Mobile friendly", "Basic SEO + analytics"],
-    contentAngle: "Write product listings with buying reasons, FAQs and WhatsApp order prompts.",
-    blogTopic: "How to launch a small e-commerce catalog without overbuilding",
-    seoFocus: "product descriptions, e-commerce SEO",
+    customerOutcome: "Show products clearly and let customers order through a cart or WhatsApp flow.",
+    bestFor: "Small catalogs and businesses starting online sales without a complex store.",
+    purchaseNote: "Start with up to 20 products and expand after validating demand.",
   },
   {
     icon: <Target size={22} />,
@@ -925,9 +925,9 @@ const products: Product[] = [
     accentColor: "#10b981",
     badge: "High Converting",
     features: ["High-converting landing page", "Lead capture form", "WhatsApp CTA", "Fast loading design", "Ad campaign tracking ready"],
-    contentAngle: "Focus one offer, one proof path and one clear conversion action.",
-    blogTopic: "What makes a landing page convert paid traffic",
-    seoFocus: "landing page copy, offer page",
+    customerOutcome: "Turn paid clicks into one focused enquiry, booking or purchase action.",
+    bestFor: "Meta or Google campaigns promoting one offer to one audience.",
+    purchaseNote: "A fast-loading campaign page with tracking-ready lead capture.",
   },
   {
     icon: <Facebook size={22} />,
@@ -936,9 +936,9 @@ const products: Product[] = [
     delivery: "1–2 days",
     accentColor: "#3b82f6",
     features: ["Campaign setup", "Audience targeting", "Creative direction", "Lead form setup", "Pixel guidance", "Ad copywriting"],
-    contentAngle: "Convert the offer into hooks, captions and lead-form prompts.",
-    blogTopic: "Meta ad copy angles for local service businesses",
-    seoFocus: "ad copy, social campaign content",
+    customerOutcome: "Reach the right local audience with a campaign structured to generate enquiries.",
+    bestFor: "Service businesses starting or restructuring Meta lead campaigns.",
+    purchaseNote: "Includes campaign setup, targeting, lead form and ad copy.",
   },
   {
     icon: <Search size={22} />,
@@ -947,9 +947,9 @@ const products: Product[] = [
     delivery: "1–2 days",
     accentColor: "#ea4335",
     features: ["Keyword research", "Campaign setup", "Ad copy", "Location targeting", "Call extension", "Lead tracking guidance"],
-    contentAngle: "Match search intent with direct headlines and service-specific copy.",
-    blogTopic: "How Google Search Ads should match your website content",
-    seoFocus: "search intent, Google Ads copy",
+    customerOutcome: "Appear when buyers actively search for your service in the target location.",
+    bestFor: "High-intent local services with clear keywords and service areas.",
+    purchaseNote: "Includes keyword research, ad copy and tracking guidance.",
   },
   {
     icon: <Image size={22} />,
@@ -959,9 +959,9 @@ const products: Product[] = [
     delivery: "24 hours",
     accentColor: "#ec4899",
     features: ["Instagram/Facebook posts", "Offer creatives", "Business announcements", "Festival creatives", "Ad-ready creatives"],
-    contentAngle: "Package offers into visual post copy, captions and campaign variants.",
-    blogTopic: "Social creative ideas that support website enquiries",
-    seoFocus: "social captions, creative copy",
+    customerOutcome: "Keep offers, announcements and campaigns visually consistent and ready to publish.",
+    bestFor: "Businesses needing social posts, promotional graphics or ad creatives.",
+    purchaseNote: "Flexible creative packs starting from ₹999.",
   },
   {
     icon: <FileText size={22} />,
@@ -972,9 +972,9 @@ const products: Product[] = [
     accentColor: "#c084fc",
     badge: "Copy + SEO",
     features: ["Website copy blocks", "Service descriptions", "SEO titles + meta descriptions", "Blog / guide draft", "Ad and social captions", "Human review ready"],
-    contentAngle: "Create reusable content blocks for web pages, ads, captions and guides.",
-    blogTopic: "How content generation supports a sales website",
-    seoFocus: "website copy, blog content, SEO metadata",
+    customerOutcome: "Turn your expertise into clear website, blog, advertising and social content.",
+    bestFor: "Teams that understand their offer but need consistent content production.",
+    purchaseNote: "Human-reviewed drafts aligned with your real service and audience.",
   },
   {
     icon: <Wrench size={22} />,
@@ -984,9 +984,9 @@ const products: Product[] = [
     delivery: "Ongoing",
     accentColor: "#6366f1",
     features: ["10 website updates/year", "Content changes", "Image updates", "Offer changes", "Basic support + checks"],
-    contentAngle: "Keep pages fresh with new offers, proof, FAQs and seasonal updates.",
-    blogTopic: "Why website maintenance should include content updates",
-    seoFocus: "website updates, fresh content",
+    customerOutcome: "Keep your website accurate, current and conversion-ready throughout the year.",
+    bestFor: "Businesses that need regular text, image and offer changes.",
+    purchaseNote: "Includes 10 planned updates plus basic support and checks.",
   },
   {
     icon: <RefreshCw size={22} />,
@@ -996,9 +996,9 @@ const products: Product[] = [
     delivery: "Same day",
     accentColor: "#14b8a6",
     features: ["Text / image / section update", "Offer change", "Small content correction"],
-    contentAngle: "Patch the exact section that is blocking clarity or conversion.",
-    blogTopic: "Small website updates that improve enquiries quickly",
-    seoFocus: "website content update, section refresh",
+    customerOutcome: "Fix one important text, image, offer or section without a maintenance plan.",
+    bestFor: "Small same-day changes with a clear and contained scope.",
+    purchaseNote: "Useful for urgent corrections, new offers or seasonal updates.",
   },
 ];
 
@@ -1067,7 +1067,7 @@ function PriceCard({ p }: { p: Product }) {
       </ul>
 
       <div
-        className="rounded-2xl p-3.5 space-y-3"
+        className="rounded-xl p-3.5 space-y-3"
         style={{
           background: `linear-gradient(145deg, ${p.accentColor}12, rgba(3,5,15,0.28))`,
           border: `1px solid ${p.accentColor}22`,
@@ -1076,20 +1076,20 @@ function PriceCard({ p }: { p: Product }) {
       >
         <div className="flex items-center gap-2">
           <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg" style={{ background: `${p.accentColor}18`, color: p.accentColor }}>
-            <FileText size={13} />
+            <TrendingUp size={13} />
           </div>
           <div>
-            <div className="text-[9px] uppercase tracking-[0.18em] text-blue-200/35">Content / Blog</div>
-            <div className="text-[11px] font-semibold leading-snug text-blue-50/78">{p.contentAngle}</div>
+            <div className="text-[9px] uppercase tracking-[0.18em] text-blue-200/35">What this helps you achieve</div>
+            <div className="text-[11px] font-semibold leading-snug text-blue-50/78">{p.customerOutcome}</div>
           </div>
         </div>
         <div className="rounded-xl px-3 py-2" style={{ background: "rgba(255,255,255,0.035)" }}>
-          <div className="text-[9px] uppercase tracking-[0.16em] text-blue-200/28">Blog angle</div>
-          <div className="mt-1 text-[11px] leading-snug text-blue-100/62">{p.blogTopic}</div>
+          <div className="text-[9px] uppercase tracking-[0.16em] text-blue-200/28">Best for</div>
+          <div className="mt-1 text-[11px] leading-snug text-blue-100/62">{p.bestFor}</div>
         </div>
         <div className="flex items-center gap-2 text-[10px] text-blue-200/45">
-          <Search size={11} style={{ color: p.accentColor }} />
-          <span>SEO focus: {p.seoFocus}</span>
+          <Shield size={11} style={{ color: p.accentColor }} />
+          <span>{p.purchaseNote}</span>
         </div>
       </div>
 
@@ -1102,7 +1102,7 @@ function PriceCard({ p }: { p: Product }) {
           : { background: `${p.accentColor}14`, color: p.accentColor, border: `1px solid ${p.accentColor}28` }
         }
       >
-        <MessageCircle size={12} /> Get This Now
+        <MessageCircle size={12} /> Ask About This Package
       </a>
     </div>
   );
@@ -1122,15 +1122,15 @@ function Pricing() {
             Clear Products, Real Prices
           </h2>
           <p className="text-blue-200/45 max-w-xl mx-auto text-sm leading-relaxed">
-            The new offer stack keeps entry pricing simple while the systems section explains how we scale into content generation, CRM, dashboards, automation and AI.
+            Choose a straightforward starting package with a clear price, delivery window and outcome. Add CRM, content or automation only when the business needs it.
           </p>
         </div>
 
         <div className="mb-8 grid gap-3 md:grid-cols-3">
           {[
-            { icon: <PenTool size={15} />, title: "Offer copy", body: "Each product starts with clear page copy, CTA language and buyer objections." },
-            { icon: <FileText size={15} />, title: "Blog angle", body: "Every card now carries a blog idea that can become a guide, post or SEO page." },
-            { icon: <Search size={15} />, title: "SEO hook", body: "The content layer points each product toward a useful search theme." },
+            { icon: <Check size={15} />, title: "Clear scope", body: "Know what is included, how long delivery takes and what the package costs before work starts." },
+            { icon: <Target size={15} />, title: "Built to convert", body: "Every package gives customers a simple path to call, WhatsApp, enquire or purchase." },
+            { icon: <TrendingUp size={15} />, title: "Ready to grow", body: "Start with what you need today and connect CRM, content or automation as the business grows." },
           ].map((item) => (
             <div key={item.title} className="rounded-2xl p-4" style={{ ...glass, boxShadow: "0 8px 30px rgba(0,0,0,0.24)" }}>
               <div className="mb-2 flex items-center gap-2 text-blue-100">

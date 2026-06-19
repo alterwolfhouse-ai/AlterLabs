@@ -25,8 +25,16 @@ for (const file of pageFiles) {
 }
 
 const index = read("index.html");
-for (const required of ["CRM Automation & Business Websites", "Organization", "index-OqW8pOQS.css", "index-ma6Q4X-d.js"]) {
+for (const required of ["CRM Automation & Business Websites", "Organization", "index-OqW8pOQS.css", "index-B7kifHb5.js"]) {
   if (!index.includes(required)) errors.push(`index.html: missing ${required}`);
+}
+
+const homepageBundle = read("assets/index-B7kifHb5.js");
+for (const forbidden of ["Content / Blog", "Blog angle", "SEO focus:", "Offer copy"]) {
+  if (homepageBundle.includes(forbidden)) errors.push(`homepage bundle: internal label still visible (${forbidden})`);
+}
+for (const required of ["What this helps you achieve", "Clear scope", "Built to convert", "Ready to grow"]) {
+  if (!homepageBundle.includes(required)) errors.push(`homepage bundle: missing customer-facing copy (${required})`);
 }
 
 const sitemap = read("sitemap.xml");
