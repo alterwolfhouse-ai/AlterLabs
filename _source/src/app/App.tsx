@@ -1504,13 +1504,16 @@ function Resources() {
     <section id="resources" className="py-24 relative" style={{ background: "linear-gradient(180deg, transparent 0%, rgba(8,15,40,0.35) 52%, transparent 100%)" }}>
       <div className="max-w-7xl mx-auto px-5 md:px-10">
         <div className="text-center mb-14">
-          <SectionTag color="#60a5fa">Guides & Notes</SectionTag>
+          <SectionTag color="#60a5fa">Guides & Insights</SectionTag>
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-3" style={{ fontFamily: "'Rajdhani', sans-serif" }}>
-            Keep the old knowledge base, <GradText from="#60a5fa" to="#a78bfa">inside the new design</GradText>
+            Make better system decisions <GradText from="#60a5fa" to="#a78bfa">before you buy tools</GradText>
           </h2>
           <p className="text-blue-200/45 max-w-xl mx-auto text-sm leading-relaxed">
-            The original AlterLabs guides and blog posts stay available for teams evaluating CRM, automation, dashboards and system design.
+            Practical, customer-facing guidance for evaluating CRM, automation, dashboards, websites and responsible AI workflows.
           </p>
+          <a href="/insights/" className="mt-6 inline-flex items-center gap-2 rounded-xl border border-purple-300/20 bg-purple-400/10 px-5 py-3 text-sm font-bold text-purple-100 transition-colors hover:bg-purple-400/20">
+            Explore all insights <ExternalLink size={14} />
+          </a>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -1717,6 +1720,9 @@ function Footer() {
               </a>
               <a href={PHONE} className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold" style={{ ...glass, color: "#93c5fd" }}>
                 <Phone size={12} /> Call
+              </a>
+              <a href="/insights/" className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold" style={{ ...glass, color: "#c4b5fd" }}>
+                <ExternalLink size={12} /> Insights
               </a>
             </div>
           </div>

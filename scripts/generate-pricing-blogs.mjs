@@ -198,6 +198,7 @@ function articleHtml(article) {
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>${escapeHtml(article.title)} | AlterLabs</title>
 <meta name="description" content="${escapeHtml(article.description)}" />
+<meta name="robots" content="index, follow" />
 <link rel="canonical" href="${canonical}" />
 <link rel="stylesheet" href="../styles.css" />
 <script type="application/ld+json">

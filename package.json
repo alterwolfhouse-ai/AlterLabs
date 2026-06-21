@@ -5,7 +5,10 @@
   "description": "Alter Labs studio site with a small JSON-backed backend.",
   "scripts": {
     "start": "node server.js",
-    "dev": "node server.js"
+    "dev": "node server.js",
+    "generate:insights": "node scripts/generate-insights.mjs",
+    "generate:pricing": "node scripts/generate-pricing-blogs.mjs",
+    "validate": "node scripts/validate-site.mjs"
   },
   "engines": {
     "node": ">=18"
