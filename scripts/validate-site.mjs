@@ -38,6 +38,7 @@ const legacyInsightFiles = blogFiles.filter((file) => ![
 ].some((name) => file.endsWith(name)));
 const expansionPageFiles = [
   "audit/system-audit.html",
+  "bns/index.html",
   "proof/index.html",
   "industries/interior-design-crm-website.html",
   "industries/real-estate-whatsapp-lead-follow-up.html",
@@ -106,7 +107,9 @@ for (const required of [
   "Find the right path",
   "/insights/#missed-leads",
   "Run system audit",
-  "/audit/system-audit.html"
+  "/audit/system-audit.html",
+  "Business Network System",
+  "/bns/"
 ]) {
   if (!homepageBundle.includes(required)) errors.push(`homepage bundle: missing customer-facing copy (${required})`);
 }
@@ -126,6 +129,13 @@ if (fs.existsSync(path.join(root, "proof/index.html"))) {
   const proof = read("proof/index.html");
   for (const required of ["Proof library", "Proof signals before you decide", "No invented case studies"]) {
     if (!proof.includes(required)) errors.push(`proof/index.html: missing ${required}`);
+  }
+}
+
+if (fs.existsSync(path.join(root, "bns/index.html"))) {
+  const bns = read("bns/index.html");
+  for (const required of ["Business Network System", "AI will not replace your business. Businesses with AI will.", "BNS maturity ladder", "Start with a BNS audit"]) {
+    if (!bns.includes(required)) errors.push(`bns/index.html: missing ${required}`);
   }
 }
 
@@ -180,10 +190,11 @@ for (const file of blogFiles) {
   if (!sitemap.includes(`https://alterlabs.in/${file.replaceAll("\\", "/")}`)) errors.push(`sitemap.xml: missing ${file}`);
 }
 for (const file of expansionPageFiles) {
-  if (!sitemap.includes(`https://alterlabs.in/${file.replaceAll("\\", "/")}`)) errors.push(`sitemap.xml: missing ${file}`);
+  const expected = file === "bns/index.html" ? "https://alterlabs.in/bns/" : `https://alterlabs.in/${file.replaceAll("\\", "/")}`;
+  if (!sitemap.includes(expected)) errors.push(`sitemap.xml: missing ${file}`);
 }
 if (!sitemap.includes("https://alterlabs.in/insights/")) errors.push("sitemap.xml: missing insights hub");
-if (!sitemap.includes("<loc>https://alterlabs.in/</loc>\n    <lastmod>2026-06-23</lastmod>")) errors.push("sitemap.xml: homepage lastmod is stale");
+if (!sitemap.includes("<loc>https://alterlabs.in/</loc>\n    <lastmod>2026-06-24</lastmod>")) errors.push("sitemap.xml: homepage lastmod is stale");
 
 console.log(JSON.stringify({ growthPages: pageFiles.length, blogPages: blogFiles.length, legacyInsights: legacyInsightFiles.length, expansionPages: expansionPageFiles.length, errors }, null, 2));
 if (errors.length) process.exitCode = 1;

@@ -272,6 +272,7 @@ function FloatCard({ children, style, delay = "0s" }: {
 function Nav() {
   const links = [
     { label: "Audit", short: "Audit", href: "/audit/system-audit.html", icon: <Search size={15} /> },
+    { label: "BNS", short: "BNS", href: "/bns/", icon: <Layers size={15} /> },
     { label: "Pricing", short: "Price", href: "#products", icon: <ShoppingBag size={15} /> },
     { label: "Systems", short: "Systems", href: "#systems", icon: <Cpu size={15} /> },
     { label: "Industries", short: "Use", href: "/industries/interior-design-crm-website.html", icon: <Users size={15} /> },
@@ -655,6 +656,13 @@ function CoreOffers() {
       icon: <Globe size={18} />,
     },
     {
+      href: "/bns/",
+      title: "BNS: Business Network System",
+      body: "Connect website, CRM, WhatsApp, content, dashboards, automation and AI into one operating network.",
+      color: "#a78bfa",
+      icon: <Layers size={18} />,
+    },
+    {
       href: "/services/workflow-automation-india.html",
       title: "Workflow automation",
       body: "Connect forms, WhatsApp, email, CRM and internal approvals without losing human control.",
@@ -683,7 +691,7 @@ function CoreOffers() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-4">
           {offers.map((offer) => (
             <a key={offer.href} href={offer.href} data-analytics-event="service_page_cta_click" className="group block rounded-lg border p-5 transition-transform hover:-translate-y-1" style={{ ...glass, borderColor: `${offer.color}38` }}>
               <span className="mb-5 flex h-10 w-10 items-center justify-center rounded-lg" style={{ color: offer.color, background: `${offer.color}18` }}>
@@ -700,6 +708,7 @@ function CoreOffers() {
         <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-3 text-sm text-blue-100/80">
           <span className="font-bold text-white">Common problems:</span>
           <a className="font-semibold text-purple-300 hover:text-white" href="/audit/system-audit.html" data-analytics-event="audit_page_click">System audit</a>
+          <a className="font-semibold text-purple-300 hover:text-white" href="/bns/">Business Network System</a>
           <a className="font-semibold text-purple-300 hover:text-white" href="/solutions/whatsapp-lead-follow-up-automation.html">WhatsApp lead follow-up</a>
           <a className="font-semibold text-purple-300 hover:text-white" href="/solutions/missed-lead-follow-up-service-businesses.html">Missed lead recovery</a>
           <a className="font-semibold text-purple-300 hover:text-white" href="/proof/">Proof signals</a>
@@ -770,6 +779,13 @@ function SystemsSignalGraphic() {
 
 function SystemsStack() {
   const layers = [
+    {
+      icon: <Layers size={20} />,
+      title: "Business Network System",
+      body: "The connected layer across website, CRM, WhatsApp, content, dashboards, automation and AI so the business runs as one network.",
+      tags: ["BNS", "AI-ready", "system"],
+      color: "#a78bfa",
+    },
     {
       icon: <Globe size={20} />,
       title: "Conversion website development",
@@ -1485,6 +1501,7 @@ function WhyAlterLabs() {
 
 function Resources() {
   const systemLinks = [
+    { title: "Build a Business Network System", href: "/bns/", desc: "Connect website, CRM, WhatsApp, content, dashboards, automation and AI into one operating layer.", color: "#a78bfa", icon: <Layers size={15} /> },
     { title: "Run the system audit", href: "/audit/system-audit.html", desc: "Send a structured brief about lead sources, tools, leaks, urgency and budget.", color: "#c084fc", icon: <Search size={15} /> },
     { title: "Review proof signals", href: "/proof/", desc: "See the operating evidence we use: handoffs, dashboards, fallback paths and human review.", color: "#60a5fa", icon: <Shield size={15} /> },
     { title: "Interior business path", href: "/industries/interior-design-crm-website.html", desc: "A customer journey for interiors, furniture and home-service lead operations.", color: "#ec4899", icon: <Palette size={15} /> },
@@ -1529,7 +1546,7 @@ function Resources() {
           </a>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-12">
           {systemLinks.map((item) => (
             <a key={item.href} href={item.href} className="block" data-analytics-event={item.href.includes("/audit/") ? "audit_page_click" : "service_page_cta_click"}>
               <GlowCard color={item.color} className="p-4 h-full flex flex-col gap-3">
@@ -1731,6 +1748,7 @@ function FAQ() {
 
 function Footer() {
   const footerServices = [
+    ["BNS", "/bns/"],
     ["Websites", "/services/business-website-development-india.html"],
     ["Landing Pages", "/blog/landing-page-price-2999-india.html"],
     ["Content Generation", "/blog/content-generation-price-1999-india.html"],

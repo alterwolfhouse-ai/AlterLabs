@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const site = "https://alterlabs.in";
-const modified = "2026-06-23";
+const modified = "2026-06-24";
 const phone = "tel:+918826436093";
 const whatsappBase = "https://wa.me/918826436093";
 const whatsapp = `${whatsappBase}?text=Hi%20AlterLabs%2C%20I%20want%20a%20system%20audit%20for%20my%20business`;
@@ -76,11 +76,16 @@ function pageSchema(page, url) {
   };
 }
 
+function pageUrl(page) {
+  return `${site}/${page.urlPath || `${page.dir}/${page.file}`}`;
+}
+
 function topbar(label = "System page navigation") {
   return `<header class="service-topbar">
     <a href="/" class="service-brand" aria-label="AlterLabs home"><span>AL</span><strong>AlterLabs</strong></a>
     <nav aria-label="${escapeHtml(label)}">
       <a href="/audit/system-audit.html">Audit</a>
+      <a href="/bns/">BNS</a>
       <a href="/proof/">Proof</a>
       <a href="/industries/interior-design-crm-website.html">Industries</a>
       <a href="/insights/">Insights</a>
@@ -90,7 +95,7 @@ function topbar(label = "System page navigation") {
 }
 
 function layout(page, body) {
-  const url = `${site}/${page.dir}/${page.file}`;
+  const url = pageUrl(page);
   const schema = pageSchema(page, url);
   return `<!doctype html>
 <html lang="en-IN" data-theme="dark">
@@ -316,6 +321,20 @@ const proofPage = {
   schemaType: "CollectionPage"
 };
 
+const bnsPage = {
+  dir: "bns",
+  file: "index.html",
+  urlPath: "bns/",
+  group: "BNS",
+  title: "Business Network System (BNS) for AI-Ready Service Businesses | AlterLabs",
+  h1: "AI will not replace your business. Businesses with AI will.",
+  eyebrow: "Business Network System",
+  summary: "BNS is the connected operating layer around your website, CRM, WhatsApp, content, dashboards, automation and AI. It helps a service business stop depending on scattered tools and start running from one visible network.",
+  description: "AlterLabs Business Network System (BNS) connects website, CRM, WhatsApp, content, dashboards, workflow automation and AI into one operating network for service businesses.",
+  navLabel: "BNS navigation",
+  schemaType: "Service"
+};
+
 function renderProofPage() {
   const body = `${hero(proofPage, processVisual(["Map", "Build", "Check", "Operate"]))}
     <article class="article-body service-article">
@@ -358,6 +377,102 @@ function renderProofPage() {
     </article>
   </main>`;
   return layout(proofPage, body);
+}
+
+function renderBnsPage() {
+  const body = `${hero(bnsPage, processVisual(["Attract", "Capture", "Route", "Decide", "Improve"]))}
+    <article class="article-body service-article">
+      <section>
+        <p class="article-kicker">What BNS means</p>
+        <h2>A Business Network System is not one app</h2>
+        <p>A website can attract attention. A CRM can hold records. WhatsApp can start conversations. AI can summarize, classify and draft. But none of those tools help much when they operate as separate islands.</p>
+        <p>BNS is the operating network that joins them: buyer intent enters through content, ads, referrals or search; enquiries are captured with source context; leads are routed to owners; follow-up becomes visible; dashboards show what needs attention; AI supports the team without silently making risky decisions.</p>
+        <div class="evidence-strip">
+          <span>Website demand</span>
+          <span>CRM ownership</span>
+          <span>WhatsApp follow-up</span>
+          <span>Content engine</span>
+          <span>AI-assisted operations</span>
+        </div>
+      </section>
+
+      <section>
+        <h2>Why businesses with AI will win</h2>
+        ${cards([
+          { kicker: "Not replacement", title: "AI does not fix a broken process", body: "If leads are scattered, fields are missing and ownership is unclear, AI only makes the confusion move faster." },
+          { kicker: "Network advantage", title: "AI becomes useful when context is connected", body: "The model needs clean records, source history, approved actions and a place where humans can review sensitive decisions." },
+          { kicker: "Speed plus control", title: "The business stays human where judgment matters", body: "AI can classify, summarize, draft and alert while pricing, complaints, promises and exceptions stay human-reviewed." },
+          { kicker: "Compounding asset", title: "Every interaction improves the operating system", body: "Content, CRM notes, follow-up outcomes and dashboards become a learning loop instead of forgotten activity." }
+        ], "proof-grid")}
+      </section>
+
+      <section class="service-proof-band">
+        <p class="article-kicker">Upsell path</p>
+        <h2>Start with one connected revenue path, then scale the network</h2>
+        <p>The first BNS release should connect one high-value path: a service page or campaign, a lead capture route, CRM ownership, follow-up reminders and a dashboard view. Once that path works, AlterLabs can add content generation, AI triage, internal tools, decision notifications and deeper automation.</p>
+      </section>
+
+      <section>
+        <h2>What AlterLabs builds inside BNS</h2>
+        ${cards([
+          { kicker: "Demand layer", title: "Website, landing pages and content", body: "Pages, guides, pricing explanations and offer copy that help buyers understand the service before they contact you." },
+          { kicker: "Capture layer", title: "Forms, WhatsApp and source tracking", body: "Every enquiry keeps useful context: page, campaign, buyer question, urgency and the route it came from." },
+          { kicker: "CRM layer", title: "Ownership and follow-up pipeline", body: "A practical pipeline where each lead has a stage, owner, next action and recovery path." },
+          { kicker: "Automation layer", title: "Reminders, alerts and handoffs", body: "Repeatable work moves automatically, but sensitive decisions stay visible and reviewable." },
+          { kicker: "AI layer", title: "Assistants for triage, drafts and summaries", body: "AI supports staff with classification, summaries, content ideas and response drafts after the business rules are clear." },
+          { kicker: "Dashboard layer", title: "Daily operating visibility", body: "Owners see stuck leads, ageing pipeline, source quality, follow-up gaps and the actions that matter today." }
+        ])}
+      </section>
+
+      <section>
+        <h2>The BNS maturity ladder</h2>
+        <div class="service-step-grid">
+          <div class="service-step"><strong>01</strong><h3>Visible</h3><p>Every lead source, page, inbox and owner is mapped.</p></div>
+          <div class="service-step"><strong>02</strong><h3>Owned</h3><p>Every enquiry has one owner and a dated next action.</p></div>
+          <div class="service-step"><strong>03</strong><h3>Automated</h3><p>Routine reminders, routing and alerts reduce manual chasing.</p></div>
+          <div class="service-step"><strong>04</strong><h3>AI-assisted</h3><p>AI helps classify, draft and summarize with review controls.</p></div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Who should consider BNS</h2>
+        <div class="service-checklist">
+          <div><span aria-hidden="true">&#10003;</span>You already get leads, but follow-up depends on memory or personal WhatsApp chats.</div>
+          <div><span aria-hidden="true">&#10003;</span>Your website, ads, content, CRM and dashboard do not speak to each other.</div>
+          <div><span aria-hidden="true">&#10003;</span>You want to use AI, but you do not want it sending risky messages or changing records blindly.</div>
+          <div><span aria-hidden="true">&#10003;</span>You need a practical growth system before spending more on traffic, staff or software.</div>
+        </div>
+      </section>
+
+      <section>
+        <h2>How a BNS engagement starts</h2>
+        <div class="rollout-grid">
+          <div><b>Week 1</b><h3>Network audit</h3><p>Map lead sources, pages, WhatsApp flows, CRM stages, owners, dashboard gaps and the first AI-safe use case.</p></div>
+          <div><b>Weeks 2-3</b><h3>First connected path</h3><p>Build or repair one revenue path with capture, routing, follow-up, reporting and a clear handoff note.</p></div>
+          <div><b>Weeks 4+</b><h3>Scale modules</h3><p>Add content generation, AI triage, internal tools, decision notifications or deeper automation only after the path proves useful.</p></div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Related implementation paths</h2>
+        ${links([
+          ["Run the system audit", "/audit/system-audit.html"],
+          ["CRM automation services", "/services/crm-automation-india.html"],
+          ["AI workflow automation with human review", "/systems/ai-workflow-automation-human-review.html"],
+          ["Decision notification system", "/systems/decision-notification-system.html"]
+        ])}
+      </section>
+
+      <section class="service-cta">
+        <p class="article-kicker">Build the network before scaling spend</p>
+        <h2>Show us the current path from first click to follow-up.</h2>
+        <p>AlterLabs will identify the first BNS release that can connect your website, CRM, WhatsApp, dashboard and AI support without overbuilding.</p>
+        <a class="btn primary" href="/audit/system-audit.html" data-analytics-event="audit_page_click">Start with a BNS audit</a>
+        <a class="btn ghost" href="${whatsappBase}?text=Hi%20AlterLabs%2C%20I%20want%20to%20discuss%20BNS%20for%20my%20business" data-analytics-event="whatsapp_click">Discuss BNS on WhatsApp</a>
+      </section>
+    </article>
+  </main>`;
+  return layout(bnsPage, body);
 }
 
 const industryPages = [
@@ -515,21 +630,22 @@ function updateSitemap(pages) {
   let sitemap = fs.readFileSync(sitemapPath, "utf8");
   sitemap = sitemap.replace(/<loc>https:\/\/alterlabs\.in\/<\/loc>\s*<lastmod>[^<]+<\/lastmod>/, `<loc>https://alterlabs.in/</loc>\n    <lastmod>${modified}</lastmod>`);
   for (const page of pages) {
-    const url = `${site}/${page.dir}/${page.file}`;
+    const url = pageUrl(page);
     const escaped = url.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
     sitemap = sitemap.replace(new RegExp(`\\s*<url>\\s*<loc>${escaped}<\\/loc>[\\s\\S]*?<\\/url>`, "g"), "");
   }
   const entries = pages.map((page) => {
-    const priority = page.dir === "audit" ? "0.95" : page.dir === "proof" ? "0.85" : "0.8";
-    return `  <url><loc>${site}/${page.dir}/${page.file}</loc><lastmod>${modified}</lastmod><changefreq>monthly</changefreq><priority>${priority}</priority></url>`;
+    const priority = page.dir === "audit" ? "0.95" : page.dir === "bns" ? "0.92" : page.dir === "proof" ? "0.85" : "0.8";
+    return `  <url><loc>${pageUrl(page)}</loc><lastmod>${modified}</lastmod><changefreq>monthly</changefreq><priority>${priority}</priority></url>`;
   }).join("\n");
   sitemap = sitemap.replace(/\s*<\/urlset>\s*$/, `\n${entries}\n</urlset>\n`);
   fs.writeFileSync(sitemapPath, sitemap, "utf8");
 }
 
-const generatedPages = [auditPage, proofPage, ...industryPages, ...systemPages];
+const generatedPages = [auditPage, bnsPage, proofPage, ...industryPages, ...systemPages];
 
 writePage(auditPage, renderAuditPage());
+writePage(bnsPage, renderBnsPage());
 writePage(proofPage, renderProofPage());
 for (const page of [...industryPages, ...systemPages]) {
   writePage(page, renderDetailPage(page));
