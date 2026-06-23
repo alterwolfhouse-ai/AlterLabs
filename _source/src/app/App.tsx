@@ -1478,12 +1478,11 @@ function WhyAlterLabs() {
 
 function Resources() {
   const links = [
-    { title: "CRM readiness checklist", href: "/guides/crm-readiness-checklist.html", desc: "Check whether your lead, contact and follow-up data is ready for a CRM rebuild.", color: "#3b82f6" },
-    { title: "Business system brief", href: "/guides/business-system-brief.html", desc: "Use this before starting a website, CRM, automation or internal tool project.", color: "#7c3aed" },
-    { title: "Automation map", href: "/guides/automation-map.html", desc: "Map what should move automatically, what needs human review and what should stay manual.", color: "#10b981" },
-    { title: "Systems before screens", href: "/blog/systems-before-screens.html", desc: "Why the operating model should come before visual screens and pages.", color: "#f59e0b" },
-    { title: "Lead pipeline that does not leak", href: "/blog/lead-pipeline-that-does-not-leak.html", desc: "A practical view of lead capture, routing, ownership and follow-up.", color: "#ec4899" },
-    { title: "Dashboards need operators", href: "/blog/dashboards-need-operators.html", desc: "Dashboards only matter when someone can act on them.", color: "#14b8a6" },
+    { title: "Leads are getting missed", href: "/insights/#missed-leads", desc: "Follow a path from lead-pipeline diagnosis to CRM readiness and implementation.", color: "#ec4899" },
+    { title: "Manual work is slowing the team", href: "/insights/#manual-work", desc: "Map the current system, decide what to automate and plan a reliable first workflow.", color: "#a78bfa" },
+    { title: "Reporting cannot be trusted", href: "/insights/#untrusted-reporting", desc: "Move from decorative dashboards to metrics, owners and exception handling.", color: "#60a5fa" },
+    { title: "We want to use AI safely", href: "/insights/#responsible-ai", desc: "Prepare the data, add human review and control permissions before scaling AI.", color: "#c084fc" },
+    { title: "The website is not creating pipeline", href: "/insights/#website-pipeline", desc: "Repair lead capture, source attribution and the handoff from website to CRM.", color: "#14b8a6" },
   ];
 
   const pricingLinks = [
@@ -1504,15 +1503,15 @@ function Resources() {
     <section id="resources" className="py-24 relative" style={{ background: "linear-gradient(180deg, transparent 0%, rgba(8,15,40,0.35) 52%, transparent 100%)" }}>
       <div className="max-w-7xl mx-auto px-5 md:px-10">
         <div className="text-center mb-14">
-          <SectionTag color="#60a5fa">Guides & Insights</SectionTag>
+          <SectionTag color="#60a5fa">Choose Your Starting Point</SectionTag>
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-3" style={{ fontFamily: "'Rajdhani', sans-serif" }}>
-            Make better system decisions <GradText from="#60a5fa" to="#a78bfa">before you buy tools</GradText>
+            Start with the problem <GradText from="#60a5fa" to="#a78bfa">your team can already see</GradText>
           </h2>
           <p className="text-blue-200/45 max-w-xl mx-auto text-sm leading-relaxed">
-            Practical, customer-facing guidance for evaluating CRM, automation, dashboards, websites and responsible AI workflows.
+            Pick one symptom and follow an ordered route from diagnosis to planning to a practical implementation option.
           </p>
           <a href="/insights/" className="mt-6 inline-flex items-center gap-2 rounded-xl border border-purple-300/20 bg-purple-400/10 px-5 py-3 text-sm font-bold text-purple-100 transition-colors hover:bg-purple-400/20">
-            Explore all insights <ExternalLink size={14} />
+            Find the right path <ExternalLink size={14} />
           </a>
         </div>
 
@@ -1522,7 +1521,7 @@ function Resources() {
               <GlowCard color={item.color} className="p-5 h-full flex flex-col gap-4">
                 <div className="flex items-center justify-between gap-4">
                   <span className="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest" style={{ color: item.color, background: `${item.color}14`, border: `1px solid ${item.color}28` }}>
-                    resource
+                    start path
                   </span>
                   <ExternalLink size={13} style={{ color: item.color }} />
                 </div>
@@ -1538,14 +1537,14 @@ function Resources() {
         <div className="mt-14">
           <div className="mb-6 text-center">
             <h3 className="text-2xl md:text-3xl font-bold text-white" style={{ fontFamily: "'Rajdhani', sans-serif" }}>
-              Pricing blog cluster
+              Popular pricing guides
             </h3>
             <p className="mt-2 text-sm text-blue-200/45">
-              High-intent price guides for buyers comparing websites, content, ads and maintenance.
+              Four common starting budgets. The complete pricing library is available inside Insights.
             </p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {pricingLinks.map((item) => (
+            {pricingLinks.slice(0, 4).map((item) => (
               <a key={item.href} href={item.href} className="block">
                 <GlowCard color={item.color} className="p-4 h-full flex flex-col gap-3">
                   <div className="flex items-center justify-between gap-4">
@@ -1561,6 +1560,11 @@ function Resources() {
                 </GlowCard>
               </a>
             ))}
+          </div>
+          <div className="mt-6 text-center">
+            <a href="/insights/#pricing" className="inline-flex items-center gap-2 text-sm font-bold text-purple-200 hover:text-white transition-colors">
+              Compare every pricing guide <ExternalLink size={13} />
+            </a>
           </div>
         </div>
       </div>

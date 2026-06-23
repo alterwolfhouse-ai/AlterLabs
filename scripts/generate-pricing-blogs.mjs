@@ -8,6 +8,7 @@ mkdirSync(blogDir, { recursive: true });
 
 const site = "https://alterlabs.in";
 const published = "2026-06-16";
+const modified = "2026-06-23";
 
 const pricing = [
   ["Starter Website Pack", "₹3,500", "Same day / 4 hours", "1-page business website, domain + hosting for 1 year, mobile responsive design, basic SEO, WhatsApp lead button, Google Map integration"],
@@ -76,7 +77,7 @@ const articles = [
     summary: "A landing page is not a smaller website. It is a focused sales page for one campaign, one audience and one action.",
     quick: "AlterLabs prices the Landing Page for Ads at ₹2,999 with high-converting layout, lead capture form, WhatsApp CTA, fast loading design and ad campaign tracking readiness.",
     bestFit: "Choose this for Meta Ads, Google Search Ads, launch offers, local campaigns, lead magnets and appointment campaigns.",
-    blogPlan: ["Write the page around one promise and one CTA.", "Add campaign-specific FAQs so ad traffic does not bounce.", "Use the same content angle in ads, landing page and WhatsApp follow-up."],
+    blogPlan: ["Write the page around one promise and one CTA.", "Add campaign-specific FAQs so ad traffic does not bounce.", "Use the same customer promise in ads, landing page and WhatsApp follow-up."],
   },
   {
     slug: "meta-ads-setup-price-2999-india",
@@ -169,15 +170,15 @@ function pricingTable() {
 }
 
 function relatedLinks(currentSlug) {
-  const selected = allLinks
-    .filter((item) => item.slug !== currentSlug)
-    .slice(0, 6)
+  const currentIndex = allLinks.findIndex((item) => item.slug === currentSlug);
+  const selected = [...allLinks.slice(currentIndex + 1), ...allLinks.slice(0, currentIndex)]
+    .slice(0, 4)
     .map((item) => `<a href="./${item.slug}.html">${escapeHtml(item.title)}</a>`)
     .join("\n");
   return `<div class="related-links">${selected}</div>`;
 }
 
-function articleHtml(article) {
+function legacyArticleHtml(article) {
   const canonical = `${site}/blog/${article.slug}.html`;
   const structured = {
     "@context": "https://schema.org",
@@ -258,6 +259,90 @@ ${JSON.stringify(structured)}
 </body>
 </html>
 `;
+}
+
+function articleHtml(article) {
+  const canonical = `${site}/blog/${article.slug}.html`;
+  const currentIndex = articles.findIndex((item) => item.slug === article.slug);
+  const previous = currentIndex > 0 ? articles[currentIndex - 1] : null;
+  const next = currentIndex < articles.length - 1 ? articles[currentIndex + 1] : null;
+  const structured = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: article.title,
+    datePublished: published,
+    dateModified: modified,
+    author: { "@type": "Organization", name: "AlterLabs", url: `${site}/` },
+    publisher: { "@type": "Organization", name: "AlterLabs", url: `${site}/` },
+    mainEntityOfPage: canonical,
+    description: article.description,
+  };
+
+  return `<!doctype html>
+<html lang="en-IN" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>${escapeHtml(article.title)} | AlterLabs</title>
+<meta name="description" content="${escapeHtml(article.description)}" />
+<meta name="robots" content="index, follow" />
+<meta name="theme-color" content="#08040f" />
+<link rel="canonical" href="${canonical}" />
+<link rel="stylesheet" href="/styles.css" />
+<script type="application/ld+json">${JSON.stringify(structured)}</script>
+</head>
+<body class="service-page-body">
+<a class="skip-link-static" href="#main-content">Skip to main content</a>
+<header class="service-topbar"><a href="/" class="service-brand" aria-label="AlterLabs home"><span>AL</span><strong>AlterLabs</strong></a><nav aria-label="Pricing guide navigation"><a href="/insights/#start-paths">Start paths</a><a href="/insights/#pricing">Pricing guides</a><a href="/#products">All packages</a><a href="https://wa.me/918826436093?text=Hi%20AlterLabs%2C%20I%20want%20to%20discuss%20a%20website%2C%20content%20or%20pricing%20package">Talk to us</a></nav></header>
+<main id="main-content" class="article-page insight-article-page">
+  <nav class="article-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/insights/">Insights</a><span>/</span><a href="/insights/#pricing">Pricing guides</a></nav>
+  <p class="article-kicker">Pricing guide / ${escapeHtml(article.intent)}</p>
+  <h1>${escapeHtml(article.title)}</h1>
+  <p class="article-summary">${escapeHtml(article.summary)}</p>
+  <p class="article-meta">Published ${published} &middot; Updated ${modified} &middot; 9 minute buying guide</p>
+
+  <section class="pricing-hero-graphic" aria-label="Pricing graphic for ${escapeHtml(article.title)}">
+    <div class="price-node"><strong>${escapeHtml(article.focusPrice)}</strong><span>${escapeHtml(article.intent)}</span></div>
+    <div class="signal-row">
+      <span><strong>Budget fit</strong><br/>Know which outcome this entry scope can support.</span>
+      <span><strong>Scope clarity</strong><br/>Confirm deliverables, timing and boundaries before paying.</span>
+      <span><strong>Lead path</strong><br/>Keep the page, enquiry and follow-up connected.</span>
+    </div>
+  </section>
+
+  <article class="article-body service-article">
+    <div class="insight-reader-grid">
+      <aside class="insight-toc" aria-labelledby="toc-title"><h2 id="toc-title">On this page</h2><a href="#quick-answer">Quick answer</a><a href="#included">What to expect</a><a href="#compare">Compare every package</a><a href="#buying-sequence">A practical buying sequence</a><a href="#questions">Questions to ask</a></aside>
+      <aside class="insight-fit"><p class="article-kicker">Use this guide when</p><h2>${escapeHtml(article.summary)}</h2><p>You should leave knowing whether this budget fits the job, what must be included and what to ask before paying.</p></aside>
+    </div>
+
+    <section id="quick-answer"><h2>Quick answer</h2><p>${escapeHtml(article.quick)}</p><p>${escapeHtml(article.bestFit)}</p><p>The right package is not automatically the cheapest or the largest. It is the smallest defined scope that can create the business outcome without hiding essential work in later add-ons.</p></section>
+
+    <div class="intent-grid">
+      <div class="intent-card"><strong>Who it suits</strong><p>Business owners comparing website, content, advertising or maintenance budgets before committing to a build.</p></div>
+      <div class="intent-card"><strong>What to expect</strong><p>A defined deliverable, delivery window and lead path rather than an open-ended promise to do everything.</p></div>
+      <div class="intent-card"><strong>Best next step</strong><p>Share the exact offer, deadline and budget range so the scope can be confirmed before work begins.</p></div>
+    </div>
+
+    <section id="included"><h2>What this budget should help you publish or improve</h2><p>A small package should still create a useful customer-facing outcome. For this offer, prioritize the following work instead of spreading the budget across unrelated extras:</p><ul>${article.blogPlan.map((item) => `<li>${escapeHtml(item)}</li>`).join("\n")}</ul><p>These are not filler deliverables. Each item should answer a buyer question, support a campaign or make the next customer action clearer. If a proposed package cannot explain that connection, ask for a tighter scope.</p></section>
+
+    <section id="compare"><h2>Full AlterLabs pricing snapshot</h2><p>Use this table to compare product-card prices before choosing a package. These are entry scopes; larger CRM, dashboard, automation or AI workflow builds are scoped after discovery.</p>${pricingTable()}<p>Delivery assumes the required copy, images, access and approvals arrive on time. Complex integrations, custom applications, large catalogs and major revision cycles need a separate scope.</p></section>
+
+    <section id="buying-sequence"><h2>How to choose the right package</h2><p>If you need one focused campaign surface, start with the &#8377;2,999 landing page. If you need a first business website with domain and hosting, use the &#8377;3,500 starter website. If the business needs multiple service pages and a lead flow, choose the &#8377;7,500 business website. If the website already exists and needs small changes, use the &#8377;900 update or &#8377;5,000/year maintenance plan.</p><p>For traffic and content, pair the page with Meta Ads Setup at &#8377;2,999, Google Search Ads at &#8377;3,999, Social Media Creatives from &#8377;999 onwards and Content Generation from &#8377;1,999 onwards.</p><div class="rollout-grid"><div><b>Step 01</b><h3>Choose one outcome</h3><p>Decide whether the immediate goal is credibility, campaign leads, product enquiries, content production or keeping an existing site current.</p></div><div><b>Step 02</b><h3>Confirm the boundary</h3><p>Write down page count, content inputs, revisions, integrations, delivery date and anything specifically excluded from the listed price.</p></div><div><b>Step 03</b><h3>Connect the lead path</h3><p>Confirm what happens after a click, form or WhatsApp message. A cheap page that loses enquiries is not a useful saving.</p></div></div></section>
+
+    <section><h2>What to confirm before you pay</h2><div class="service-checklist"><div><span aria-hidden="true">&#10003;</span>The exact pages, sections or deliverables</div><div><span aria-hidden="true">&#10003;</span>Who supplies copy, images, products and approvals</div><div><span aria-hidden="true">&#10003;</span>Domain, hosting, advertising spend and third-party fees</div><div><span aria-hidden="true">&#10003;</span>Revision limits, delivery timing and post-launch support</div><div><span aria-hidden="true">&#10003;</span>How enquiries are captured and handed to the team</div><div><span aria-hidden="true">&#10003;</span>What would require a larger custom scope</div></div><p>A written boundary protects both sides. It prevents a low entry price from turning into surprise exclusions, and it prevents a focused package from being judged against work it was never designed to include.</p></section>
+
+    <section id="questions"><h2>Questions buyers usually ask</h2><div class="service-faq"><details><summary>Is the listed price the complete project cost?</summary><p>It is the complete AlterLabs price for the listed entry scope. Advertising spend, paid software, payment-gateway charges, domain renewals or work outside that scope may be separate and should be confirmed before the project starts.</p></details><details><summary>Can the package be customized?</summary><p>Yes, but additions can change price and delivery time. The most useful approach is to keep the first release focused, launch it and add only what real buyer behaviour shows is needed.</p></details><details><summary>What information should I send for an accurate answer?</summary><p>Share your business, main offer, target location, preferred package, deadline and examples of any existing website or content. That is enough to confirm fit or recommend a better starting point.</p></details></div></section>
+
+    <section><h2>Continue comparing</h2>${relatedLinks(article.slug)}<div class="related-links"><a href="/insights/#pricing">View every pricing and scope guide <span aria-hidden="true">&rarr;</span></a></div></section>
+
+    <div class="article-cta service-cta"><p class="article-kicker">Bring the exact budget and deadline</p><h2>Confirm the smallest package that can do the job properly.</h2><a class="btn btn-primary" href="../index.html#products">View all AlterLabs product cards</a><a class="btn btn-ghost" href="https://wa.me/918826436093?text=Hi%20AlterLabs%2C%20I%20want%20to%20discuss%20a%20website%2C%20content%20or%20pricing%20package">Ask on WhatsApp</a></div>
+
+    <nav class="article-journey" aria-label="Continue pricing guides"><div><span>Previous pricing guide</span>${previous ? `<a href="./${previous.slug}.html">&larr; ${escapeHtml(previous.title)}</a>` : '<a href="/insights/#pricing">&larr; Pricing overview</a>'}</div><div><span>Next pricing guide</span>${next ? `<a href="./${next.slug}.html">${escapeHtml(next.title)} &rarr;</a>` : '<a href="/#products">View all packages &rarr;</a>'}</div></nav>
+  </article>
+</main>
+</body>
+</html>`;
 }
 
 for (const article of articles) {

@@ -51,14 +51,31 @@ const homepageBundle = bundleMatch ? read(bundleMatch[1]) : "";
 for (const forbidden of ["Content / Blog", "Blog angle", "SEO focus:", "Offer copy"]) {
   if (homepageBundle.includes(forbidden)) errors.push(`homepage bundle: internal label still visible (${forbidden})`);
 }
-for (const required of ["What this helps you achieve", "Clear scope", "Built to convert", "Ready to grow", "Explore all insights", "/insights/"]) {
+for (const required of ["What this helps you achieve", "Clear scope", "Built to convert", "Ready to grow", "Find the right path", "/insights/#missed-leads"]) {
   if (!homepageBundle.includes(required)) errors.push(`homepage bundle: missing customer-facing copy (${required})`);
 }
 
 for (const file of blogFiles) {
   const html = read(file);
+  const headings = [...html.matchAll(/<h([1-6])\b/g)].map((match) => Number(match[1]));
+  if (headings.some((level, index) => index > 0 && level > headings[index - 1] + 1)) {
+    errors.push(`${file}: heading level skipped (${headings.join(",")})`);
+  }
   for (const required of ["rel=\"canonical\"", "application/ld+json", "index, follow"]) {
     if (!html.includes(required)) errors.push(`${file}: missing ${required}`);
+  }
+  const visibleWords = html
+    .replace(/<script[\s\S]*?<\/script>/g, " ")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&\w+;/g, " ")
+    .trim()
+    .split(/\s+/).length;
+  if (visibleWords < 900) errors.push(`${file}: too thin (${visibleWords} visible words)`);
+  for (const required of ["class=\"insight-toc\"", "class=\"article-journey\"", "Updated 2026-06-23"]) {
+    if (!html.includes(required)) errors.push(`${file}: missing reader journey signal ${required}`);
+  }
+  for (const forbidden of ["Content angle", "Content and blog plan", "Conversion action"]) {
+    if (html.includes(forbidden)) errors.push(`${file}: internal editorial language is public (${forbidden})`);
   }
 }
 
@@ -70,14 +87,14 @@ for (const file of legacyInsightFiles) {
     .replace(/&\w+;/g, " ")
     .trim()
     .split(/\s+/).length;
-  if (visibleWords < 350) errors.push(`${file}: still too thin (${visibleWords} visible words)`);
-  for (const required of ["\"@type\":\"Article\"", "dateModified\":\"2026-06-21", "href=\"/insights/\""]) {
+  if (visibleWords < 900) errors.push(`${file}: still too thin (${visibleWords} visible words)`);
+  for (const required of ["\"@type\":\"Article\"", "dateModified\":\"2026-06-23", "class=\"insight-toc\"", "class=\"article-journey\""]) {
     if (!html.includes(required)) errors.push(`${file}: missing insight signal ${required}`);
   }
 }
 
 const insights = read("insights/index.html");
-for (const required of ["CollectionPage", "18</b> operating articles", "CRM, automation and operations"]) {
+for (const required of ["CollectionPage", "5</b> problem-led paths", "What is getting in the way?", "class=\"journey-icon\"", "Pricing and scope guides", "id=\"missed-leads\"", "id=\"responsible-ai\""]) {
   if (!insights.includes(required)) errors.push(`insights/index.html: missing ${required}`);
 }
 
@@ -89,7 +106,7 @@ for (const file of blogFiles) {
   if (!sitemap.includes(`https://alterlabs.in/${file.replaceAll("\\", "/")}`)) errors.push(`sitemap.xml: missing ${file}`);
 }
 if (!sitemap.includes("https://alterlabs.in/insights/")) errors.push("sitemap.xml: missing insights hub");
-if (!sitemap.includes("<loc>https://alterlabs.in/</loc>\n    <lastmod>2026-06-21</lastmod>")) errors.push("sitemap.xml: homepage lastmod is stale");
+if (!sitemap.includes("<loc>https://alterlabs.in/</loc>\n    <lastmod>2026-06-23</lastmod>")) errors.push("sitemap.xml: homepage lastmod is stale");
 
 console.log(JSON.stringify({ growthPages: pageFiles.length, blogPages: blogFiles.length, legacyInsights: legacyInsightFiles.length, errors }, null, 2));
 if (errors.length) process.exitCode = 1;

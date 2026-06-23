@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const published = "2026-05-28";
-const modified = "2026-06-21";
+const modified = "2026-06-23";
 const whatsapp = "https://wa.me/918826436093?text=Hi%20AlterLabs%2C%20I%20want%20to%20improve%20a%20business%20workflow";
 
 const articles = [
@@ -262,7 +262,123 @@ const articles = [
   }
 ];
 
+const clusters = [
+  {
+    id: "leads-crm",
+    icon: "target",
+    title: "Lead capture and CRM",
+    description: "Start here when enquiries arrive but ownership, follow-up or pipeline visibility breaks down.",
+    slugs: ["lead-pipeline-that-does-not-leak", "website-lead-capture-system", "whatsapp-lead-routing-crm", "crm-automation-for-small-business-2026", "crm-migration-from-spreadsheets", "data-hygiene-before-ai-automation"]
+  },
+  {
+    id: "automation-ai",
+    icon: "workflow",
+    title: "Automation and responsible AI",
+    description: "Move from manual work to controlled automation without hiding failures or removing human judgment.",
+    slugs: ["systems-before-screens", "n8n-vs-zapier-business-automation", "quote-automation-system", "ai-workflow-automation-with-human-review", "ai-agents-in-crm-risk-controls", "ai-customer-support-triage"]
+  },
+  {
+    id: "reporting-operations",
+    icon: "chart",
+    title: "Reporting and operations",
+    description: "Use this path when the team has data but cannot see overdue work, trusted metrics or the next action.",
+    slugs: ["dashboards-need-operators", "service-business-operations-dashboard", "revops-dashboard-metrics-that-matter", "internal-tools-vs-spreadsheets"]
+  },
+  {
+    id: "growth-attribution",
+    icon: "globe",
+    title: "Growth systems and attribution",
+    description: "Connect website and campaign activity to qualified pipeline instead of stopping at clicks and form counts.",
+    slugs: ["gtm-engineering-for-indian-smbs", "seo-and-crm-attribution"]
+  }
+];
+
+const journeys = [
+  {
+    id: "missed-leads",
+    icon: "target",
+    title: "Leads are getting missed",
+    symptom: "Enquiries arrive through forms or WhatsApp, but owners and next actions are unclear.",
+    steps: [["Diagnose the leak", "/blog/lead-pipeline-that-does-not-leak.html"], ["Check CRM readiness", "/guides/crm-readiness-checklist.html"], ["See the implementation path", "/solutions/missed-lead-follow-up-service-businesses.html"]]
+  },
+  {
+    id: "manual-work",
+    icon: "workflow",
+    title: "Manual work is slowing the team",
+    symptom: "Copying data, approvals and recurring handoffs consume time or fail silently.",
+    steps: [["Map the system first", "/blog/systems-before-screens.html"], ["Choose what to automate", "/guides/automation-map.html"], ["Plan a reliable workflow", "/services/workflow-automation-india.html"]]
+  },
+  {
+    id: "untrusted-reporting",
+    icon: "chart",
+    title: "Reporting cannot be trusted",
+    symptom: "Dashboards exist, but operators cannot explain changes or act on exceptions.",
+    steps: [["Fix the operating model", "/blog/dashboards-need-operators.html"], ["Choose useful metrics", "/blog/revops-dashboard-metrics-that-matter.html"], ["Build the operating view", "/services/revops-dashboard-india.html"]]
+  },
+  {
+    id: "responsible-ai",
+    icon: "bot",
+    title: "We want to use AI safely",
+    symptom: "The team sees useful AI opportunities but needs permissions, review and fallback controls.",
+    steps: [["Prepare the data", "/blog/data-hygiene-before-ai-automation.html"], ["Design human review", "/blog/ai-workflow-automation-with-human-review.html"], ["Map the controlled workflow", "/services/workflow-automation-india.html"]]
+  },
+  {
+    id: "website-pipeline",
+    icon: "globe",
+    title: "The website is not creating pipeline",
+    symptom: "Traffic or forms exist, but lead context, attribution and follow-up disappear after submission.",
+    steps: [["Repair lead capture", "/blog/website-lead-capture-system.html"], ["Connect source to CRM", "/blog/seo-and-crm-attribution.html"], ["Plan the website system", "/services/business-website-development-india.html"]]
+  }
+];
+
+const pricingGuides = [
+  ["Website around &#8377;3,000", "/blog/website-for-3000-rupees-india.html", "A realistic entry website scope for a small business."],
+  ["What can &#8377;500 buy?", "/blog/website-for-500-rupees-india.html", "Where an ultra-low budget helps and where it creates risk."],
+  ["Business website around &#8377;7,500", "/blog/business-website-price-7500-india.html", "A practical multi-section website buying guide."],
+  ["E-commerce around &#8377;14,999", "/blog/ecommerce-website-price-14999-india.html", "Catalog, enquiry and WhatsApp ordering expectations."],
+  ["Landing page around &#8377;2,999", "/blog/landing-page-price-2999-india.html", "When a focused campaign page is the right first build."],
+  ["Meta Ads setup around &#8377;2,999", "/blog/meta-ads-setup-price-2999-india.html", "Campaign structure, creative direction and lead capture."],
+  ["Google Ads setup around &#8377;3,999", "/blog/google-ads-setup-price-3999-india.html", "Search intent, keywords, ads and landing-page alignment."],
+  ["Social creatives from &#8377;999", "/blog/social-media-creatives-price-999-india.html", "What a small creative pack should include."],
+  ["Content generation from &#8377;1,999", "/blog/content-generation-price-1999-india.html", "Website copy, blogs, captions and SEO metadata."],
+  ["Maintenance around &#8377;5,000/year", "/blog/website-maintenance-price-5000-india.html", "Updates, monitoring and practical support boundaries."],
+  ["Small website update around &#8377;900", "/blog/website-update-price-900-india.html", "When a focused same-day update is enough."]
+];
+
+const iconPaths = {
+  target: '<circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="M12 2v3M22 12h-3M12 22v-3M2 12h3"/>',
+  workflow: '<rect width="6" height="6" x="3" y="3" rx="1"/><rect width="6" height="6" x="15" y="15" rx="1"/><path d="M9 6h4a3 3 0 0 1 3 3v6M15 18h-4a3 3 0 0 1-3-3V9"/>',
+  chart: '<path d="M3 3v18h18"/><path d="m7 16 4-5 4 3 5-7"/>',
+  bot: '<rect width="16" height="12" x="4" y="8" rx="2"/><path d="M12 4v4M8 12h.01M16 12h.01M9 16h6"/>',
+  globe: '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/>'
+};
+
+function iconSvg(name) {
+  return `<svg class="journey-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${iconPaths[name]}</svg>`;
+}
+
 const escapeHtml = (value) => String(value).replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;" }[char]));
+const articleBySlug = new Map(articles.map((article) => [article.slug, article]));
+const decisionNotes = [
+  "Write this as an explicit rule. A new operator should be able to apply it without asking the person who designed the system.",
+  "Name the responsible role and the moment responsibility changes. Shared ownership usually becomes invisible ownership.",
+  "Define the evidence needed to make this decision, including the source field, timestamp or customer context that must remain visible.",
+  "Choose the exception path before automation begins: who is alerted, what can be retried and what must stop for human review."
+];
+
+function clusterFor(article) {
+  return clusters.find((cluster) => cluster.slugs.includes(article.slug));
+}
+
+function adjacentArticles(article) {
+  const cluster = clusterFor(article);
+  const index = cluster.slugs.indexOf(article.slug);
+  return {
+    cluster,
+    previous: index > 0 ? articleBySlug.get(cluster.slugs[index - 1]) : null,
+    next: index < cluster.slugs.length - 1 ? articleBySlug.get(cluster.slugs[index + 1]) : null
+  };
+}
 
 function articleSchema(article, url) {
   return {
@@ -294,6 +410,7 @@ function articleSchema(article, url) {
 
 function renderArticle(article) {
   const url = `https://alterlabs.in/blog/${article.slug}.html`;
+  const { cluster, previous, next } = adjacentArticles(article);
   return `<!doctype html>
 <html lang="en-IN" data-theme="dark">
 <head>
@@ -318,22 +435,39 @@ function renderArticle(article) {
     <nav aria-label="Article navigation"><a href="/insights/">All insights</a><a href="/#products">Pricing</a><a href="/services/crm-automation-india.html">Services</a><a href="${whatsapp}">Talk to us</a></nav>
   </header>
   <main id="main-content" class="article-page insight-article-page">
-    <a class="article-back" href="/insights/">&larr; All insights</a>
+    <nav class="article-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/insights/">Insights</a><span>/</span><a href="/insights/#${cluster.id}">${escapeHtml(cluster.title)}</a></nav>
     <p class="article-kicker">${escapeHtml(article.kicker)}</p>
     <h1>${escapeHtml(article.h1)}</h1>
     <p class="article-summary">${escapeHtml(article.summary)}</p>
-    <p class="article-meta">Published ${published} &middot; Updated ${modified} &middot; Practical guide</p>
+    <p class="article-meta">Published ${published} &middot; Updated ${modified} &middot; 9 minute practical guide</p>
     <div class="insight-visual" aria-label="From operating problem to measured improvement">
       <span><b>01</b> Observe</span><span><b>02</b> Define</span><span><b>03</b> Build</span><span><b>04</b> Review</span>
     </div>
     <article class="article-body service-article">
-      <section><h2>What is actually going wrong</h2>${article.problem.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}</section>
-      <section><h2>Decisions to make before buying tools</h2><div class="service-checklist">${article.decisions.map((item) => `<div><span aria-hidden="true">&#10003;</span>${escapeHtml(item)}</div>`).join("")}</div></section>
-      <section><h2>A practical implementation path</h2><ol class="insight-steps">${article.steps.map((item, index) => `<li><b>${String(index + 1).padStart(2, "0")}</b><span>${escapeHtml(item)}</span></li>`).join("")}</ol><p>Keep the first release narrow enough that the team can see whether it works. A smaller workflow with named owners, visible exceptions and a weekly review is more valuable than a broad automation nobody trusts.</p></section>
-      <section><h2>What to measure</h2><p>Use measures that reveal operating behaviour, not only activity volume. The starting set for this workflow is:</p><ul>${article.metrics.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul><p>Review the underlying records whenever a metric changes. That is how the team learns whether the process, data or capacity needs attention.</p></section>
-      <section><h2>Common mistakes to avoid</h2><ul>${article.warnings.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul><p>Technology should make responsibility clearer. If a new tool makes it harder to explain what happened, who owns the next step or how an error is recovered, the system is not ready to scale.</p></section>
-      <section><h2>Related services and guides</h2><div class="related-links">${article.related.map(([label, href]) => `<a href="${href}">${escapeHtml(label)} <span aria-hidden="true">&rarr;</span></a>`).join("")}<a href="/insights/">Browse every AlterLabs insight <span aria-hidden="true">&rarr;</span></a></div></section>
+      <div class="insight-reader-grid">
+        <aside class="insight-toc" aria-labelledby="toc-title"><h2 id="toc-title">On this page</h2><a href="#problem">The real problem</a><a href="#decisions">Decisions before tools</a><a href="#example">Worked scenario</a><a href="#implementation">Implementation path</a><a href="#rollout">30 / 60 / 90 day rollout</a><a href="#measure">What to measure</a><a href="#mistakes">Mistakes to avoid</a></aside>
+        <aside class="insight-fit"><p class="article-kicker">Use this guide when</p><h2>${escapeHtml(article.summary)}</h2><p>You should leave with a smaller first release, named decisions and a way to tell whether the workflow is becoming more reliable.</p></aside>
+      </div>
+
+      <section id="problem"><h2>What is actually going wrong</h2>${article.problem.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}<p>The quickest way to find the real constraint is to inspect recent work, not the ideal process diagram. Look at who touched each record, where context changed hands and which exceptions were handled outside the official system.</p></section>
+
+      <section id="decisions"><p class="article-kicker">Define before configuring</p><h2>Decisions to make before buying tools</h2><div class="decision-grid">${article.decisions.map((item, index) => `<div><b>0${index + 1}</b><h3>${escapeHtml(item)}</h3><p>${escapeHtml(decisionNotes[index])}</p></div>`).join("")}</div><p>These decisions become acceptance criteria. A tool is suitable only if the team can implement the rule clearly, observe when it fails and change it without rebuilding the entire workflow.</p></section>
+
+      <section id="example" class="worked-scenario"><p class="article-kicker">Worked scenario</p><h2>What a sensible first release looks like</h2><p>Imagine a service team wants to improve ${escapeHtml(article.kicker.toLowerCase())}. The tempting response is to replace several tools at once. A safer first release begins with one operating path and applies two concrete actions: ${escapeHtml(article.steps[0].replace(/\.$/, "").toLowerCase())}, then ${escapeHtml(article.steps[1].replace(/\.$/, "").toLowerCase())}.</p><p>During the first review, the team does not ask whether the new screen looks complete. It checks ${escapeHtml(article.metrics[0].toLowerCase())} and ${escapeHtml(article.metrics[1].toLowerCase())}, opens the records behind those numbers and documents the exceptions. That evidence shows whether the next step should be more automation, cleaner data or a simpler rule.</p><p>Only after the operating path is stable should the team add ${escapeHtml(article.steps[2].replace(/\.$/, "").toLowerCase())}. This sequence protects customer work while still producing a visible improvement early.</p></section>
+
+      <section id="implementation"><h2>A practical implementation path</h2><ol class="insight-steps">${article.steps.map((item, index) => `<li><b>${String(index + 1).padStart(2, "0")}</b><span>${escapeHtml(item)}</span></li>`).join("")}</ol><p>Keep the first release narrow enough that the team can see whether it works. A smaller workflow with named owners, visible exceptions and a weekly review is more valuable than a broad automation nobody trusts.</p><p>Document the current baseline before launch. Without a baseline, faster work can feel better while missed handoffs, incorrect records or extra review effort remain hidden.</p><p>At handoff, leave the team with one short operating note: where the record starts, who owns it, which exception stops automation and which number will be reviewed each week. That note is often more valuable than a long technical document nobody opens.</p></section>
+
+      <section id="rollout"><p class="article-kicker">Operating plan</p><h2>A 30 / 60 / 90 day rollout</h2><div class="rollout-grid"><div><b>First 30 days</b><h3>Observe and define</h3><p>${escapeHtml(article.steps[0])} Capture the current baseline for ${escapeHtml(article.metrics[0].toLowerCase())}, document exceptions and agree the four decisions above with the people who perform the work.</p></div><div><b>Days 31-60</b><h3>Build the smallest path</h3><p>${escapeHtml(article.steps[1])} Then test ${escapeHtml(article.steps[2].replace(/\.$/, "").toLowerCase())} with a limited set of records, named owners and a manual fallback.</p></div><div><b>Days 61-90</b><h3>Operate and expand</h3><p>Review ${escapeHtml(article.metrics.slice(1).join(", ").toLowerCase())}. Fix recurring exceptions before expanding volume, permissions or AI involvement.</p></div></div></section>
+
+      <section id="measure"><h2>What to measure</h2><p>Use measures that reveal operating behaviour, not only activity volume. The starting set for this workflow is:</p><div class="metric-grid">${article.metrics.map((item, index) => `<div><b>0${index + 1}</b><span>${escapeHtml(item)}</span></div>`).join("")}</div><p>Review the underlying records whenever a metric changes. That is how the team learns whether the process, data or capacity needs attention. A weekly trend is useful; a number without the records behind it is not.</p></section>
+
+      <section id="mistakes"><h2>Common mistakes to avoid</h2><ul>${article.warnings.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul><p>Technology should make responsibility clearer. If a new tool makes it harder to explain what happened, who owns the next step or how an error is recovered, the system is not ready to scale.</p></section>
+
+      <section><h2>Questions teams usually ask</h2><div class="service-faq"><details><summary>Do we need to replace our current software?</summary><p>Usually not at the beginning. First prove the operating rules using the current stack where possible. Replace a tool only when its permissions, reliability or data model prevents the agreed workflow.</p></details><details><summary>What should we automate first?</summary><p>Start with ${escapeHtml(article.steps[0].replace(/\.$/, "").toLowerCase())}. It should be repeatable, observable and easy to reverse. Keep ambiguous customer decisions under human review.</p></details><details><summary>How will we know the first release is working?</summary><p>Compare the baseline and current values for ${escapeHtml(article.metrics.slice(0, 2).join(" and ").toLowerCase())}. Also ask operators whether exceptions are easier to see and recover.</p></details></div></section>
+
+      <section><h2>Continue this topic</h2><div class="related-links">${article.related.map(([label, href]) => `<a href="${href}">${escapeHtml(label)} <span aria-hidden="true">&rarr;</span></a>`).join("")}<a href="/insights/#${cluster.id}">View the complete ${escapeHtml(cluster.title.toLowerCase())} path <span aria-hidden="true">&rarr;</span></a></div></section>
       <section class="service-cta"><p class="article-kicker">Bring the real workflow</p><h2>Start with the part that keeps breaking.</h2><p>Share one example of a missed lead, slow handoff, reporting gap or repetitive task. AlterLabs will help identify the smallest useful system to build first.</p><a class="btn primary" href="${whatsapp}">Discuss the workflow</a></section>
+      <nav class="article-journey" aria-label="Continue reading"><div><span>Previous in ${escapeHtml(cluster.title)}</span>${previous ? `<a href="/blog/${previous.slug}.html">&larr; ${escapeHtml(previous.h1)}</a>` : `<a href="/insights/#${cluster.id}">&larr; Topic overview</a>`}</div><div><span>Next in ${escapeHtml(cluster.title)}</span>${next ? `<a href="/blog/${next.slug}.html">${escapeHtml(next.h1)} &rarr;</a>` : `<a href="/insights/#services">Choose an implementation path &rarr;</a>`}</div></nav>
     </article>
   </main>
 </body>
@@ -356,7 +490,20 @@ const services = [
 ];
 
 function renderCards(items, label) {
-  return items.map(([title, href, description]) => `<a class="insights-card" href="${href}"><span>${label}</span><h2>${escapeHtml(title)}</h2><p>${escapeHtml(description)}</p><b>Read more &rarr;</b></a>`).join("");
+  return items.map(([title, href, description]) => `<a class="insights-card" href="${href}"><span>${label}</span><h3>${escapeHtml(title)}</h3><p>${escapeHtml(description)}</p><b>Read more &rarr;</b></a>`).join("");
+}
+
+function renderJourneyCards() {
+  return journeys.map((journey) => `<article id="${journey.id}" class="journey-card">${iconSvg(journey.icon)}<div><p class="article-kicker">Start with the problem</p><h3>${escapeHtml(journey.title)}</h3><p>${escapeHtml(journey.symptom)}</p><ol>${journey.steps.map(([label, href], index) => `<li><a href="${href}"><b>0${index + 1}</b><span>${escapeHtml(label)}</span><i aria-hidden="true">&rarr;</i></a></li>`).join("")}</ol></div></article>`).join("");
+}
+
+function renderCluster(cluster) {
+  const clusterArticles = cluster.slugs.map((slug) => articleBySlug.get(slug));
+  return `<section id="${cluster.id}" class="topic-cluster"><div class="topic-cluster-intro">${iconSvg(cluster.icon)}<p class="article-kicker">Ordered reading path</p><h3>${escapeHtml(cluster.title)}</h3><p>${escapeHtml(cluster.description)}</p></div><ol class="topic-reading-list">${clusterArticles.map((article, index) => `<li><a href="/blog/${article.slug}.html"><b>${String(index + 1).padStart(2, "0")}</b><span><strong>${escapeHtml(article.h1)}</strong><small>${escapeHtml(article.summary)}</small></span><i aria-hidden="true">&rarr;</i></a></li>`).join("")}</ol></section>`;
+}
+
+function renderPricingGuides() {
+  return pricingGuides.map(([title, href, description]) => `<a class="pricing-guide-link" href="${href}"><span>Buying guide</span><h3>${title}</h3><p>${escapeHtml(description)}</p><b>Compare scope &rarr;</b></a>`).join("");
 }
 
 function renderHub() {
@@ -382,12 +529,14 @@ function renderHub() {
 </head>
 <body class="service-page-body">
   <a class="skip-link-static" href="#main-content">Skip to main content</a>
-  <header class="service-topbar"><a href="/" class="service-brand" aria-label="AlterLabs home"><span>AL</span><strong>AlterLabs</strong></a><nav aria-label="Insights navigation"><a href="#field-guides">Field guides</a><a href="#articles">Articles</a><a href="#services">Services</a><a href="${whatsapp}">Talk to us</a></nav></header>
+  <header class="service-topbar"><a href="/" class="service-brand" aria-label="AlterLabs home"><span>AL</span><strong>AlterLabs</strong></a><nav aria-label="Insights navigation"><a href="#start-paths">Start paths</a><a href="#topics">Topics</a><a href="#pricing">Pricing</a><a href="#services">Services</a><a href="${whatsapp}">Talk to us</a></nav></header>
   <main id="main-content" class="insights-page">
-    <section class="insights-hero"><p class="article-kicker">AlterLabs field notes</p><h1>Practical systems for teams that need work to move.</h1><p>Customer-facing guides on CRM, lead operations, automation, dashboards, websites and responsible AI. Clear enough to use before you buy another tool.</p><div class="insights-stats"><span><b>${articles.length}</b> operating articles</span><span><b>${guides.length}</b> planning guides</span><span><b>${services.length}</b> implementation paths</span></div></section>
-    <section id="field-guides" class="insights-section"><div class="insights-heading"><p class="article-kicker">Start here</p><h2>Field guides</h2><p>Short planning tools for defining the problem before implementation.</p></div><div class="insights-grid featured">${renderCards(guides, "Guide")}</div></section>
-    <section id="articles" class="insights-section"><div class="insights-heading"><p class="article-kicker">Knowledge base</p><h2>CRM, automation and operations</h2><p>Use these articles to diagnose the workflow, decide what belongs in software and choose what to measure.</p></div><div class="insights-grid">${renderCards(articles.map((article) => [article.h1, `/blog/${article.slug}.html`, article.summary]), "Insight")}</div></section>
-    <section id="services" class="insights-section"><div class="insights-heading"><p class="article-kicker">Implementation</p><h2>Turn the diagnosis into a working system</h2><p>Focused service pages for teams ready to move from reading to a scoped first release.</p></div><div class="insights-grid">${renderCards(services, "Service")}</div></section>
+    <section class="insights-hero"><p class="article-kicker">AlterLabs field notes</p><h1>Find the system problem. Follow one clear path.</h1><p>Choose the symptom that looks familiar. Each path moves from diagnosis to planning to a practical implementation option, without making you decode a wall of blog cards.</p><div class="insights-stats"><span><b>${journeys.length}</b> problem-led paths</span><span><b>${articles.length}</b> in-depth articles</span><span><b>${pricingGuides.length}</b> pricing guides</span></div></section>
+    <section id="start-paths" class="insights-section"><div class="insights-heading"><p class="article-kicker">Choose your starting point</p><h2>What is getting in the way?</h2><p>Pick one operational symptom. The three links inside each route are deliberately ordered: understand the issue, plan the change, then review the implementation path.</p></div><div class="journey-grid">${renderJourneyCards()}</div></section>
+    <section id="field-guides" class="insights-section"><div class="insights-heading"><p class="article-kicker">Not sure what the problem is?</p><h2>Use a planning guide first</h2><p>These short diagnostic tools help you map the current process before choosing software, scope or automation.</p></div><div class="insights-grid featured">${renderCards(guides, "Planning guide")}</div></section>
+    <section id="topics" class="insights-section"><div class="insights-heading"><p class="article-kicker">Explore by subject</p><h2>Ordered topic journeys</h2><p>Each sequence moves from fundamentals to implementation detail. You can read one answer or follow the complete path.</p></div><div class="topic-clusters">${clusters.map(renderCluster).join("")}</div></section>
+    <section id="pricing" class="insights-section"><div class="insights-heading"><p class="article-kicker">Transparent buying guidance</p><h2>Pricing and scope guides</h2><p>Understand what a small budget can realistically include, what usually costs extra and when a larger build is justified.</p></div><div class="pricing-guide-grid">${renderPricingGuides()}</div></section>
+    <section id="services" class="insights-section"><div class="insights-heading"><p class="article-kicker">Ready to implement?</p><h2>Choose the system you need to improve</h2><p>Focused service pages for teams ready to move from reading to a scoped first release.</p></div><div class="insights-grid">${renderCards(services, "Implementation path")}</div></section>
     <section class="service-cta insights-cta"><p class="article-kicker">One useful first build</p><h2>Show us the handoff that keeps failing.</h2><p>AlterLabs will map the current workflow and identify a practical starting point.</p><a class="btn primary" href="${whatsapp}">Discuss your workflow</a></section>
   </main>
 </body>
