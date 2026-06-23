@@ -421,6 +421,7 @@ function renderArticle(article) {
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#08040f">
   <link rel="canonical" href="${url}">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <meta property="og:type" content="article">
   <meta property="og:title" content="${escapeHtml(article.h1)} | AlterLabs">
   <meta property="og:description" content="${escapeHtml(article.description)}">
@@ -524,7 +525,7 @@ function renderHub() {
   <title>CRM, Automation and Website Insights | AlterLabs</title>
   <meta name="description" content="Practical AlterLabs guides for CRM automation, lead follow-up, workflow design, websites, dashboards and responsible AI for Indian service businesses.">
   <meta name="robots" content="index, follow"><meta name="theme-color" content="#08040f">
-  <link rel="canonical" href="${url}"><link rel="stylesheet" href="/styles.css">
+  <link rel="canonical" href="${url}"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="stylesheet" href="/styles.css">
   <script type="application/ld+json">${JSON.stringify(schema)}</script>
 </head>
 <body class="service-page-body">

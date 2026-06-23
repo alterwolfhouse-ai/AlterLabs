@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="AlterLabs">
+  <rect width="64" height="64" rx="14" fill="#f4f0e8"/>
+  <path d="M15 48 31 14h3l15 34h-8l-3.1-7.4H26.8L23.7 48h-8.7Zm14.3-13.5h6.2l-3.1-7.9-3.1 7.9Z" fill="#22201c"/>
+  <path d="M43 16h5v32h-5V16Z" fill="#c25b32"/>
+</svg>

@@ -201,6 +201,7 @@ function legacyArticleHtml(article) {
 <meta name="description" content="${escapeHtml(article.description)}" />
 <meta name="robots" content="index, follow" />
 <link rel="canonical" href="${canonical}" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="stylesheet" href="../styles.css" />
 <script type="application/ld+json">
 ${JSON.stringify(structured)}
@@ -230,11 +231,11 @@ ${JSON.stringify(structured)}
 
     <div class="intent-grid">
       <div class="intent-card"><strong>Best for</strong><p>Business owners comparing website, content, ad and maintenance budgets before starting a build.</p></div>
-      <div class="intent-card"><strong>Content angle</strong><p>Answer the price question directly, then explain what is included and what should not be skipped.</p></div>
-      <div class="intent-card"><strong>Conversion action</strong><p>Move the reader from research into a WhatsApp conversation with the exact product and budget range.</p></div>
+      <div class="intent-card"><strong>Buyer question</strong><p>Answer the price question directly, then explain what is included and what should not be skipped.</p></div>
+      <div class="intent-card"><strong>Next step</strong><p>Move the reader from research into a WhatsApp conversation with the exact product and budget range.</p></div>
     </div>
 
-    <h2>Content and blog plan for this offer</h2>
+    <h2>Useful ways to compare this offer</h2>
     <ul>
       ${article.blogPlan.map((item) => `<li>${escapeHtml(item)}</li>`).join("\n")}
     </ul>
@@ -288,6 +289,7 @@ function articleHtml(article) {
 <meta name="robots" content="index, follow" />
 <meta name="theme-color" content="#08040f" />
 <link rel="canonical" href="${canonical}" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="stylesheet" href="/styles.css" />
 <script type="application/ld+json">${JSON.stringify(structured)}</script>
 </head>

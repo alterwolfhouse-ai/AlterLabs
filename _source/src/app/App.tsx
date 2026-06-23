@@ -669,12 +669,12 @@ function CoreOffers() {
     <section className="border-y py-20" style={{ borderColor: "rgba(147,197,253,0.12)", background: "rgba(8,13,35,0.54)" }} aria-labelledby="core-offers-title">
       <div className="max-w-7xl mx-auto px-5 md:px-10">
         <div className="max-w-3xl mb-10">
-          <SectionTag color="#c084fc">Commercial entry points</SectionTag>
+          <SectionTag color="#c084fc">Business starting points</SectionTag>
           <h2 id="core-offers-title" className="text-3xl md:text-5xl font-bold text-white mb-4" style={{ fontFamily: "'Rajdhani', sans-serif" }}>
-            Choose the business problem you need to solve first.
+            Choose the outcome your team needs first.
           </h2>
           <p className="text-blue-100/80 text-sm md:text-base leading-relaxed">
-            Each service now has a focused page with scope, process, best-fit use cases and next steps. That gives buyers and search engines a clear entry point instead of one overloaded homepage.
+            Start with the pressure you can already feel: missed enquiries, weak website conversion, slow follow-up or reporting that takes too much manual effort. Each path explains what we build, what it costs and how the first release moves you closer to a cleaner sales system.
           </p>
         </div>
 
@@ -830,7 +830,7 @@ function SystemsStack() {
               <GradText from="#c084fc" to="#60a5fa">Add dashboards, content and AI only where the workflow needs them.</GradText>
             </h3>
             <p className="text-blue-100/80 text-sm leading-[1.9] max-w-lg">
-              The homepage now leads with the two problems buyers most often need solved: a website that captures demand and a CRM workflow that prevents missed follow-up. Supporting capabilities are introduced only when they improve that path.
+              Most teams need one of two fixes first: a website that turns attention into enquiries, or a CRM workflow that makes sure every enquiry gets captured, assigned and followed up. Dashboards, content and AI come in when they make that path easier to run.
             </p>
             <SystemsSignalGraphic />
           </div>

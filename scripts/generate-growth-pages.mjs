@@ -198,6 +198,7 @@ function renderPage(page) {
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#08040f">
   <link rel="canonical" href="${url}">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <meta property="og:type" content="website">
   <meta property="og:title" content="${escapeHtml(page.h1)} | AlterLabs">
   <meta property="og:description" content="${escapeHtml(page.description)}">

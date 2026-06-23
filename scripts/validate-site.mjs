@@ -6,6 +6,15 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const errors = [];
 
 const read = (relativePath) => fs.readFileSync(path.join(root, relativePath), "utf8");
+function publicHtmlFiles(directory = root) {
+  return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
+    if ([".git", "_source", "node_modules"].includes(entry.name)) return [];
+    const full = path.join(directory, entry.name);
+    if (entry.isDirectory()) return publicHtmlFiles(full);
+    return entry.name.endsWith(".html") ? [path.relative(root, full)] : [];
+  });
+}
+
 const pageFiles = ["services", "solutions"].flatMap((directory) =>
   fs.readdirSync(path.join(root, directory))
     .filter((file) => file.endsWith(".html"))
@@ -41,17 +50,44 @@ for (const file of pageFiles) {
 }
 
 const index = read("index.html");
-for (const required of ["CRM Automation & Business Websites", "Organization"]) {
+for (const required of ["CRM Automation & Business Websites", "Organization", "rel=\"icon\"", "/favicon.svg"]) {
   if (!index.includes(required)) errors.push(`index.html: missing ${required}`);
+}
+if (!fs.existsSync(path.join(root, "favicon.svg"))) errors.push("favicon.svg: missing root browser icon");
+for (const file of publicHtmlFiles()) {
+  const html = read(file);
+  if (!html.includes("rel=\"icon\"") || !html.includes("/favicon.svg")) {
+    errors.push(`${file}: missing favicon link`);
+  }
 }
 
 const bundleMatch = index.match(/src="\/?(assets\/index-[^"]+\.js)"/);
 if (!bundleMatch) errors.push("index.html: hashed JavaScript bundle not found");
 const homepageBundle = bundleMatch ? read(bundleMatch[1]) : "";
-for (const forbidden of ["Content / Blog", "Blog angle", "SEO focus:", "Offer copy"]) {
+for (const forbidden of [
+  "Content / Blog",
+  "Blog angle",
+  "SEO focus:",
+  "Offer copy",
+  "Each service now",
+  "buyers and search engines",
+  "overloaded homepage",
+  "The homepage now",
+  "Commercial entry points"
+]) {
   if (homepageBundle.includes(forbidden)) errors.push(`homepage bundle: internal label still visible (${forbidden})`);
 }
-for (const required of ["What this helps you achieve", "Clear scope", "Built to convert", "Ready to grow", "Find the right path", "/insights/#missed-leads"]) {
+for (const required of [
+  "What this helps you achieve",
+  "Clear scope",
+  "Built to convert",
+  "Ready to grow",
+  "Business starting points",
+  "Choose the outcome your team needs first",
+  "Most teams need one of two fixes first",
+  "Find the right path",
+  "/insights/#missed-leads"
+]) {
   if (!homepageBundle.includes(required)) errors.push(`homepage bundle: missing customer-facing copy (${required})`);
 }
 
