@@ -36,6 +36,16 @@ const legacyInsightFiles = blogFiles.filter((file) => ![
   "website-maintenance-price-5000-india.html",
   "website-update-price-900-india.html"
 ].some((name) => file.endsWith(name)));
+const expansionPageFiles = [
+  "audit/system-audit.html",
+  "proof/index.html",
+  "industries/interior-design-crm-website.html",
+  "industries/real-estate-whatsapp-lead-follow-up.html",
+  "industries/coaching-consulting-crm-automation.html",
+  "systems/ai-workflow-automation-human-review.html",
+  "systems/internal-tools-service-businesses.html",
+  "systems/decision-notification-system.html"
+];
 
 for (const file of pageFiles) {
   const html = read(file);
@@ -50,14 +60,22 @@ for (const file of pageFiles) {
 }
 
 const index = read("index.html");
-for (const required of ["CRM Automation & Business Websites", "Organization", "rel=\"icon\"", "/favicon.svg"]) {
+for (const required of ["CRM Automation & Business Websites", "Organization", "rel=\"icon\"", "/favicon.svg", "/analytics-events.js", "/site-ui.js"]) {
   if (!index.includes(required)) errors.push(`index.html: missing ${required}`);
 }
 if (!fs.existsSync(path.join(root, "favicon.svg"))) errors.push("favicon.svg: missing root browser icon");
+if (!fs.existsSync(path.join(root, "analytics-events.js"))) errors.push("analytics-events.js: missing root event bridge");
+if (!fs.existsSync(path.join(root, "site-ui.js"))) errors.push("site-ui.js: missing root theme UI script");
 for (const file of publicHtmlFiles()) {
   const html = read(file);
   if (!html.includes("rel=\"icon\"") || !html.includes("/favicon.svg")) {
     errors.push(`${file}: missing favicon link`);
+  }
+  if (!html.includes("/analytics-events.js")) {
+    errors.push(`${file}: missing analytics event bridge`);
+  }
+  if (!html.includes("/site-ui.js")) {
+    errors.push(`${file}: missing theme UI script`);
   }
 }
 
@@ -86,9 +104,29 @@ for (const required of [
   "Choose the outcome your team needs first",
   "Most teams need one of two fixes first",
   "Find the right path",
-  "/insights/#missed-leads"
+  "/insights/#missed-leads",
+  "Run system audit",
+  "/audit/system-audit.html"
 ]) {
   if (!homepageBundle.includes(required)) errors.push(`homepage bundle: missing customer-facing copy (${required})`);
+}
+
+for (const file of expansionPageFiles) {
+  if (!fs.existsSync(path.join(root, file))) errors.push(`${file}: missing expansion page`);
+}
+
+if (fs.existsSync(path.join(root, "audit/system-audit.html"))) {
+  const audit = read("audit/system-audit.html");
+  for (const required of ["id=\"system-audit-form\"", "audit_form_submit", "wa.me", "Send audit brief on WhatsApp"]) {
+    if (!audit.includes(required)) errors.push(`audit/system-audit.html: missing ${required}`);
+  }
+}
+
+if (fs.existsSync(path.join(root, "proof/index.html"))) {
+  const proof = read("proof/index.html");
+  for (const required of ["Proof library", "Proof signals before you decide", "No invented case studies"]) {
+    if (!proof.includes(required)) errors.push(`proof/index.html: missing ${required}`);
+  }
 }
 
 for (const file of blogFiles) {
@@ -141,8 +179,11 @@ for (const file of pageFiles) {
 for (const file of blogFiles) {
   if (!sitemap.includes(`https://alterlabs.in/${file.replaceAll("\\", "/")}`)) errors.push(`sitemap.xml: missing ${file}`);
 }
+for (const file of expansionPageFiles) {
+  if (!sitemap.includes(`https://alterlabs.in/${file.replaceAll("\\", "/")}`)) errors.push(`sitemap.xml: missing ${file}`);
+}
 if (!sitemap.includes("https://alterlabs.in/insights/")) errors.push("sitemap.xml: missing insights hub");
 if (!sitemap.includes("<loc>https://alterlabs.in/</loc>\n    <lastmod>2026-06-23</lastmod>")) errors.push("sitemap.xml: homepage lastmod is stale");
 
-console.log(JSON.stringify({ growthPages: pageFiles.length, blogPages: blogFiles.length, legacyInsights: legacyInsightFiles.length, errors }, null, 2));
+console.log(JSON.stringify({ growthPages: pageFiles.length, blogPages: blogFiles.length, legacyInsights: legacyInsightFiles.length, expansionPages: expansionPageFiles.length, errors }, null, 2));
 if (errors.length) process.exitCode = 1;

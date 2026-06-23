@@ -271,9 +271,10 @@ function FloatCard({ children, style, delay = "0s" }: {
 
 function Nav() {
   const links = [
+    { label: "Audit", short: "Audit", href: "/audit/system-audit.html", icon: <Search size={15} /> },
     { label: "Pricing", short: "Price", href: "#products", icon: <ShoppingBag size={15} /> },
     { label: "Systems", short: "Systems", href: "#systems", icon: <Cpu size={15} /> },
-    { label: "Process", short: "Flow", href: "#how", icon: <Layers size={15} /> },
+    { label: "Industries", short: "Use", href: "/industries/interior-design-crm-website.html", icon: <Users size={15} /> },
     { label: "Work", short: "Work", href: "#portfolio", icon: <Monitor size={15} /> },
     { label: "Resources", short: "Read", href: "#resources", icon: <ExternalLink size={15} /> },
     { label: "FAQ", short: "FAQ", href: "#faq", icon: <MessageCircle size={15} /> },
@@ -336,6 +337,7 @@ function Nav() {
         <div className="flex shrink-0 items-center gap-1.5">
           <a
             href={PHONE}
+            data-analytics-event="call_click"
             title="Call"
             aria-label="Call AlterLabs"
             className="flex h-10 w-10 items-center justify-center rounded-xl text-blue-200/75 transition-all hover:bg-white/10 hover:text-white"
@@ -344,6 +346,7 @@ function Nav() {
           </a>
           <a
             href={WA_LINK} target="_blank" rel="noopener noreferrer"
+            data-analytics-event="whatsapp_click"
             title="WhatsApp Us"
             aria-label="WhatsApp AlterLabs"
             className="flex h-10 w-10 items-center justify-center gap-2 rounded-xl text-xs font-bold text-white transition-all hover:scale-105 md:w-auto md:px-4"
@@ -404,17 +407,19 @@ function Hero() {
           <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start mb-10">
             <a
               href="/services/crm-automation-india.html"
+              data-analytics-event="service_page_cta_click"
               className="flex items-center justify-center gap-2 px-7 py-4 rounded-xl font-bold text-white text-sm transition-all hover:scale-[1.03] hover:shadow-2xl"
               style={{ background: "linear-gradient(135deg, #2563eb, #7c3aed)", boxShadow: "0 0 40px rgba(59,130,246,0.45), 0 4px 20px rgba(0,0,0,0.4)" }}
             >
               <Target size={16} /> Explore CRM automation <ArrowRight size={14} />
             </a>
             <a
-              href={WA_LINK} target="_blank" rel="noopener noreferrer"
+              href="/audit/system-audit.html"
+              data-analytics-event="audit_page_click"
               className="flex items-center justify-center gap-2 px-7 py-4 rounded-xl font-bold text-sm transition-all hover:scale-[1.03]"
-              style={{ ...glassBright, color: "#4ade80", border: "1px solid rgba(74,222,128,0.28)", boxShadow: "0 0 24px rgba(74,222,128,0.12)" }}
+              style={{ ...glassBright, color: "#d8b4fe", border: "1px solid rgba(216,180,254,0.34)", boxShadow: "0 0 24px rgba(168,85,247,0.16)" }}
             >
-              <MessageCircle size={16} /> Discuss your lead flow
+              <Search size={16} /> Run system audit
             </a>
           </div>
 
@@ -680,7 +685,7 @@ function CoreOffers() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
           {offers.map((offer) => (
-            <a key={offer.href} href={offer.href} className="group block rounded-lg border p-5 transition-transform hover:-translate-y-1" style={{ ...glass, borderColor: `${offer.color}38` }}>
+            <a key={offer.href} href={offer.href} data-analytics-event="service_page_cta_click" className="group block rounded-lg border p-5 transition-transform hover:-translate-y-1" style={{ ...glass, borderColor: `${offer.color}38` }}>
               <span className="mb-5 flex h-10 w-10 items-center justify-center rounded-lg" style={{ color: offer.color, background: `${offer.color}18` }}>
                 {offer.icon}
               </span>
@@ -694,8 +699,10 @@ function CoreOffers() {
         </div>
         <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-3 text-sm text-blue-100/80">
           <span className="font-bold text-white">Common problems:</span>
+          <a className="font-semibold text-purple-300 hover:text-white" href="/audit/system-audit.html" data-analytics-event="audit_page_click">System audit</a>
           <a className="font-semibold text-purple-300 hover:text-white" href="/solutions/whatsapp-lead-follow-up-automation.html">WhatsApp lead follow-up</a>
           <a className="font-semibold text-purple-300 hover:text-white" href="/solutions/missed-lead-follow-up-service-businesses.html">Missed lead recovery</a>
+          <a className="font-semibold text-purple-300 hover:text-white" href="/proof/">Proof signals</a>
         </div>
       </div>
     </section>
@@ -1477,6 +1484,13 @@ function WhyAlterLabs() {
 // ─── RESOURCES ────────────────────────────────────────────────────────────────
 
 function Resources() {
+  const systemLinks = [
+    { title: "Run the system audit", href: "/audit/system-audit.html", desc: "Send a structured brief about lead sources, tools, leaks, urgency and budget.", color: "#c084fc", icon: <Search size={15} /> },
+    { title: "Review proof signals", href: "/proof/", desc: "See the operating evidence we use: handoffs, dashboards, fallback paths and human review.", color: "#60a5fa", icon: <Shield size={15} /> },
+    { title: "Interior business path", href: "/industries/interior-design-crm-website.html", desc: "A customer journey for interiors, furniture and home-service lead operations.", color: "#ec4899", icon: <Palette size={15} /> },
+    { title: "Decision notifications", href: "/systems/decision-notification-system.html", desc: "Route only the decisions that need attention so alerts become useful, not noisy.", color: "#34d399", icon: <Zap size={15} /> },
+  ];
+
   const links = [
     { title: "Leads are getting missed", href: "/insights/#missed-leads", desc: "Follow a path from lead-pipeline diagnosis to CRM readiness and implementation.", color: "#ec4899" },
     { title: "Manual work is slowing the team", href: "/insights/#manual-work", desc: "Map the current system, decide what to automate and plan a reliable first workflow.", color: "#a78bfa" },
@@ -1513,6 +1527,22 @@ function Resources() {
           <a href="/insights/" className="mt-6 inline-flex items-center gap-2 rounded-xl border border-purple-300/20 bg-purple-400/10 px-5 py-3 text-sm font-bold text-purple-100 transition-colors hover:bg-purple-400/20">
             Find the right path <ExternalLink size={14} />
           </a>
+        </div>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+          {systemLinks.map((item) => (
+            <a key={item.href} href={item.href} className="block" data-analytics-event={item.href.includes("/audit/") ? "audit_page_click" : "service_page_cta_click"}>
+              <GlowCard color={item.color} className="p-4 h-full flex flex-col gap-3">
+                <div className="flex h-9 w-9 items-center justify-center rounded-xl" style={{ color: item.color, background: `${item.color}16`, border: `1px solid ${item.color}24` }}>
+                  {item.icon}
+                </div>
+                <div>
+                  <h3 className="text-white font-bold mb-1.5" style={{ fontFamily: "'Rajdhani', sans-serif", fontSize: "1.05rem" }}>{item.title}</h3>
+                  <p className="text-[11px] text-blue-100/52 leading-relaxed">{item.desc}</p>
+                </div>
+              </GlowCard>
+            </a>
+          ))}
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -1700,6 +1730,27 @@ function FAQ() {
 // ─── FOOTER ───────────────────────────────────────────────────────────────────
 
 function Footer() {
+  const footerServices = [
+    ["Websites", "/services/business-website-development-india.html"],
+    ["Landing Pages", "/blog/landing-page-price-2999-india.html"],
+    ["Content Generation", "/blog/content-generation-price-1999-india.html"],
+    ["CRM Automation", "/services/crm-automation-india.html"],
+    ["Dashboards", "/services/revops-dashboard-india.html"],
+    ["AI Workflows", "/systems/ai-workflow-automation-human-review.html"],
+    ["Decision Notifications", "/systems/decision-notification-system.html"],
+    ["Internal Tools", "/systems/internal-tools-service-businesses.html"],
+    ["Maintenance", "/blog/website-maintenance-price-5000-india.html"],
+  ];
+  const footerIndustries = [
+    ["Interior & Furniture", "/industries/interior-design-crm-website.html"],
+    ["Real Estate", "/industries/real-estate-whatsapp-lead-follow-up.html"],
+    ["Coaching", "/industries/coaching-consulting-crm-automation.html"],
+    ["Restaurants", "/audit/system-audit.html"],
+    ["Manufacturing", "/audit/system-audit.html"],
+    ["Local Shops", "/audit/system-audit.html"],
+    ["Finance", "/audit/system-audit.html"],
+  ];
+
   return (
     <footer className="relative pt-16 pb-8 border-t" style={{ borderColor: "rgba(59,130,246,0.1)", background: "rgba(2,4,14,0.97)" }}>
       {/* Top neon line */}
@@ -1735,9 +1786,11 @@ function Footer() {
           <div>
             <h2 className="text-sm font-bold text-white mb-4" style={{ fontFamily: "'Rajdhani', sans-serif" }}>Services</h2>
             <ul className="flex flex-col gap-2.5">
-              {["Websites", "Landing Pages", "Content Generation", "CRM Automation", "Dashboards", "AI Workflows", "Meta Ads", "Google Ads", "Maintenance"].map(s => (
-                <li key={s} className="text-[12px] text-blue-100/75 hover:text-blue-300 transition-colors cursor-default flex items-center gap-1.5">
-                  <span className="w-1 h-1 rounded-full bg-blue-500/40" />{s}
+              {footerServices.map(([label, href]) => (
+                <li key={label}>
+                  <a href={href} className="text-[12px] text-blue-100/75 hover:text-blue-300 transition-colors flex items-center gap-1.5">
+                    <span className="w-1 h-1 rounded-full bg-blue-500/40" />{label}
+                  </a>
                 </li>
               ))}
             </ul>
@@ -1747,9 +1800,11 @@ function Footer() {
           <div>
             <h2 className="text-sm font-bold text-white mb-4" style={{ fontFamily: "'Rajdhani', sans-serif" }}>Industries</h2>
             <ul className="flex flex-col gap-2.5">
-              {["Interior & Furniture", "Real Estate", "Restaurants", "Manufacturing", "Coaching", "Local Shops", "Finance"].map(s => (
-                <li key={s} className="text-[12px] text-blue-100/75 hover:text-blue-300 transition-colors cursor-default flex items-center gap-1.5">
-                  <span className="w-1 h-1 rounded-full bg-purple-500/40" />{s}
+              {footerIndustries.map(([label, href]) => (
+                <li key={label}>
+                  <a href={href} className="text-[12px] text-blue-100/75 hover:text-blue-300 transition-colors flex items-center gap-1.5">
+                    <span className="w-1 h-1 rounded-full bg-purple-500/40" />{label}
+                  </a>
                 </li>
               ))}
             </ul>
