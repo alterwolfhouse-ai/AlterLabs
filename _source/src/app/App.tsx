@@ -9,8 +9,8 @@ import {
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 
-const WA_LINK = "https://wa.me/918826436093?text=Hi%20AlterLabs%2C%20I%20want%20to%20discuss%20a%20website%2C%20CRM%20or%20automation%20build";
-const PHONE = "tel:+918826436093";
+const WA_LINK = "https://wa.me/916206108923?text=Hi%20AlterLabs%2C%20I%20want%20to%20discuss%20a%20website%2C%20CRM%20or%20automation%20build";
+const PHONE = "tel:+916206108923";
 const EMAIL = "mailto:hello@alterlabs.in";
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────

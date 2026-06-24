@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const published = "2026-06-19";
-const whatsapp = "https://wa.me/918826436093?text=Hi%20AlterLabs%2C%20I%20want%20to%20discuss%20my%20lead%20workflow";
+const whatsapp = "https://wa.me/916206108923?text=Hi%20AlterLabs%2C%20I%20want%20to%20discuss%20my%20lead%20workflow";
 
 const pages = [
   {
@@ -227,7 +227,7 @@ function renderPage(page) {
         <p class="article-summary">${escapeHtml(page.promise)}</p>
         <div class="service-actions">
           <a class="btn primary" href="${whatsapp}">Map my workflow</a>
-          <a class="btn ghost" href="tel:+918826436093">Call +91 88264 36093</a>
+          <a class="btn ghost" href="tel:+916206108923">Call +91 62061 08923</a>
         </div>
       </div>
       <div class="service-flow" aria-label="${escapeHtml(page.flow.join(" to "))}">

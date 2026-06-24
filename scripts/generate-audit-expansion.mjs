@@ -5,8 +5,8 @@ import { fileURLToPath } from "node:url";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const site = "https://alterlabs.in";
 const modified = "2026-06-24";
-const phone = "tel:+918826436093";
-const whatsappBase = "https://wa.me/918826436093";
+const phone = "tel:+916206108923";
+const whatsappBase = "https://wa.me/916206108923";
 const whatsapp = `${whatsappBase}?text=Hi%20AlterLabs%2C%20I%20want%20a%20system%20audit%20for%20my%20business`;
 
 const escapeHtml = (value) => String(value)
@@ -135,7 +135,7 @@ function hero(page, visual = "") {
         <p class="article-summary">${escapeHtml(page.summary)}</p>
         <div class="service-actions">
           <a class="btn primary" href="/audit/system-audit.html" data-analytics-event="audit_page_click">Start audit</a>
-          <a class="btn ghost" href="${phone}" data-analytics-event="call_click">Call +91 88264 36093</a>
+          <a class="btn ghost" href="${phone}" data-analytics-event="call_click">Call +91 62061 08923</a>
         </div>
       </div>
       ${visual}

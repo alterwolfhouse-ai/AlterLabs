@@ -5,7 +5,7 @@ import { fileURLToPath } from "node:url";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const published = "2026-05-28";
 const modified = "2026-06-23";
-const whatsapp = "https://wa.me/918826436093?text=Hi%20AlterLabs%2C%20I%20want%20to%20improve%20a%20business%20workflow";
+const whatsapp = "https://wa.me/916206108923?text=Hi%20AlterLabs%2C%20I%20want%20to%20improve%20a%20business%20workflow";
 
 const articles = [
   {

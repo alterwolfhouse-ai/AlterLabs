@@ -98,11 +98,11 @@ function Contact() {
           </p>
 
           <div className="contact-channels">
-            <a className="channel" href="tel:+918826436093">
+            <a className="channel" href="tel:+916206108923">
               <span className="ic"><Wa/></span>
               <span className="channel-text">
                 <span className="lbl">// phone / whatsapp</span>
-                <span>+91 88264 36093</span>
+                <span>+91 62061 08923</span>
               </span>
             </a>
             <a className="channel" href="mailto:hello@alterlabs.in">

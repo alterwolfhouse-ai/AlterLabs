@@ -253,7 +253,7 @@ ${JSON.stringify(structured)}
 
     <div class="article-cta">
       <a class="btn btn-primary" href="../index.html#products">View all AlterLabs product cards</a>
-      <a class="btn btn-ghost" href="https://wa.me/918826436093?text=Hi%20AlterLabs%2C%20I%20want%20to%20discuss%20a%20website%2C%20content%20or%20pricing%20package">Ask on WhatsApp</a>
+      <a class="btn btn-ghost" href="https://wa.me/916206108923?text=Hi%20AlterLabs%2C%20I%20want%20to%20discuss%20a%20website%2C%20content%20or%20pricing%20package">Ask on WhatsApp</a>
     </div>
   </article>
 </main>
@@ -295,7 +295,7 @@ function articleHtml(article) {
 </head>
 <body class="service-page-body">
 <a class="skip-link-static" href="#main-content">Skip to main content</a>
-<header class="service-topbar"><a href="/" class="service-brand" aria-label="AlterLabs home"><span>AL</span><strong>AlterLabs</strong></a><nav aria-label="Pricing guide navigation"><a href="/insights/#start-paths">Start paths</a><a href="/insights/#pricing">Pricing guides</a><a href="/#products">All packages</a><a href="https://wa.me/918826436093?text=Hi%20AlterLabs%2C%20I%20want%20to%20discuss%20a%20website%2C%20content%20or%20pricing%20package">Talk to us</a></nav></header>
+<header class="service-topbar"><a href="/" class="service-brand" aria-label="AlterLabs home"><span>AL</span><strong>AlterLabs</strong></a><nav aria-label="Pricing guide navigation"><a href="/insights/#start-paths">Start paths</a><a href="/insights/#pricing">Pricing guides</a><a href="/#products">All packages</a><a href="https://wa.me/916206108923?text=Hi%20AlterLabs%2C%20I%20want%20to%20discuss%20a%20website%2C%20content%20or%20pricing%20package">Talk to us</a></nav></header>
 <main id="main-content" class="article-page insight-article-page">
   <nav class="article-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/insights/">Insights</a><span>/</span><a href="/insights/#pricing">Pricing guides</a></nav>
   <p class="article-kicker">Pricing guide / ${escapeHtml(article.intent)}</p>
@@ -338,7 +338,7 @@ function articleHtml(article) {
 
     <section><h2>Continue comparing</h2>${relatedLinks(article.slug)}<div class="related-links"><a href="/insights/#pricing">View every pricing and scope guide <span aria-hidden="true">&rarr;</span></a></div></section>
 
-    <div class="article-cta service-cta"><p class="article-kicker">Bring the exact budget and deadline</p><h2>Confirm the smallest package that can do the job properly.</h2><a class="btn btn-primary" href="../index.html#products">View all AlterLabs product cards</a><a class="btn btn-ghost" href="https://wa.me/918826436093?text=Hi%20AlterLabs%2C%20I%20want%20to%20discuss%20a%20website%2C%20content%20or%20pricing%20package">Ask on WhatsApp</a></div>
+    <div class="article-cta service-cta"><p class="article-kicker">Bring the exact budget and deadline</p><h2>Confirm the smallest package that can do the job properly.</h2><a class="btn btn-primary" href="../index.html#products">View all AlterLabs product cards</a><a class="btn btn-ghost" href="https://wa.me/916206108923?text=Hi%20AlterLabs%2C%20I%20want%20to%20discuss%20a%20website%2C%20content%20or%20pricing%20package">Ask on WhatsApp</a></div>
 
     <nav class="article-journey" aria-label="Continue pricing guides"><div><span>Previous pricing guide</span>${previous ? `<a href="./${previous.slug}.html">&larr; ${escapeHtml(previous.title)}</a>` : '<a href="/insights/#pricing">&larr; Pricing overview</a>'}</div><div><span>Next pricing guide</span>${next ? `<a href="./${next.slug}.html">${escapeHtml(next.title)} &rarr;</a>` : '<a href="/#products">View all packages &rarr;</a>'}</div></nav>
   </article>

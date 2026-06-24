@@ -29,7 +29,7 @@ function Footer() {
           </div>
           <div className="footer-col">
             <h6>Contact</h6>
-            <a href="tel:+918826436093">+91 88264 36093</a>
+            <a href="tel:+916206108923">+91 62061 08923</a>
             <a href="mailto:hello@alterlabs.in">hello@alterlabs.in</a>
             <a href="#contact" onClick={(e)=>onClick(e,'contact')}>Start a project</a>
             <a href="mailto:hello@alterlabs.in?subject=AlterLabs%20intro%20call">Request an intro call</a>
