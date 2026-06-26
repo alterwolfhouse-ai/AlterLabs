@@ -1376,6 +1376,390 @@ function Portfolio() {
 
 // ─── TESTIMONIALS ─────────────────────────────────────────────────────────────
 
+function PortfolioV2() {
+  const workCards = [
+    {
+      label: "Modera Interiors",
+      tag: "Interior website + content",
+      color: "#c084fc",
+      icon: <Palette size={26} />,
+      href: "/industries/interior-design-crm-website.html",
+      visual: "interior",
+      metric: "Offer clarity",
+      proof: "Service story, portfolio rhythm and WhatsApp-ready enquiry path for a design-led business.",
+      deliverables: ["Room-wise blocks", "Proof layout", "Content prompts"],
+      signals: ["Interiors", "Portfolio", "Lead path"],
+    },
+    {
+      label: "Content generation system",
+      tag: "Copy + SEO workflow",
+      color: "#38bdf8",
+      icon: <FileText size={26} />,
+      href: "/blog/content-generation-price-1999-india.html",
+      visual: "content",
+      metric: "Search-ready copy",
+      proof: "A repeatable writing pipeline for service pages, blog drafts, metadata and buyer objections.",
+      deliverables: ["Topic map", "Draft queue", "SEO metadata"],
+      signals: ["Copy", "Blogs", "FAQs"],
+    },
+    {
+      label: "altercraft.in",
+      tag: "Live website",
+      color: "#f59e0b",
+      icon: <Globe size={26} />,
+      href: "/services/business-website-development-india.html",
+      visual: "website",
+      metric: "Live surface",
+      proof: "A public brand surface shaped around trust, clear action and simple navigation.",
+      deliverables: ["Homepage path", "CTA structure", "Proof sections"],
+      signals: ["Website", "Brand", "Launch"],
+    },
+    {
+      label: "Lead-tracking CRM",
+      tag: "CRM routing",
+      color: "#3b82f6",
+      icon: <TrendingUp size={26} />,
+      href: "/services/crm-automation-india.html",
+      visual: "crm",
+      metric: "No lost owner",
+      proof: "Source, owner, stage and next action captured so enquiries stop living only in memory.",
+      deliverables: ["Pipeline stages", "Owner rules", "Aging view"],
+      signals: ["CRM", "Routing", "Follow-up"],
+    },
+    {
+      label: "Ops dashboard",
+      tag: "RevOps view",
+      color: "#6366f1",
+      icon: <BarChart2 size={26} />,
+      href: "/services/revops-dashboard-india.html",
+      visual: "dashboard",
+      metric: "Daily control",
+      proof: "A decision view for lead response, stale deals, source quality and operating bottlenecks.",
+      deliverables: ["KPI cards", "Stage movement", "Risk alerts"],
+      signals: ["Dashboard", "RevOps", "Ageing"],
+    },
+    {
+      label: "Automation workflow",
+      tag: "Forms to CRM",
+      color: "#10b981",
+      icon: <Zap size={26} />,
+      href: "/services/workflow-automation-india.html",
+      visual: "automation",
+      metric: "Cleaner handoff",
+      proof: "Website, WhatsApp, CRM, reminders and human review connected without hiding exceptions.",
+      deliverables: ["Trigger map", "Retry rules", "Review steps"],
+      signals: ["Forms", "CRM", "Review"],
+    },
+    {
+      label: "E-Commerce Website",
+      tag: "E-Commerce Pack",
+      color: "#ec4899",
+      icon: <ShoppingBag size={26} />,
+      href: "/blog/ecommerce-website-price-14999-india.html",
+      visual: "commerce",
+      metric: "Catalog to order",
+      proof: "Product browsing, WhatsApp order path and payment guidance for a focused starter catalog.",
+      deliverables: ["Product grid", "Order CTA", "Basic tracking"],
+      signals: ["Catalog", "Orders", "WhatsApp"],
+    },
+    {
+      label: "Landing Page for Ads",
+      tag: "Landing Page",
+      color: "#7c3aed",
+      icon: <Target size={26} />,
+      href: "/blog/landing-page-price-2999-india.html",
+      visual: "landing",
+      metric: "One offer path",
+      proof: "Campaign page structure with one promise, one proof chain and one conversion action.",
+      deliverables: ["Hero offer", "Proof stack", "Ad-ready CTA"],
+      signals: ["Ads", "Landing", "Conversion"],
+    },
+  ];
+
+  const renderGraphic = (card: any) => {
+    const panel = {
+      background: "rgba(3,5,15,0.52)",
+      border: "1px solid rgba(255,255,255,0.07)",
+    };
+    const faint = `${card.color}22`;
+    const mid = `${card.color}40`;
+    const strong = `${card.color}68`;
+
+    if (card.visual === "crm") {
+      return (
+        <div className="grid grid-cols-3 gap-2">
+          {["New", "Qual", "Won"].map((label, index) => (
+            <div key={label} className="min-h-[108px] rounded-lg p-2" style={panel}>
+              <div className="mb-2 text-[8px] font-bold" style={{ color: index === 2 ? "#34d399" : card.color }}>{label}</div>
+              {[0, 1, 2].map((item) => (
+                <div key={item} className="mb-1.5 h-4 rounded" style={{ background: item === 0 ? strong : "rgba(255,255,255,0.08)" }} />
+              ))}
+            </div>
+          ))}
+        </div>
+      );
+    }
+
+    if (card.visual === "dashboard") {
+      return (
+        <div className="grid grid-cols-[1fr_1.25fr] gap-2">
+          <div className="grid gap-2">
+            {["Speed", "Stage", "Risk"].map((label) => (
+              <div key={label} className="rounded-lg px-2 py-2" style={panel}>
+                <div className="text-[8px] text-white/42">{label}</div>
+                <div className="mt-1 h-2 rounded-full" style={{ background: strong }} />
+              </div>
+            ))}
+          </div>
+          <div className="rounded-lg p-3 flex items-end gap-1.5" style={panel}>
+            {[38, 74, 52, 92, 66, 84].map((height, index) => (
+              <div key={index} className="flex-1 rounded-t" style={{ height, background: index === 3 ? strong : faint }} />
+            ))}
+          </div>
+        </div>
+      );
+    }
+
+    if (card.visual === "automation") {
+      return (
+        <div className="relative h-[116px]">
+          {[
+            ["Form", "left-0 top-0"],
+            ["CRM", "left-1/2 -translate-x-1/2 top-9"],
+            ["Review", "right-0 top-0"],
+            ["Alert", "left-3 bottom-0"],
+            ["Dash", "right-3 bottom-0"],
+          ].map(([label, pos]) => (
+            <div key={label} className={`absolute ${pos} rounded-xl px-3 py-2 text-[9px] font-bold`} style={{ ...panel, color: card.color }}>
+              {label}
+            </div>
+          ))}
+          <div className="absolute left-[21%] top-[31px] h-px w-[58%]" style={{ background: `linear-gradient(90deg, transparent, ${strong}, transparent)` }} />
+          <div className="absolute left-1/2 top-[60px] h-9 w-px" style={{ background: `linear-gradient(180deg, ${strong}, transparent)` }} />
+        </div>
+      );
+    }
+
+    if (card.visual === "content") {
+      return (
+        <div className="grid grid-cols-[0.82fr_1.18fr] gap-2">
+          <div className="rounded-lg p-2 space-y-2" style={panel}>
+            {["SEO", "FAQ", "Post"].map((label) => (
+              <div key={label} className="rounded-md px-2 py-1.5 text-[8px] font-bold" style={{ background: faint, color: card.color }}>{label}</div>
+            ))}
+          </div>
+          <div className="rounded-lg p-3 space-y-2" style={panel}>
+            <div className="h-3 w-4/5 rounded-full" style={{ background: strong }} />
+            <div className="h-2 rounded-full bg-white/10" />
+            <div className="h-2 w-11/12 rounded-full bg-white/10" />
+            <div className="h-2 w-2/3 rounded-full bg-white/10" />
+            <div className="grid grid-cols-3 gap-1 pt-1">
+              {[55, 75, 42].map((height, index) => (
+                <div key={index} className="rounded-sm" style={{ height, background: index === 1 ? strong : faint }} />
+              ))}
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    if (card.visual === "commerce") {
+      return (
+        <div className="grid grid-cols-[1.15fr_0.85fr] gap-2">
+          <div className="grid grid-cols-2 gap-2">
+            {[0, 1, 2, 3].map((item) => (
+              <div key={item} className="rounded-lg p-2" style={panel}>
+                <div className="h-10 rounded-md" style={{ background: item === 0 ? strong : faint }} />
+                <div className="mt-2 h-1.5 rounded bg-white/10" />
+              </div>
+            ))}
+          </div>
+          <div className="rounded-lg p-3 space-y-2" style={panel}>
+            <ShoppingBag size={24} style={{ color: card.color }} />
+            <div className="h-2 rounded-full" style={{ background: strong }} />
+            <div className="h-2 w-3/4 rounded-full bg-white/10" />
+            <div className="mt-3 h-6 rounded-lg" style={{ background: faint }} />
+          </div>
+        </div>
+      );
+    }
+
+    if (card.visual === "landing") {
+      return (
+        <div className="rounded-lg p-3 space-y-2" style={panel}>
+          <div className="grid grid-cols-[1.2fr_0.8fr] gap-2">
+            <div className="space-y-2">
+              <div className="h-5 rounded-lg" style={{ background: strong }} />
+              <div className="h-2 rounded-full bg-white/10" />
+              <div className="h-2 w-4/5 rounded-full bg-white/10" />
+              <div className="h-7 w-2/3 rounded-lg" style={{ background: faint }} />
+            </div>
+            <div className="rounded-lg flex items-center justify-center" style={{ background: `radial-gradient(circle, ${mid}, transparent 65%)` }}>
+              <Target size={34} style={{ color: card.color }} />
+            </div>
+          </div>
+          <div className="grid grid-cols-3 gap-2 pt-1">
+            {[0, 1, 2].map((item) => <div key={item} className="h-8 rounded-md" style={{ background: item === 1 ? faint : "rgba(255,255,255,0.06)" }} />)}
+          </div>
+        </div>
+      );
+    }
+
+    return (
+      <div className="grid grid-cols-[1.1fr_0.9fr] gap-2">
+        <div className="space-y-2">
+          <div className="h-12 rounded-lg" style={{ background: `linear-gradient(135deg, ${strong}, rgba(255,255,255,0.05))` }} />
+          <div className="grid grid-cols-2 gap-2">
+            <div className="h-16 rounded-lg" style={panel} />
+            <div className="h-16 rounded-lg relative overflow-hidden" style={panel}>
+              <span className="absolute inset-x-3 top-3 h-2 rounded-full" style={{ background: strong }} />
+              <span className="absolute left-3 bottom-3 h-7 w-7 rounded" style={{ background: faint }} />
+              <span className="absolute right-3 bottom-3 h-7 w-7 rounded-full" style={{ border: `1px solid ${strong}` }} />
+            </div>
+          </div>
+        </div>
+        <div className="rounded-lg p-2 space-y-2" style={panel}>
+          <div className="h-16 rounded-md" style={{ background: `radial-gradient(circle at 30% 30%, ${strong}, transparent 42%), rgba(255,255,255,0.04)` }} />
+          <div className="h-2 rounded-full" style={{ background: strong }} />
+          <div className="h-2 w-3/4 rounded-full bg-white/10" />
+        </div>
+      </div>
+    );
+  };
+
+  return (
+    <section id="portfolio" className="py-24" style={{ background: "linear-gradient(180deg, transparent 0%, rgba(8,15,40,0.4) 50%, transparent 100%)" }}>
+      <div className="max-w-7xl mx-auto px-5 md:px-10">
+        <div className="text-center mb-14">
+          <SectionTag color="#7c3aed">Portfolio</SectionTag>
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-3" style={{ fontFamily: "'Rajdhani', sans-serif" }}>
+            Systems We Can <GradText from="#a78bfa" to="#60a5fa">Build Around Your Business</GradText>
+          </h2>
+          <p className="text-blue-100/68 text-sm md:text-base leading-relaxed max-w-3xl mx-auto">
+            Each example shows the visible surface plus the operating layer behind it: content, source tracking, CRM routing, dashboards, follow-up rules or automation.
+          </p>
+          <div className="mt-6 grid gap-3 text-left sm:grid-cols-3">
+            {[
+              ["Surface", "Website, landing page or content asset the customer sees first."],
+              ["System", "Lead source, owner, stage, next action and reporting path behind the screen."],
+              ["Scale", "Add content, dashboard, automation or AI only after the first path works."],
+            ].map(([title, body]) => (
+              <div key={title} className="rounded-lg px-4 py-3" style={{ ...glass, borderColor: "rgba(167,139,250,0.20)" }}>
+                <div className="text-[10px] font-bold uppercase tracking-[0.18em] text-purple-200/78">{title}</div>
+                <p className="mt-1 text-[12px] leading-relaxed text-blue-100/64">{body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {workCards.map(card => (
+            <GlowCard key={card.label} color={card.color} className="overflow-hidden group">
+              <div className="min-h-[250px] relative overflow-hidden" style={{ background: `linear-gradient(135deg, ${card.color}24, rgba(4,7,18,0.95))` }}>
+                <div className="absolute inset-0 opacity-20" style={{
+                  backgroundImage: "repeating-linear-gradient(0deg, transparent, transparent 5px, rgba(0,0,0,0.15) 5px, rgba(0,0,0,0.15) 6px)",
+                }} />
+                <div className="absolute -right-8 -top-10 h-32 w-32 rounded-full opacity-30 blur-2xl" style={{ background: card.color }} />
+                <div className="absolute inset-3 rounded-xl overflow-hidden" style={{ background: "rgba(0,0,0,0.45)", border: "1px solid rgba(255,255,255,0.06)" }}>
+                  <div className="flex items-center gap-1 px-2 py-2 border-b" style={{ borderColor: "rgba(255,255,255,0.06)", background: "rgba(0,0,0,0.4)" }}>
+                    <span className="w-1.5 h-1.5 rounded-full bg-red-400/60" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-yellow-400/60" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-green-400/60" />
+                    <div className="flex-1 ml-2 h-2.5 rounded bg-white/5 flex items-center justify-center">
+                      <span className="text-[7px] text-white/20">alterlabs.in</span>
+                    </div>
+                  </div>
+                  <div className="p-3 space-y-3">
+                    <div className="flex items-center justify-between gap-3">
+                      <div>
+                        <div className="h-2.5 w-28 rounded-full" style={{ background: `${card.color}68` }} />
+                        <div className="mt-2 h-1.5 w-20 rounded-full bg-white/10" />
+                      </div>
+                      <div className="rounded-lg px-2 py-1 text-[8px] font-bold uppercase tracking-[0.12em]" style={{ color: card.color, background: `${card.color}14`, border: `1px solid ${card.color}24` }}>
+                        {card.metric}
+                      </div>
+                    </div>
+                    {renderGraphic(card)}
+                    <div className="flex flex-wrap gap-1.5">
+                      {card.signals.map(signal => (
+                        <span key={signal} className="rounded-full px-2 py-1 text-[8px] font-bold uppercase tracking-[0.12em]" style={{ color: card.color, background: `${card.color}14`, border: `1px solid ${card.color}22` }}>
+                          {signal}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="absolute bottom-4 right-4 flex h-12 w-12 items-center justify-center rounded-2xl select-none transition-transform duration-300 group-hover:scale-105"
+                  style={{
+                    color: card.color,
+                    background: "rgba(3,5,15,0.56)",
+                    border: `1px solid ${card.color}28`,
+                    boxShadow: `0 0 28px ${card.color}20`,
+                  }}
+                >
+                  {card.icon}
+                </div>
+              </div>
+
+              <div className="p-5">
+                <div className="flex items-start justify-between gap-3">
+                  <div>
+                    <div className="font-bold text-white text-lg leading-tight" style={{ fontFamily: "'Rajdhani', sans-serif" }}>{card.label}</div>
+                    <div className="text-[11px] font-bold mt-1" style={{ color: card.color }}>{card.tag}</div>
+                  </div>
+                  <a
+                    href={card.href}
+                    className="shrink-0 rounded-lg px-2.5 py-2 text-[10px] font-bold transition-all hover:scale-105"
+                    style={{ background: `${card.color}14`, color: card.color, border: `1px solid ${card.color}24` }}
+                  >
+                    Details
+                  </a>
+                </div>
+                <p className="mt-3 text-[12px] leading-relaxed text-blue-100/68">{card.proof}</p>
+                <div className="mt-4 grid grid-cols-3 gap-2">
+                  {card.deliverables.map(item => (
+                    <div key={item} className="rounded-lg px-2 py-2 text-[9px] font-semibold leading-tight text-blue-100/72" style={{ background: "rgba(255,255,255,0.045)", border: "1px solid rgba(255,255,255,0.06)" }}>
+                      {item}
+                    </div>
+                  ))}
+                </div>
+                <a
+                  href={WA_LINK} target="_blank" rel="noopener noreferrer"
+                  className="mt-4 flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl text-[11px] font-bold transition-all hover:scale-[1.02]"
+                  style={{ background: `${card.color}16`, color: card.color, border: `1px solid ${card.color}28` }}
+                >
+                  Build something similar <ExternalLink size={10} />
+                </a>
+              </div>
+            </GlowCard>
+          ))}
+        </div>
+
+        <div className="mt-8 rounded-2xl p-5 md:p-6" style={{ ...glassBright, borderColor: "rgba(167,139,250,0.22)" }}>
+          <div className="grid gap-5 md:grid-cols-[1.25fr_0.75fr] md:items-center">
+            <div>
+              <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-purple-200/78">How to use this section</div>
+              <h3 className="mt-2 text-2xl font-bold text-white" style={{ fontFamily: "'Rajdhani', sans-serif" }}>Pick the closest example, then we map the system behind it.</h3>
+              <p className="mt-2 text-sm leading-relaxed text-blue-100/70">
+                The first call is about finding the smallest business path worth fixing: page to enquiry, enquiry to owner, owner to follow-up, and follow-up to measurable result.
+              </p>
+            </div>
+            <div className="grid grid-cols-3 gap-2">
+              {["Page", "CRM", "Ops"].map((label, index) => (
+                <div key={label} className="rounded-xl p-3 text-center" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)" }}>
+                  <div className="text-xl font-black" style={{ fontFamily: "'Rajdhani', sans-serif", color: index === 0 ? "#a78bfa" : index === 1 ? "#60a5fa" : "#34d399" }}>{index + 1}</div>
+                  <div className="mt-1 text-[10px] font-bold uppercase tracking-[0.14em] text-blue-100/62">{label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Testimonials() {
   const reviews = [
     { name: "Website launch", biz: "Starter and business packs", text: "Useful when a business needs a clean online surface, WhatsApp lead capture and basic SEO without a long agency cycle.", stars: 5, color: "#f59e0b" },
@@ -1889,7 +2273,7 @@ export default function App() {
         <Pricing />
         <HowItWorks />
         <Industries />
-        <Portfolio />
+        <PortfolioV2 />
         <WhyAlterLabs />
         <Resources />
         <FounderCTA />
