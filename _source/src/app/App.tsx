@@ -269,6 +269,60 @@ function FloatCard({ children, style, delay = "0s" }: {
 
 // ─── NAV ─────────────────────────────────────────────────────────────────────
 
+const BOOT_SESSION_KEY = "alterlabs.bootHero.seen";
+const BOOT_COMMAND = "alterlabs deploy --production";
+const BOOT_LOGS = [
+  { text: "resolving systems", tone: "muted" },
+  { text: "provisioning CRM + automation", tone: "accent" },
+  { text: "building interface", tone: "muted" },
+  { text: "ready", tone: "ok" },
+];
+const BOOT_WORDS = [
+  { text: "We" },
+  { text: "build" },
+  { text: "the" },
+  { text: "systems" },
+  { text: "your" },
+  { text: "business" },
+  { text: "runs on.", accent: true },
+];
+
+function BootMetric({ label, to, suffix = "", active, instant = false }: { label: string; to: number; suffix?: string; active: boolean; instant?: boolean }) {
+  const [value, setValue] = useState(active ? to : 0);
+
+  useEffect(() => {
+    if (!active) {
+      setValue(0);
+      return;
+    }
+
+    if (instant) {
+      setValue(to);
+      return;
+    }
+
+    let frame = 0;
+    const start = performance.now();
+    const duration = 950;
+    const tick = (now: number) => {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setValue(Math.round(eased * to));
+      if (progress < 1) frame = requestAnimationFrame(tick);
+    };
+
+    frame = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(frame);
+  }, [active, instant, to]);
+
+  return (
+    <div className="boot-kpi">
+      <span>{label}</span>
+      <strong>{value.toLocaleString("en-IN")}{suffix}</strong>
+    </div>
+  );
+}
+
 function Nav() {
   const links = [
     { label: "Audit", short: "Audit", href: "/audit/system-audit.html", icon: <Search size={15} /> },
@@ -364,7 +418,7 @@ function Nav() {
 
 // ─── HERO ─────────────────────────────────────────────────────────────────────
 
-function Hero() {
+function LegacyHero() {
   return (
     <section id="top" className="relative min-h-[88svh] flex items-center justify-center overflow-hidden pt-4 md:pt-0">
       {/* Deep space background */}
@@ -557,6 +611,245 @@ function Hero() {
 }
 
 // ─── MARQUEE TRUST BAR ────────────────────────────────────────────────────────
+
+function Hero() {
+  const [command, setCommand] = useState("");
+  const [logCount, setLogCount] = useState(0);
+  const [progress, setProgress] = useState(0);
+  const [bootVisible, setBootVisible] = useState(true);
+  const [bootComplete, setBootComplete] = useState(false);
+  const [assembled, setAssembled] = useState(false);
+  const [dashboardLive, setDashboardLive] = useState(false);
+  const [instantMetrics, setInstantMetrics] = useState(false);
+  const [pipelineStep, setPipelineStep] = useState(0);
+  const timers = useRef<number[]>([]);
+  const bootActive = useRef(false);
+
+  const clearTimers = useCallback(() => {
+    timers.current.forEach((id) => window.clearTimeout(id));
+    timers.current = [];
+  }, []);
+
+  const schedule = useCallback((fn: () => void, delay: number) => {
+    const id = window.setTimeout(fn, delay);
+    timers.current.push(id);
+  }, []);
+
+  const settle = useCallback((remember = true) => {
+    clearTimers();
+    bootActive.current = false;
+    setCommand(BOOT_COMMAND);
+    setLogCount(BOOT_LOGS.length);
+    setProgress(100);
+    setAssembled(true);
+    setDashboardLive(true);
+    setInstantMetrics(true);
+    setPipelineStep(4);
+    setBootComplete(true);
+    schedule(() => setBootVisible(false), 240);
+    if (remember) {
+      try {
+        window.sessionStorage.setItem(BOOT_SESSION_KEY, "true");
+      } catch {
+        // Storage can fail in private or restricted browser contexts.
+      }
+    }
+  }, [clearTimers, schedule]);
+
+  const startBoot = useCallback((force = false) => {
+    clearTimers();
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let seen = false;
+    try {
+      seen = window.sessionStorage.getItem(BOOT_SESSION_KEY) === "true";
+    } catch {
+      seen = false;
+    }
+
+    if (reduceMotion || (seen && !force)) {
+      bootActive.current = false;
+      settle(false);
+      return;
+    }
+
+    if (force) {
+      try {
+        window.sessionStorage.removeItem(BOOT_SESSION_KEY);
+      } catch {
+        // Storage can fail in private or restricted browser contexts.
+      }
+    }
+
+    setCommand("");
+    bootActive.current = true;
+    setLogCount(0);
+    setProgress(0);
+    setBootVisible(true);
+    setBootComplete(false);
+    setAssembled(false);
+    setDashboardLive(false);
+    setInstantMetrics(false);
+    setPipelineStep(0);
+
+    Array.from(BOOT_COMMAND).forEach((_, index) => {
+      schedule(() => setCommand(BOOT_COMMAND.slice(0, index + 1)), index * 24);
+    });
+
+    BOOT_LOGS.forEach((_, index) => {
+      schedule(() => {
+        setLogCount(index + 1);
+        setProgress(Math.round(((index + 1) / BOOT_LOGS.length) * 100));
+      }, 720 + index * 150);
+    });
+
+    schedule(() => setAssembled(true), 1180);
+    schedule(() => setBootComplete(true), 1320);
+    schedule(() => setDashboardLive(true), 1450);
+    [1, 2, 3, 4].forEach((step, index) => {
+      schedule(() => setPipelineStep(step), 1550 + index * 180);
+    });
+    schedule(() => {
+      bootActive.current = false;
+      setBootVisible(false);
+    }, 2100);
+    schedule(() => {
+      try {
+        window.sessionStorage.setItem(BOOT_SESSION_KEY, "true");
+      } catch {
+        // Storage can fail in private or restricted browser contexts.
+      }
+    }, 2200);
+  }, [clearTimers, schedule, settle]);
+
+  useEffect(() => {
+    startBoot(false);
+    const skipOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") settle();
+    };
+    const skipOnScroll = () => {
+      if (bootActive.current) settle();
+    };
+    window.addEventListener("keydown", skipOnEscape);
+    window.addEventListener("wheel", skipOnScroll, { passive: true });
+    window.addEventListener("touchmove", skipOnScroll, { passive: true });
+    return () => {
+      clearTimers();
+      window.removeEventListener("keydown", skipOnEscape);
+      window.removeEventListener("wheel", skipOnScroll);
+      window.removeEventListener("touchmove", skipOnScroll);
+    };
+  }, [clearTimers, settle, startBoot]);
+
+  return (
+    <section id="top" className={cx("boot-hero", assembled && "is-assembled", dashboardLive && "is-dashboard-live")}>
+      <div className="boot-aurora" aria-hidden="true" />
+      <div className="boot-grid" aria-hidden="true" />
+      <div className="boot-grain" aria-hidden="true" />
+      <StarField />
+
+      {bootVisible && (
+        <div className={cx("boot-overlay", bootComplete && "is-complete")} onClick={() => settle()} aria-hidden={bootComplete}>
+          <div className="boot-terminal" onClick={(event) => event.stopPropagation()}>
+            <div className="boot-terminal-bar">
+              <span />
+              <span />
+              <span />
+              <b>alterlabs - deploy</b>
+            </div>
+            <div className="boot-terminal-body">
+              <p><span>$</span> {command}<i /></p>
+              <div className="boot-log-stack">
+                {BOOT_LOGS.map((log, index) => (
+                  <div key={log.text} className={cx("boot-log", index < logCount && "is-visible", `tone-${log.tone}`)}>
+                    <span>{">"}</span> {log.text}
+                  </div>
+                ))}
+              </div>
+              <div className="boot-progress" aria-hidden="true">
+                <i style={{ width: `${progress}%` }} />
+              </div>
+            </div>
+          </div>
+          <button type="button" className="boot-skip" onClick={(event) => { event.stopPropagation(); settle(); }}>
+            Skip intro
+          </button>
+        </div>
+      )}
+
+      <div className="boot-hero-inner">
+        <div className="boot-copy">
+          <div className="boot-brand-row">
+            <LogoLockup />
+            <span>CRM automation + business websites / India</span>
+          </div>
+          <p className="boot-eyebrow">Systems studio - built, not duct-taped</p>
+          <h1 className="boot-title" aria-label="We build the systems your business runs on.">
+            {BOOT_WORDS.map((word, index) => (
+              <span key={`${word.text}-${index}`}>
+                <span className="boot-word" style={{ transitionDelay: assembled ? `${index * 70}ms` : "0ms" }}>
+                  <span className={word.accent ? "boot-gradient-text" : ""}>{word.text}</span>
+                </span>
+                {index < BOOT_WORDS.length - 1 ? " " : null}
+              </span>
+            ))}
+          </h1>
+          <p className="boot-sub">
+            AlterLabs helps Indian service businesses capture enquiries, route them into a clean CRM, automate follow-up, and launch conversion-focused websites that turn attention into usable pipeline.
+          </p>
+          <div className="boot-actions">
+            <a href={WA_LINK} target="_blank" rel="noopener noreferrer" data-analytics-event="whatsapp_click" className="boot-btn boot-btn-primary">
+              Book a call <ArrowRight size={15} />
+            </a>
+            <a href="/audit/system-audit.html" data-analytics-event="audit_page_click" className="boot-btn boot-btn-secondary">
+              <Search size={16} /> Run system audit
+            </a>
+            <a href="#products" className="boot-pricing-link">
+              See pricing
+            </a>
+          </div>
+        </div>
+
+        <div className="boot-board" aria-label="Live AlterLabs operating dashboard">
+          <div className="boot-board-top">
+            <span>ops.dashboard</span>
+            <b>systems operational</b>
+          </div>
+          <div className="boot-kpi-grid">
+            <BootMetric label="leads / mo" to={1240} active={dashboardLive} instant={instantMetrics} />
+            <BootMetric label="automations" to={37} active={dashboardLive} instant={instantMetrics} />
+            <BootMetric label="hrs saved / mo" to={310} suffix="h" active={dashboardLive} instant={instantMetrics} />
+          </div>
+          <div className="boot-pipeline">
+            <div className="boot-pipeline-label">lead pipeline - live</div>
+            <div className="boot-flow">
+              {["Lead", "Qualify", "Proposal", "Won"].map((label, index) => (
+                <div className="boot-flow-item" key={label}>
+                  <div className={cx("boot-node", pipelineStep >= index + 1 && "is-on", pipelineStep > index + 1 && "is-done")}>
+                    <span>{index + 1}</span>
+                    <b>{label}</b>
+                  </div>
+                  {index < 3 && <i className={cx(pipelineStep > index + 1 && "is-filled")} />}
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="boot-mini-console">
+            <span>next actions</span>
+            <p>Capture source -&gt; assign owner -&gt; notify WhatsApp -&gt; update dashboard</p>
+          </div>
+        </div>
+      </div>
+
+      <button type="button" className="boot-replay" onClick={() => startBoot(true)}>
+        Replay intro
+      </button>
+      <div className="boot-scroll-cue" aria-hidden="true">
+        <span>Scroll</span>
+        <ChevronDown size={14} />
+      </div>
+    </section>
+  );
+}
 
 function MarqueeTrustBar() {
   const badges = [
