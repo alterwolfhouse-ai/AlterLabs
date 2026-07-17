@@ -68,6 +68,7 @@ if (!fs.existsSync(path.join(root, "favicon.svg"))) errors.push("favicon.svg: mi
 if (!fs.existsSync(path.join(root, "analytics-events.js"))) errors.push("analytics-events.js: missing root event bridge");
 if (!fs.existsSync(path.join(root, "site-ui.js"))) errors.push("site-ui.js: missing root theme UI script");
 for (const file of publicHtmlFiles()) {
+  if (file === "sync\\index.html" || file === "sync/index.html" || file.startsWith(`sync${path.sep}`)) continue;
   const html = read(file);
   if (!html.includes("rel=\"icon\"") || !html.includes("/favicon.svg")) {
     errors.push(`${file}: missing favicon link`);
@@ -77,6 +78,49 @@ for (const file of publicHtmlFiles()) {
   }
   if (!html.includes("/site-ui.js")) {
     errors.push(`${file}: missing theme UI script`);
+  }
+}
+
+const syncRoot = path.join(root, "sync");
+const syncIndexPath = path.join(syncRoot, "index.html");
+if (!fs.existsSync(syncIndexPath)) {
+  errors.push("sync/index.html: missing AlterSync release");
+} else {
+  const syncIndex = read("sync/index.html");
+  for (const required of [
+    'rel="canonical" href="https://alterlabs.in/sync/"',
+    'rel="icon" href="./icon.svg"',
+    'rel="manifest" href="./site.webmanifest"',
+    'href="./assets/',
+    'src="./assets/',
+    "script-src 'self'",
+  ]) {
+    if (!syncIndex.includes(required)) errors.push(`sync/index.html: missing ${required}`);
+  }
+  for (const forbidden of ["/analytics-events.js", "/site-ui.js", "wasm-unsafe-eval"]) {
+    if (syncIndex.includes(forbidden)) errors.push(`sync/index.html: contains forbidden ${forbidden}`);
+  }
+
+  const syncAssetFiles = fs.existsSync(path.join(syncRoot, "assets"))
+    ? fs.readdirSync(path.join(syncRoot, "assets"))
+    : [];
+  if (!syncAssetFiles.some((file) => /^index-.*\.js$/.test(file))) errors.push("sync/assets: hashed JavaScript bundle missing");
+  if (!syncAssetFiles.some((file) => /^index-.*\.css$/.test(file))) errors.push("sync/assets: hashed stylesheet missing");
+  if (syncAssetFiles.some((file) => file.endsWith(".map") || file.endsWith(".wasm"))) {
+    errors.push("sync/assets: source map or WASM must not ship");
+  }
+  const syncBundle = syncAssetFiles
+    .filter((file) => file.endsWith(".js"))
+    .map((file) => fs.readFileSync(path.join(syncRoot, "assets", file), "utf8"))
+    .join("\n");
+  if (/ffmpeg|ffmpeg-core/i.test(syncBundle)) errors.push("sync/assets: FFmpeg runtime reference remains");
+  for (const required of [
+    "sync/privacy.html",
+    "sync/third-party-notices.html",
+    "sync/licenses/MPL-2.0.txt",
+    "sync/licenses/mediabunny-1.50.8-source.zip",
+  ]) {
+    if (!fs.existsSync(path.join(root, required))) errors.push(`${required}: missing release document`);
   }
 }
 
@@ -194,6 +238,7 @@ for (const file of expansionPageFiles) {
   if (!sitemap.includes(expected)) errors.push(`sitemap.xml: missing ${file}`);
 }
 if (!sitemap.includes("https://alterlabs.in/insights/")) errors.push("sitemap.xml: missing insights hub");
+if (!sitemap.includes("https://alterlabs.in/sync/")) errors.push("sitemap.xml: missing AlterSync");
 if (!sitemap.includes("<loc>https://alterlabs.in/</loc>\n    <lastmod>2026-06-24</lastmod>")) errors.push("sitemap.xml: homepage lastmod is stale");
 
 console.log(JSON.stringify({ growthPages: pageFiles.length, blogPages: blogFiles.length, legacyInsights: legacyInsightFiles.length, expansionPages: expansionPageFiles.length, errors }, null, 2));

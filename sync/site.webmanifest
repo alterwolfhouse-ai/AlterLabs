@@ -1,0 +1,17 @@
+{
+  "name": "AlterSync",
+  "short_name": "AlterSync",
+  "description": "A private, browser-local video and audio mixer by AlterLabs.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#050713",
+  "theme_color": "#050713",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
