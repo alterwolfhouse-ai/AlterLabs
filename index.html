@@ -113,13 +113,11 @@
       </div>
       <div class="cards">
         <a class="mini glass rise" style="--i:4" href="#p1">
-          <div class="no">PRODUCT 01</div>
           <h3>Custom Website</h3>
           <p>A fast, mobile-first site that turns visitors into WhatsApp enquiries.</p>
           <div class="price">₹1,599<span>/mo · or ₹13,499/yr</span></div>
         </a>
         <a class="mini glass rise" style="--i:5" href="#p2">
-          <div class="no">PRODUCT 02</div>
           <h3>Digital Marketing</h3>
           <p>Google ads, landing pages and weekly content that bring the right people in.</p>
           <div class="price">₹2,999<span>/mo · or ₹29,999/yr</span></div>
@@ -133,8 +131,7 @@
     <div class="wrap"><div class="inner">
       <div class="grid2">
         <div>
-          <span class="tag rise" style="--i:0">◆ Product 01</span>
-          <h2 class="rise" data-split style="--i:1; margin-top:16px">Custom Website Package</h2>
+          <h2 class="rise" data-split style="--i:1">Custom Website Package</h2>
           <div class="pricebig rise" style="--i:2">₹1,599 <small>/month</small></div>
           <div class="subprice rise" style="--i:2">or ₹13,499/year &nbsp;·&nbsp; setup free for the first 50 customers, then ₹1,999 one-time</div>
           <ul class="feat rise" style="--i:3">
@@ -166,8 +163,7 @@
     <div class="wrap"><div class="inner">
       <div class="grid2">
         <div>
-          <span class="tag rise" style="--i:0">◆ Product 02</span>
-          <h2 class="rise" data-split style="--i:1; margin-top:16px">Digital Marketing</h2>
+          <h2 class="rise" data-split style="--i:1">Digital Marketing</h2>
           <div class="pricebig rise" style="--i:2">₹2,999 <small>/month</small></div>
           <div class="subprice rise" style="--i:2">or ₹29,999/year</div>
           <ul class="feat rise" style="--i:3">
@@ -198,7 +194,7 @@
   <!-- P0 / BNS -->
   <section class="screen" id="p0">
     <div class="wrap"><div class="inner">
-      <span class="badge rise" style="--i:0"><i></i>PRODUCT 00 · COMING SOON</span>
+      <span class="badge rise" style="--i:0"><i></i>COMING SOON</span>
       <h2 class="rise" data-split style="--i:1; margin-top:18px">BNS — <span class="grad">Business Nervous System</span></h2>
       <p class="lede rise" style="--i:2">An intelligence layer for your business. It supports strategy, HR, creative direction and product marketing — watching your business data and returning clear reports, suggestions and alerts, so decisions don't wait on a spreadsheet.</p>
       <div class="storechip rise" style="--i:3">Delivered through the <b>AlterOS</b> app · <span class="badge" style="padding:5px 11px"><i></i>Coming soon to Google Play</span></div>
@@ -485,7 +481,12 @@
       if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
     });
   }, {rootMargin:'0px 0px -10% 0px', threshold:0});
-  screens.forEach(function(s){ io.observe(s); });
+  /* The hero is deliberately NOT observed. It is in view at load, so the observer
+     revealed it within a frame and the whole word cascade (~1.24s) finished
+     underneath the boot overlay, which does not clear until 1.4s — the animation
+     played where nobody could see it. finish() reveals the hero instead, so the
+     words start moving exactly as the overlay fades. */
+  screens.forEach(function(s){ if(s.id !== 'home') io.observe(s); });
   /* belt and braces: if the observer never fires for something, show it anyway */
   setTimeout(function(){ screens.forEach(function(s){ s.classList.add('in'); }); }, 4000);
 
@@ -523,7 +524,10 @@
     pctEl.textContent='100'; barEl.style.width='100%'; statusEl.textContent='ready';
     boot.classList.add('done');
     document.body.style.overflow='';
-    var h=document.getElementById('home'); if(h) h.classList.add('in');
+    /* short beat so the overlay is most of the way through its fade before the
+       headline starts assembling — otherwise the first words move behind it */
+    var h=document.getElementById('home');
+    if(h) setTimeout(function(){ h.classList.add('in'); }, reduce ? 0 : 260);
     onScroll();
   }
   // never trap anyone behind the intro — any input skips straight to content

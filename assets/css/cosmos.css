@@ -358,8 +358,10 @@
   .cue.hide{opacity:0; pointer-events:none}
 
   /* ---------- boot ---------- */
+  /* .45s, not .8s: the headline cascade starts just after this begins, and a
+     slow fade left the first words assembling behind a half-opaque overlay */
   #boot{position:fixed; inset:0; z-index:50; background:var(--void); display:grid; place-items:center;
-    transition:opacity .8s var(--ease), visibility .8s}
+    transition:opacity .45s var(--ease), visibility .45s}
   #boot.done{opacity:0; visibility:hidden}
   .boot__in{width:min(420px,82vw); text-align:left}
   .boot__brand{font-family:var(--disp); font-weight:700; font-size:1.6rem; letter-spacing:.04em; display:flex; align-items:center; gap:14px}
