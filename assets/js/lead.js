@@ -114,26 +114,46 @@
       status:    "new"
     };
 
-    /* pre-fill WhatsApp with the same details, whatever happens next */
-    if (waBtn) {
-      try {
-        var u = new URL(waBtn.href);
-        u.searchParams.set("text",
-          "Hi AlterLabs! " + payload.name + " from " + payload.business +
-          " — " + payload.need + ". Phone " + payload.phone + ". [via alterlabs.in]");
-        waBtn.href = u.toString();
-      } catch (e) { /* keep generic prefill */ }
+    /* The full lead as a WhatsApp message — every field, not a summary, so the
+       message alone is a complete enquiry with nothing to chase up. */
+    function waText() {
+      var L = ["Fit Call request — via alterlabs.in", "",
+               "Name: " + payload.name,
+               "Business: " + payload.business,
+               "Phone: " + payload.phone];
+      if (payload.city)    L.push("City: " + payload.city);
+      L.push("Needs: " + payload.need);
+      if (payload.message) L.push("Notes: " + payload.message);
+      if (payload.product) L.push("Came from: " + payload.product);
+      return L.join("\n");
     }
+    function waHref() {
+      return "https://wa.me/" + WA + "?text=" + encodeURIComponent(waText());
+    }
+    if (waBtn) waBtn.href = waHref();
 
     var okMsg = "Got it, " + payload.name.split(" ")[0] +
       ". We'll message you on WhatsApp within one business day to fix your Fit Call time.";
-    var queuedMsg = "Saved — it will reach us automatically. Want a reply now? " +
-      "Tap WhatsApp below, your details are already filled in.";
 
+    /* No endpoint configured, or the post failed. Queueing alone is not delivery:
+       if the visitor never returns, the retry never runs and the lead is simply
+       lost. So hand them straight to WhatsApp with the whole enquiry pre-typed —
+       that is a real delivery path that works with no server at all. The queue
+       stays as a second chance, and the visible button covers popup blockers. */
     function queueIt() {
       var q = readQueue(); q.push(payload); writeQueue(q);
-      show("info", queuedMsg);
-      form.reset();
+      var win = null;
+      try { win = window.open(waHref(), "_blank"); } catch (e) { /* blocked */ }
+      if (win) {
+        show("ok", "Thanks " + payload.name.split(" ")[0] +
+          " — WhatsApp is opening with your details filled in. Press send and we'll " +
+          "reply within one business day.");
+        form.reset();
+      } else {
+        show("info", "Almost there, " + payload.name.split(" ")[0] +
+          " — tap the WhatsApp button below to send it. Your details are already " +
+          "filled in, you just need to press send.");
+      }
     }
 
     if (CFG.FORM_ENDPOINT) {
