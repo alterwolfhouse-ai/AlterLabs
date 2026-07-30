@@ -456,7 +456,21 @@
             });
             parent.replaceChild(frag, node);
           } else if(node.nodeType === 1 && node.tagName !== 'BR'){
-            walk(node);                                   // recurse into .grad etc.
+            /* A gradient word is atomic. `background-clip:text` fills only the
+               glyphs of the element carrying it — not those of separately-boxed
+               descendants — so splitting .grad into child spans left "leak leads"
+               transparent with no gradient behind it, i.e. invisible. Wrapping
+               .grad itself keeps the gradient and the reveal transform on one
+               element, which paints correctly. */
+            if(node.classList && node.classList.contains('grad')){
+              var wrap = document.createElement('span');
+              wrap.className = 'w';
+              node.parentNode.insertBefore(wrap, node);
+              wrap.appendChild(node);
+              node.style.setProperty('--w', n++);
+            } else {
+              walk(node);
+            }
           }
         });
       })(root);
