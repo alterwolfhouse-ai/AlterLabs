@@ -1,5 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="AlterLabs">
-  <rect width="64" height="64" rx="14" fill="#f4f0e8"/>
-  <path d="M15 48 31 14h3l15 34h-8l-3.1-7.4H26.8L23.7 48h-8.7Zm14.3-13.5h6.2l-3.1-7.9-3.1 7.9Z" fill="#22201c"/>
-  <path d="M43 16h5v32h-5V16Z" fill="#c25b32"/>
+  <!-- opaque tile: a tab strip is not the site background, so this cannot be translucent -->
+  <defs>
+    <linearGradient id="b" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff7038"/><stop offset="1" stop-color="#ffc247"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="#0b1430"/>
+  <path d="M15 48 31 14h3l15 34h-8l-3.1-7.4H26.8L23.7 48h-8.7Zm14.3-13.5h6.2l-3.1-7.9-3.1 7.9Z" fill="#eef4ff"/>
+  <path d="M43 16h5v32h-5V16Z" fill="url(#b)"/>
 </svg>

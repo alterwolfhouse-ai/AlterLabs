@@ -1,11 +1,7 @@
 User-agent: *
 Allow: /
 
-# Contained: AlterSync is not part of this site. Files stay reachable so the URL
-# does not 404 and the MPL-2.0 notices remain available, but it is not indexed.
-Disallow: /sync/
-
-# Not ours / duplicates — kept on disk, kept out of the index.
+# Not ours / duplicates - kept on disk, kept out of the index.
 Disallow: /demo/
 Disallow: /_source/
 
