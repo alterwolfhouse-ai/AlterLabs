@@ -339,7 +339,12 @@
   .subprice{color:var(--sub); font-size:.95rem}
   .feat{list-style:none; margin-top:8px}
   .feat li{display:flex; gap:12px; padding:11px 0; border-bottom:1px solid rgba(255,255,255,.07); font-size:.96rem; color:var(--ink)}
-  .feat li::before{content:""; flex:0 0 7px; width:7px; height:7px; margin-top:7px; border-radius:50%; background:linear-gradient(var(--a2),var(--a1)); box-shadow:0 0 8px rgba(255,140,60,.7)}
+  .feat li::before{content:""; flex:0 0 7px; width:7px; height:7px; margin-top:9px; border-radius:50%; background:linear-gradient(var(--a2),var(--a1)); box-shadow:0 0 8px rgba(255,140,60,.7)}
+  /* bullets carry a lead-in plus explanation now, so they need to breathe */
+  .feat li span{color:var(--sub); font-size:.9rem; line-height:1.55}
+  .feat li span b{color:var(--ink); font-family:var(--disp); font-weight:600; font-size:.95rem}
+  /* short positioning paragraph above the price */
+  .prodlede{color:var(--sub); font-size:.98rem; line-height:1.62; max-width:52ch; margin:14px 0 4px}
   .panel{padding:26px}
   .panel h4{font-family:var(--mono); font-size:.74rem; letter-spacing:.14em; color:var(--sub); text-transform:uppercase; margin-bottom:14px}
   .fence{list-style:none}
@@ -425,6 +430,9 @@
     .inner,.rise{opacity:1 !important; transform:none !important; filter:none !important; transition:none !important}
     main{scroll-behavior:auto}
   }
+
+
+
 
 
 
@@ -567,6 +575,25 @@ body.doc{overflow:auto}
 .article .btn.primary{color:var(--a-ink); border:0; background:linear-gradient(118deg,var(--a1) 8%,var(--a2));
   box-shadow:0 6px 22px rgba(255,112,56,.3)}
 .article .btn.primary:hover{filter:brightness(1.06)}
+
+/* ---------- pricing card at the foot of every article ---------- */
+.pricecard{margin:44px 0 0; padding:26px; border-radius:20px;
+  border:1px solid rgba(255,194,71,.22); background:rgba(255,140,60,.05)}
+.priceheading{font-family:var(--disp); font-weight:600; font-size:1.25rem; margin:0 0 4px!important}
+.pricecols{display:grid; grid-template-columns:repeat(4,1fr); gap:20px; margin-top:18px}
+@media (max-width:900px){.pricecols{grid-template-columns:repeat(2,1fr); gap:16px}}
+@media (max-width:560px){.pricecols{grid-template-columns:1fr}}
+.pricecard h4{font-family:var(--mono); font-size:.64rem; letter-spacing:.15em; text-transform:uppercase;
+  color:var(--a2); margin:0 0 10px; padding-bottom:8px; border-bottom:1px solid rgba(255,255,255,.1)}
+.pricelist{list-style:none; margin:0; padding:0; display:grid; gap:0}
+.pricelist li{display:flex; justify-content:space-between; align-items:baseline; gap:10px;
+  padding:7px 0; margin:0; font-size:.82rem; color:var(--sub); line-height:1.35}
+.pricelist li::before{display:none}
+.pricelist b{font-family:var(--disp); font-weight:600; color:var(--ink); white-space:nowrap; font-size:.86rem}
+.pricelist b i{font-style:normal; font-weight:400; font-size:.72rem; color:var(--dim)}
+.pricenote{margin-top:10px!important; font-size:.74rem!important; line-height:1.5; color:var(--dim)}
+.pricefoot{margin:20px 0 0!important; padding-top:14px; border-top:1px solid rgba(255,255,255,.1);
+  font-family:var(--mono); font-size:.68rem!important; line-height:1.6; color:var(--dim); letter-spacing:.02em}
 
 /* pricing table */
 .pricing-table{width:100%; border-collapse:collapse; font-size:.86rem; display:block; overflow-x:auto; margin:22px 0}
